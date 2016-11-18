@@ -11,4 +11,9 @@ angular.module('spotme', ['ui.router']).config(function($stateProvider, $urlRout
     templateUrl: '../views/yesOrNo.html',
     controller: 'yesOrNoCtrl'
   })
+  .state('noForm', {
+    url: '/noForm',
+    templateUrl: '../views/noForm.html',
+    controller: 'noFormCtrl'
+  })
 })

@@ -24,7 +24,7 @@ app.post('/api/sendmessage', function(req, res){
 
       to:req.body.to, // Any number Twilio can deliver to
       from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
-      body: req.body.message// body of the SMS message
+      body: 'Thank you for choosing Spencer\'s Sprinklers! We appreciate your feedback, please click the link below ' + req.body.message// body of the SMS message
 
   }, function(err, responseData) { //this function is executed when a response is received from Twilio
     if(err){
@@ -45,7 +45,7 @@ app.post('/api/sendmessage', function(req, res){
 
 
 
-var port = 3000
-app.listen(3000, function(){
+var port = 80
+app.listen(80, function(){
   console.log('listening on port ' + port);
 })
