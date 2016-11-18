@@ -1,12 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var massive = require('massive');
-var connectionString = "postgres://postgres:pass1234@localhost/spotme";
+// var massive = require('massive');
+// var connectionString = "postgres://postgres:pass1234@localhost/spotme";
 // var connectionString = config.connectionString;
-var db = massive.connectSync({ db : "spotme"});
+// var db = massive.connectSync({ db : "spotme"});
 var app = module.exports = express();
 
-app.set('db', db);
+// app.set('db', db);
 
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
