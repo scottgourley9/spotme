@@ -45,7 +45,7 @@ app.post('/api/sendmessage', function(req, res){
 
 
 
-var port = 80
-app.listen(80, function(){
+var port = 3000
+app.listen(3000, function(){
   console.log('listening on port ' + port);
 })
