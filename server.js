@@ -1,4 +1,6 @@
 var express = require('express');
+var jwt = require('jwt-simple')
+var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
 var connectionString = "postgres://postgres:pass1234@localhost/spotme";
@@ -11,7 +13,14 @@ app.set('db', db);
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 
-
+var createJWT = (user) => {
+  var payload = {
+    sub: user,
+    iat: moment().unix(),
+    exp: moment().add(14, 'days').unix()
+  }
+  return jwt.encode(payload, 'mytestsecret')
+}
 
 //require the Twilio module and create a REST client
 var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae136e8ff0b78261cf59964ee');
@@ -41,29 +50,99 @@ app.post('/api/sendmessage', function(req, res){
   });
 })
 //USER ENDPOINTS
-app.post('/api/users', function(req, res){
-  db.create_new_user([req.body.first, req.body.last, req.body.email, req.body.password], function(err, success){
-    res.status(200).json('new user added')
-  })
-})
-
-app.post('/api/login', function(req, res){
-  db.get_user([req.body.email], function(err, user){
+app.post('/auth/signup', function(req, res){
+  db.create_new_user([req.body.first, req.body.last, req.body.email, req.body.password], function(err, user){
     if(err){
       res.status(500).json(err)
     }
     else {
-
-      if(user[0].password === req.body.password){
-        res.status(200).json({found: true})
-      }
-      else {
-        res.status(500).json({found: false})
-      }
+      res.status(200).send({
+        token: createJWT(user)
+      })
     }
-
   })
 })
+
+app.post('/auth/login', function(req, res){
+  db.get_user([req.body.email], function(err, user){
+      if (err) return res.status(500)
+      if (!user[0]) {
+        return res.status(401).send({
+          message: 'Invalid email and/or password'
+        })
+      }
+
+      if(req.body.password === user[0].password) {
+        res.send({
+          token: createJWT(user[0])
+        })
+      }
+      else {
+        return res.status(401).send({
+          message: 'Invalid email and/or password'
+        })
+      }
+
+
+      })
+    })
+
+
+
+
+
+
+function ensureAuthenticated (req, res, next) {
+  if (!req.header('Authorization')) {
+    return res.status(401).send({
+      message: 'Please make sure your request has an Authorization header'
+    })
+  }
+  var token = req.header('Authorization').split(' ')[1]
+
+  var payload = null
+  try {
+    payload = jwt.decode(token, constants.TOKEN_SECRET)
+  } catch (err) {
+    return res.status(401).send({
+      message: err.message
+    })
+  }
+
+  if (payload.exp <= moment().unix()) {
+    return res.status(401).send({
+      message: 'Token has expired'
+    })
+  }
+  req.user = payload.sub
+  next()
+}
+
+function adminEnsureAuthenticated (req, res, next) {
+  if (!req.header('Authorization')) {
+    return res.status(401).send({
+      message: 'Please make sure your request has an Authorization header'
+    })
+  }
+  var token = req.header('Authorization').split(' ')[1]
+
+  var payload = null
+  try {
+    payload = jwt.decode(token, constants.ADMIN_TOKEN_SECRET)
+  } catch (err) {
+    return res.status(401).send({
+      message: err.message
+    })
+  }
+
+  if (payload.exp <= moment().unix()) {
+    return res.status(401).send({
+      message: 'Token has expired'
+    })
+  }
+  req.user = payload.sub
+  next()
+}
 
 
 

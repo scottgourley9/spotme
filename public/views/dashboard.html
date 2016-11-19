@@ -1,4 +1,4 @@
-<div class="dashboardTitle">Right Review</div>
+<div class="dashboardTitle">Right Review for {{test.firstname}}</div>
 <section class="mainSection">
   <ul class="dashboardMenu">
     <li ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>Dashboard</li>
@@ -8,7 +8,7 @@
     <li ui-sref="dashboard.customers"><div class="icon-users"></div>Customers</li>
     <li ui-sref="dashboard.reviews"><div class="icon-star-o"></div>Reviews</li>
     <li ui-sref="dashboard.settings"><div class="icon-tools"></div>Settings</li>
-    <li ui-sref="welcome"><div class="icon-logout"></div>Logout</li>
+    <li ng-click='logout()'><div class="icon-logout"></div>Logout</li>
   </ul>
   <ui-view></ui-view>
 </section>

@@ -1,4 +1,4 @@
-angular.module('spotme', ['ui.router']).config(function($stateProvider, $urlRouterProvider){
+angular.module('spotme', ['ui.router', 'satellizer']).config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/')
   $stateProvider
   .state('welcome', {
