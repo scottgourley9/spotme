@@ -1,0 +1,33 @@
+.dashboardMenu {
+  height: 90vh;
+  width: 17vw;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2vw;
+  font-size: 2vw;
+}
+.dashboardMenu li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5vw;
+  border-bottom: .1vw solid black;
+}
+.dashboardMenu li:hover {
+  background-color: darkblue;
+  border-bottom: .1vw solid darkblue;
+  color: white;
+  cursor: pointer;
+}
+
+.dashboardTitle {
+  width: 100%;
+  padding-left: 21vw;
+  font-size: 2.5vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+.mainSection {
+  display: flex;
+}

@@ -6,10 +6,15 @@ angular.module('spotme', ['ui.router']).config(function($stateProvider, $urlRout
     templateUrl: '../views/welcome.html',
     controller: 'welcomeCtrl'
   })
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: '../views/dashboard.html',
-    controller: 'dashboardCtrl'
+  .state('signup', {
+    url: '/signup',
+    templateUrl: '../views/signup.html',
+    controller: 'signupCtrl'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: '../views/login.html',
+    controller: 'loginCtrl'
   })
   .state('yesOrNo', {
     url: '/yesOrNo',
@@ -20,5 +25,45 @@ angular.module('spotme', ['ui.router']).config(function($stateProvider, $urlRout
     url: '/noForm',
     templateUrl: '../views/noForm.html',
     controller: 'noFormCtrl'
+  })
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: '../views/dashboard.html',
+    controller: 'dashboardCtrl'
+  })
+  .state('dashboard.theDashboard', {
+    url: '/theDashboard',
+    templateUrl: '../views/theDashboard.html',
+    controller: 'theDashboardCtrl'
+  })
+  .state('dashboard.campaigns', {
+    url: '/campaigns',
+    templateUrl: '../views/campaigns.html',
+    controller: 'campaignsCtrl'
+  })
+  .state('dashboard.customers', {
+    url: '/customers',
+    templateUrl: '../views/customers.html',
+    controller: 'customersCtrl'
+  })
+  .state('dashboard.locations', {
+    url: '/locations',
+    templateUrl: '../views/locations.html',
+    controller: 'locationsCtrl'
+  })
+  .state('dashboard.reviews', {
+    url: '/reviews',
+    templateUrl: '../views/reviews.html',
+    controller: 'reviewsCtrl'
+  })
+  .state('dashboard.settings', {
+    url: '/settings',
+    templateUrl: '../views/settings.html',
+    controller: 'settingsCtrl'
+  })
+  .state('dashboard.userInfo', {
+    url: '/userInfo',
+    templateUrl: '../views/userInfo.html',
+    controller: 'userInfoCtrl'
   })
 })

@@ -1,0 +1,45 @@
+nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  align-items: center;
+  z-index: 1;
+  font-family: sans-serif;
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 90%;
+}
+nav li {
+  margin-left: 10%;
+}
+.welcomeSection {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-image: url('http://www.todayifoundout.com/wp-content/uploads/2010/05/blue-sky.jpg');
+  background-size: contain;*/
+}
+.title {
+  z-index: 1;
+  text-align: center;
+  margin-top: 20vh;
+  font-family: sans-serif;
+}
+.welcomeSection h1 {
+  font-size: 40px;
+
+}
+.welcomeSection h4 {
+  font-size: 30px;
+}
+.welcomeSection img {
+ position: absolute;
+ width: 60%;
+}
