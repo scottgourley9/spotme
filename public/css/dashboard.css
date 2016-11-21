@@ -5,29 +5,70 @@
   flex-direction: column;
   padding-left: 2vw;
   font-size: 2vw;
+  background-color: darkblue;
+  padding-right: 2vw;
+  position: fixed;
+  z-index: 2;
+  margin-top: 10vh;
 }
 .dashboardMenu li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5vw;
-  border-bottom: .1vw solid black;
+  margin-top: 4.5vh;
+  color: white;
 }
 .dashboardMenu li:hover {
-  background-color: darkblue;
-  border-bottom: .1vw solid darkblue;
-  color: white;
   cursor: pointer;
+}
+.dashboardMenu div {
+  color: grey;
 }
 
 .dashboardTitle {
   width: 100%;
-  padding-left: 21vw;
+  padding-left: 2vw;
   font-size: 2.5vw;
   height: 10vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  background-color: darkblue;
+  padding-right: 2vw;
+  color: white;
+  position: fixed;
+  z-index: 2;
 }
 .mainSection {
   display: flex;
+}
+.subSection {
+  width: 83vw;
+  margin-left: 17vw;
+  margin-top: 10vh;
+}
+.dashTitle {
+  font-size: 2vw;
+  text-align: center;
+}
+.graphSection {
+  display: flex;
+  justify-content: space-around;
+}
+.links {
+  width: 81vw;
+  height: 20vh;
+  border: 2px solid black;
+  margin-left: 1vw;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1vw;
+}
+.dashReviews {
+  height:126vh;
+  width:40vw;
+  border: 2px solid black;
 }

@@ -6,13 +6,10 @@ angular.module('spotme').controller('dashboardCtrl', function($auth, $scope, $st
     }
     payload()
 
-$scope.test = userService.user
+$scope.currentUser = userService.user
 
 
-  $scope.sendMessage = function(message){
-
-    messageService.sendMessage(message)
-  }
+  
   $scope.logout = function(){
     $auth.logout()
     $state.go('welcome')

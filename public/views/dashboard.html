@@ -1,23 +1,17 @@
-<div class="dashboardTitle">Right Review for {{test.firstname}}</div>
+<div class="dashboardTitle"><h1>Right Review</h1><h1>{{currentUser.firstname}} {{currentUser.lastname}}</h1></div>
 <section class="mainSection">
   <ul class="dashboardMenu">
-    <li ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>Dashboard</li>
-    <li ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>User Info</li>
-    <li ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>Campaigns</li>
-    <li ui-sref="dashboard.locations"><div class="icon-map-marker"></div>Locations</li>
-    <li ui-sref="dashboard.customers"><div class="icon-users"></div>Customers</li>
-    <li ui-sref="dashboard.reviews"><div class="icon-star-o"></div>Reviews</li>
-    <li ui-sref="dashboard.settings"><div class="icon-tools"></div>Settings</li>
-    <li ng-click='logout()'><div class="icon-logout"></div>Logout</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>Dashboard</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.sendLink"><div class="icon-paper-plane-o"></div>Send Link</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.customers"><div class="icon-users"></div>Customers</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>User Info</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.reviews"><div class="icon-star-o"></div>Reviews</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.locations"><div class="icon-map-marker"></div>Locations</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>Campaigns</li>
+    <li class="hvr-underline-from-center hvr-grow"ui-sref="dashboard.settings"><div class="icon-tools"></div>Settings</li>
+    <li class="hvr-underline-from-center hvr-grow"ng-click='logout()'><div class="icon-logout"></div>Logout</li>
   </ul>
-  <ui-view></ui-view>
+  <ui-view class="subSection"></ui-view>
 </section>
 
 <!-- Welcome to dashboard
-<input type="text" ng-model="send.to"name="name" placeholder="Phone Number...">
-<select ng-model="send.message">
-  <option value="http://159.203.246.179/#/yesOrNo">Link</option> -->
-  <!-- <option value="https://www.google.com/search?q=spencer+sprinklers&rlz=1C5CHFA_enUS691US691&oq=spencer+sprinklers&aqs=chrome..69i57.4617j0j1&sourceid=chrome&ie=UTF-8#lrd=0x8752f70050b56229:0x951b6313f154c0bd,3">Google Review</option>
-  <option value="http://local.ksl.com/sprinkler-install-repair/spencer-s-sprinkler-repair-and-installation/125125">KSL Review</option> -->
-<!-- </select>
-<button type="button" name="button" ng-click="sendMessage(send)">Send Review Link</button> -->

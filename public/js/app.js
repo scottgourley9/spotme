@@ -1,4 +1,4 @@
-angular.module('spotme', ['ui.router', 'satellizer']).config(function($stateProvider, $urlRouterProvider){
+angular.module('spotme', ['ui.router', 'satellizer', 'googlechart']).config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/')
   $stateProvider
   .state('welcome', {
@@ -17,7 +17,7 @@ angular.module('spotme', ['ui.router', 'satellizer']).config(function($stateProv
     controller: 'loginCtrl'
   })
   .state('yesOrNo', {
-    url: '/yesOrNo',
+    url: '/yesOrNo/:id/:locationId',
     templateUrl: '../views/yesOrNo.html',
     controller: 'yesOrNoCtrl'
   })
@@ -35,6 +35,11 @@ angular.module('spotme', ['ui.router', 'satellizer']).config(function($stateProv
     url: '/theDashboard',
     templateUrl: '../views/theDashboard.html',
     controller: 'theDashboardCtrl'
+  })
+  .state('dashboard.sendLink', {
+    url: '/sendlink',
+    templateUrl: '../views/sendLink.html',
+    controller: 'sendLinkCtrl'
   })
   .state('dashboard.campaigns', {
     url: '/campaigns',

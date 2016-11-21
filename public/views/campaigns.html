@@ -1,1 +1,28 @@
 campaigns
+<h1 style="display: flex;">Add Campaign &nbsp;<div class="icon-plus-circle" ng-click='showAddSection()'></div></h1>
+<div ng-if="addCampaignSection">
+  <input type="text" name="name" ng-model="campaign.name"placeholder="Campaign Name">
+  <input type="text" name="name" ng-model="campaign.image"placeholder="Image URL">
+  <input type="text" name="name" ng-model="campaign.message"placeholder="Message">
+  <!-- <input type="text" name="name" ng-model="campaign.status"placeholder="Status"> -->
+
+  <button type="button" name="button" ng-click="submit(campaign)">Submit</button>
+  <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+
+</div>
+
+
+<ul class="customerList" ng-repeat="campaign in campaigns track by $index">
+  <li ng-click="showUpdate(campaign, $index)">{{campaign}} </li>
+  <div ng-if="$index === selected">
+    <input type="text" name="name" ng-model="name">
+    <input type="text" name="name" ng-model="image">
+    <input type="text" name="name" ng-model="message">
+    <!-- <input type="text" name="name" ng-model="status"> -->
+    <button type="button" name="button" ng-click="updateCampaign({id: campaign.id, name: name, image: image, message: message, status: status})">Update</button>
+    <button type="button" name="button" ng-click="deleteCampaign(campaign)">Delete</button>
+
+  </div>
+
+
+</ul>

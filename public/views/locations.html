@@ -1,1 +1,23 @@
 locations
+<h1 style="display: flex;">Add Location &nbsp;<div class="icon-plus-circle" ng-click='showAddSection()'></div></h1>
+<div ng-if="addLocationSection">
+  <input type="text" name="name" ng-model="location.address"placeholder="Address">
+  <input type="text" name="name" ng-model="location.phone"placeholder="Phone Number">
+  <input type="text" name="name" ng-model="location.link"placeholder="Review Link">
+  <button type="button" name="button" ng-click="submit(location)">Submit</button>
+  <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+
+</div>
+
+
+<ul class="customerList" ng-repeat="location in locations track by $index">
+  <li ng-click="showUpdate(location, $index)">{{location}}</li>
+  <div ng-if="$index === selected">
+    <input type="text" name="name" ng-model="address">
+    <input type="text" name="name" ng-model="phone">
+    <input type="text" name="name" ng-model="link">
+    <button type="button" name="button" ng-click="updateLocation({id: location.id, address: address, phone: phone, link: link})">Update</button>
+  </div>
+
+  <button type="button" name="button" ng-click="deleteLocation(location)">Delete</button>
+</ul>
