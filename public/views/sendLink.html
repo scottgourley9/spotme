@@ -3,8 +3,8 @@
 <input type="text" name="name" ng-model="email"placeholder="Email">
 
 <input type="text" ng-model="phone"name="name" placeholder="Phone Number...">
-<select ng-model="locationId" >
-  <option ng-repeat="location in locations"value="location.id">{{location.address}}</option>
+<select ng-model="locationId">
+  <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
   </select>
 
 

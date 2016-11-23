@@ -19,6 +19,7 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
     })
 
   $scope.sendMessage = function(message){
+    console.log($scope.locationId);
     message.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.locationId
     messageService.sendMessage(message)
   }
