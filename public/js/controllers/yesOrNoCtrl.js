@@ -3,7 +3,7 @@ angular.module('spotme').controller('yesOrNoCtrl', function($scope, $state, mess
   locationsService.getLocations($state.params.id).then(function(res){
     for(var i = 0; i < res.data.length; i++){
       if(res.data[i].id == $state.params.locationId){
-        $scope.reviewLink = res.data.link
+        $scope.reviewLink = res.data[i].link
       }
     }
   })
