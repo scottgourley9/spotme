@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(white, #FFAE07);
+  background: linear-gradient(white, #0765FF);
   height: 100vh;
   background-attachment: fixed;
 }
@@ -7,10 +7,11 @@ input {
   font-size: 1.5vw;
   text-align: center;
   width: 26vw;
-  box-shadow: 1vw 1vw 1.5vw #000;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
   border: none;
 }
 button {
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
   font-size: 1.5vw;
   background-color: #0765FF;
   color: white;
@@ -77,16 +78,20 @@ button:hover {
   font-size: 2.5vw;
   text-align: center;
   margin-bottom: 1vw;
+  font-weight: bolder;
 }
 .graphSection {
   display: flex;
   justify-content: space-around;
+  margin-bottom: .5vw;
 }
 .links {
-  width: 81vw;
+  width: 80.5vw;
   height: 20vh;
-  border: 2px solid black;
-  margin-left: 1vw;
+  /*border: 2px solid black;*/
+  margin-top: 1vw;
+  margin-left: .25vw;
+  background-color: white;
 }
 
 .bottomSection {
@@ -97,5 +102,6 @@ button:hover {
 .dashReviews {
   height:126vh;
   width:40vw;
-  border: 2px solid black;
+  background-color: white;
+  /*border: 2px solid black;*/
 }

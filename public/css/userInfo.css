@@ -1,0 +1,22 @@
+.userInfoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 70vh;
+}
+.lines {
+  display: flex;
+}
+.lines div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30vw;
+  /*border: 2px solid black;*/
+  font-size: 2vw;
+  height: 10vw;
+  justify-content: center;
+  box-shadow: 1vw 1vw 1.5vw #000;
+  /*background-color: white;*/
+}
