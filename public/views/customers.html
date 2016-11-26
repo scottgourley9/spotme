@@ -1,10 +1,10 @@
 <h1 class="dashTitle">Customers</h1>
 <div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
 <div class="addCampaignInputs"ng-if="addCustomerSection">
-  <input type="text" name="name" ng-model="user.first"placeholder="First Name">
-  <input type="text" name="name" ng-model="user.last"placeholder="Last Name">
-  <input type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
-  <input type="text" name="name" ng-model="user.email"placeholder="Email">
+  <input style="width: 19vw"type="text" name="name" ng-model="user.first"placeholder="First Name">
+  <input style="width: 19vw"type="text" name="name" ng-model="user.last"placeholder="Last Name">
+  <input style="width: 19vw"type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
+  <input style="width: 19vw"type="text" name="name" ng-model="user.email"placeholder="Email">
   <br>
   <button type="button" name="button" ng-click="submit(user)">Submit</button>
   <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
@@ -18,10 +18,10 @@
   </li>
   <div ng-if="$index === selected">
     <div ng-hide="updateInputs">
-    <input type="text" name="name" ng-model="first">
-    <input type="text" name="name" ng-model="last">
-    <input type="text" name="name" ng-model="phone">
-    <input type="text" name="name" ng-model="email">
+    <input style="width: 19vw"type="text" name="name" ng-model="first">
+    <input style="width: 19vw"type="text" name="name" ng-model="last">
+    <input style="width: 19vw"type="text" name="name" ng-model="phone">
+    <input style="width: 19vw"type="text" name="name" ng-model="email">
   </div>
   <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
   <button ng-hide="updateInputs"type="button" name="button" ng-click="updateCustomer({id: customer.id, first: first, last: last, phone: phone, email: email})">Update</button>
