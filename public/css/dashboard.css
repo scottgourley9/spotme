@@ -1,3 +1,28 @@
+body {
+  background: linear-gradient(white, #FFAE07);
+  height: 100vh;
+  background-attachment: fixed;
+}
+input {
+  font-size: 1.5vw;
+  text-align: center;
+  width: 26vw;
+  box-shadow: 1vw 1vw 1.5vw #000;
+  border: none;
+}
+button {
+  font-size: 1.5vw;
+  background-color: #0765FF;
+  color: white;
+  border: none;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  padding: 1vw 2vw 1vw 2vw;
+  border-radius: 10px;
+}
+button:hover {
+  cursor: pointer;
+}
 .dashboardMenu {
   height: 90vh;
   width: 17vw;
@@ -5,7 +30,7 @@
   flex-direction: column;
   padding-left: 2vw;
   font-size: 2vw;
-  background-color: darkblue;
+  background-color: #021940;
   padding-right: 2vw;
   position: fixed;
   z-index: 2;
@@ -20,9 +45,10 @@
 }
 .dashboardMenu li:hover {
   cursor: pointer;
+  /*color: yellow;*/
 }
 .dashboardMenu div {
-  color: grey;
+  color: white;
 }
 
 .dashboardTitle {
@@ -33,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: darkblue;
+  background-color: #03327F;
   padding-right: 2vw;
   color: white;
   position: fixed;
@@ -48,8 +74,9 @@
   margin-top: 10vh;
 }
 .dashTitle {
-  font-size: 2vw;
+  font-size: 2.5vw;
   text-align: center;
+  margin-bottom: 1vw;
 }
 .graphSection {
   display: flex;

@@ -1,6 +1,20 @@
 angular.module('spotme').controller('customersCtrl', function($scope, $state, messageService, userService){
 
   $scope.addCustomerSection = false
+  $scope.updateInputs = true
+  $scope.fakeButton = false
+
+  $scope.cancel = function(){
+    $scope.selected = -1
+    $scope.flag = false
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+  }
+
+  $scope.fakeUpdate = function(){
+    $scope.updateInputs = false
+    $scope.fakeButton = true
+  }
 
   $scope.showAddSection = function(){
     $scope.addCustomerSection = true
@@ -9,6 +23,10 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
     $scope.addCustomerSection = false
   }
   $scope.submit = function(user){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1;
+    $scope.flag = false;
     $scope.addCustomerSection = false
     user.userid = userService.user.id
     userService.addCustomer(user).then(function(response){
@@ -28,6 +46,10 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   getCustomers()
 
   $scope.deleteCustomer = function(customer){
+    $scope.selected = -1;
+    $scope.flag = false;
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     userService.deleteCustomer(customer.id).then(function(res){
       if(res.status === 200){
         getCustomers()
@@ -36,6 +58,8 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   }
   $scope.flag = false
   $scope.showUpdate = function(customer, i){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     if(!$scope.flag){
       $scope.selected = i;
       $scope.first = customer.firstname;
@@ -54,6 +78,8 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   $scope.selected = -1
 
   $scope.updateCustomer = function(customer){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     $scope.selected = -1
     $scope.flag = false
     userService.updateCustomer(customer).then(function(res){

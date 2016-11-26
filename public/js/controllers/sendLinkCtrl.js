@@ -1,4 +1,4 @@
-angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope, $state, messageService, userService, locationsService){
+angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope, $state, messageService, userService, locationsService, campaignsService){
 
 
     if(userService.customer){
@@ -15,13 +15,16 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
 
     locationsService.getLocations(userService.user.id).then(function(res){
       $scope.locations = res.data
-      console.log($scope.locations);
     })
 
   $scope.sendMessage = function(message){
-    console.log($scope.locationId);
-    message.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.locationId
-    messageService.sendMessage(message)
+    campaignsService.getActiveCampaign().then(function(res){
+      message.message = res.data[0].message
+      message.image = res.data[0].image
+      message.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.locationId
+      messageService.sendMessage(message)
+    })
+
   }
 
   $scope.submit = function(user){

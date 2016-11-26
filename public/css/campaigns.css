@@ -1,0 +1,64 @@
+
+
+.campaignTitle {
+  font-size: 2vw;
+  display: flex;
+  background-color: #03327F;
+  color: white;
+  height: 4vw;
+  align-items: center;
+  width: 81vw;
+  box-shadow: 1vw 1vw 1.5vw #000;
+
+}
+.icon-plus-circle {
+  color: #03327F;
+  font-size: 2vw;
+  position: absolute;
+  margin-top: -3vw;
+  margin-left: 79vw;
+}
+.icon-plus-circle:hover {
+  cursor: pointer;
+}
+.campaignTitle > * {
+  width: 28vw;
+  text-align: center;
+
+  /*padding-left: 1vw;*/
+
+}
+.addCampaignInputs {
+  text-align: center;
+}
+.campaignItem {
+  box-shadow: 1vw 1vw 1.5vw #000;
+  width: 81vw;
+  height: 10vw;
+  /*border: 2px solid black;*/
+  margin-top: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+.campaignItem:hover {
+  cursor: pointer;
+}
+.campaignItem > * {
+  width: 28vw;
+  margin: 1vw;
+  text-align: center;
+}
+.campaignList > * {
+  text-align: center;
+}
+.campaignItem h2 {
+  font-size: 2vw;
+}
+.campaignItem p {
+  font-size: 1.5vw;
+}
+.campaignItem img {
+  width: 8vw;
+}

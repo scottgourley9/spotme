@@ -27,4 +27,18 @@ angular.module('spotme').service('campaignsService', function($http){
     })
   }
 
+  this.updateCampaignStatus = function(campaignId){
+    return $http({
+      method: 'PUT',
+      url: '/api/updatecampaignstatus/' + campaignId,
+    })
+  }
+
+  this.getActiveCampaign = function(){
+    return $http({
+      method: 'GET',
+      url: '/api/getactivecampaign'
+    })
+  }
+
 })
