@@ -1,6 +1,20 @@
 angular.module('spotme').controller('locationsCtrl', function($scope, $state, messageService, userService, locationsService){
 
   $scope.addLocationSection = false
+  $scope.updateInputs = true
+  $scope.fakeButton = false
+
+  $scope.fakeUpdate = function(){
+    $scope.updateInputs = false
+    $scope.fakeButton = true
+  }
+
+  $scope.cancel = function(){
+    $scope.selected = -1;
+    $scope.flag = false;
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+  }
 
   $scope.showAddSection = function(){
     $scope.addLocationSection = true
@@ -9,6 +23,10 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
     $scope.addLocationSection = false
   }
   $scope.submit = function(location){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1;
+    $scope.flag = false;
     $scope.addLocationSection = false
     location.userid = userService.user.id
     locationsService.addLocation(location).then(function(response){
@@ -28,6 +46,10 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
   getLocations()
 
   $scope.deleteLocation = function(customer){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1;
+    $scope.flag = false;
     locationsService.deleteLocation(customer.id).then(function(res){
       if(res.status === 200){
         getLocations()
@@ -36,6 +58,8 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
   }
   $scope.flag = false
   $scope.showUpdate = function(location, i){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     if(!$scope.flag){
       $scope.selected = i;
       $scope.address = location.address;
@@ -53,6 +77,8 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
   $scope.selected = -1
 
   $scope.updateLocation = function(location){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     $scope.selected = -1
     $scope.flag = false
     locationsService.updateLocation(location).then(function(res){

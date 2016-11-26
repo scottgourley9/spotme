@@ -1,6 +1,19 @@
 angular.module('spotme').controller('campaignsCtrl', function($scope, $state, messageService, userService, locationsService, campaignsService){
 
   $scope.addCampaignSection = false
+  $scope.updateInputs = true
+  $scope.fakeButton = false
+  $scope.cancel = function(){
+    $scope.selected = -1
+    $scope.flag = false
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+  }
+
+  $scope.fakeUpdate = function(){
+    $scope.updateInputs = false
+    $scope.fakeButton = true
+  }
 
   $scope.showAddSection = function(){
     $scope.addCampaignSection = true
@@ -9,6 +22,10 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
     $scope.addCampaignSection = false
   }
   $scope.submit = function(campaign){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1;
+    $scope.flag = false;
     $scope.addCampaignSection = false
     campaign.userid = userService.user.id
     campaignsService.addCampaign(campaign).then(function(response){
@@ -21,13 +38,21 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
   }
   var getCampaigns = function(){
     campaignsService.getCampaigns(userService.user.id).then(function(res){
-        $scope.campaigns = res.data.reverse()
+         var campaigns = res.data.reverse()
+         $scope.campaigns = campaigns.sort(function(a, b){
+           return a.status > b.status;
+         })
+
 
     })
   }
   getCampaigns()
 
   $scope.deleteCampaign = function(campaign){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1;
+    $scope.flag = false;
     campaignsService.deleteCampaign(campaign.id).then(function(res){
       if(res.status === 200){
         getCampaigns()
@@ -36,6 +61,8 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
   }
   $scope.flag = false
   $scope.showUpdate = function(campaign, i){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     if(!$scope.flag){
       $scope.selected = i;
       $scope.name = campaign.name;
@@ -54,6 +81,8 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
   $scope.selected = -1
 
   $scope.updateCampaign = function(campaign){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
     $scope.selected = -1
     $scope.flag = false
     campaignsService.updateCampaign(campaign).then(function(res){
@@ -62,4 +91,24 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
       }
     })
   }
+
+  $scope.updateCampaignStatus = function(campaign){
+    $scope.updateInputs = true
+    $scope.fakeButton = false
+    $scope.selected = -1
+    $scope.flag = false
+      campaignsService.updateCampaignStatus(campaign.id).then(function(res){
+        if(res.status === 200){
+          getCampaigns()
+        }
+      })
+
+  }
+
+
+
+
+
+
+
 })

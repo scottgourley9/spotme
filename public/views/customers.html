@@ -1,25 +1,61 @@
-<h1 style="display: flex;">Add Customer &nbsp;<div class="icon-plus-circle" ng-click='showAddSection()'></div></h1>
-<div ng-if="addCustomerSection">
+<h1 class="dashTitle">Customers</h1>
+<div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
+<div class="addCampaignInputs"ng-if="addCustomerSection">
   <input type="text" name="name" ng-model="user.first"placeholder="First Name">
   <input type="text" name="name" ng-model="user.last"placeholder="Last Name">
   <input type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
   <input type="text" name="name" ng-model="user.email"placeholder="Email">
+  <br>
   <button type="button" name="button" ng-click="submit(user)">Submit</button>
   <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
 
 </div>
+<div class="campaignTitle"><div>Name</div><div>Phone Number</div><div>Email</div></div>
 
-
-<ul class="customerList" ng-repeat="customer in customers track by $index">
-  <li ng-click="showUpdate(customer, $index)">{{customer}}</li>
+<ul class="campaignList" ng-repeat="customer in customers track by $index">
+  <li class="campaignItem hvr-sweep-to-right"ng-click="showUpdate(customer, $index)">
+    <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.phonenumber}}</h2><h2>{{customer.email}}</h2>
+  </li>
   <div ng-if="$index === selected">
+    <div ng-hide="updateInputs">
     <input type="text" name="name" ng-model="first">
     <input type="text" name="name" ng-model="last">
     <input type="text" name="name" ng-model="phone">
     <input type="text" name="name" ng-model="email">
-    <button type="button" name="button" ng-click="deleteCustomer(customer)">Delete</button>
-    <button type="button" name="button" ng-click="updateCustomer({id: customer.id, first: first, last: last, phone: phone, email: email})">Update</button>
-    <button type="button" name="button" ng-click="sendLink({first: first, last: last, phone: phone, email: email})">Send Link</button>
   </div>
+  <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
+  <button ng-hide="updateInputs"type="button" name="button" ng-click="updateCustomer({id: customer.id, first: first, last: last, phone: phone, email: email})">Update</button>
+    <button type="button" name="button" ng-click="deleteCustomer(customer)">Delete</button>
+    <button type="button" name="button" ng-click="sendLink({first: first, last: last, phone: phone, email: email})">Send Link</button>
+    <button type="button" name="button" ng-click="cancel()">Cancel</button>
+  </div>
+
+</ul>
+
+
+
+
+
+
+<ul class="campaignList"ng-repeat="campaign in campaigns track by $index">
+  <li class="campaignItem hvr-sweep-to-right"ng-click="showUpdate(campaign, $index)">
+    <h2>{{campaign.name}}</h2> <div><img src="{{campaign.image}}"/></div>  <p>{{campaign.message}}</p>
+
+  </li>
+  <div ng-if="$index === selected">
+    <div ng-hide="updateInputs">
+      <input type="text" name="name" ng-model="name">
+      <input type="text" name="name" ng-model="image">
+      <input type="text" name="name" ng-model="message">
+    </div>
+              <!-- <input type="text" name="name" ng-model="status"> -->
+              <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
+    <button ng-hide="updateInputs"type="button" name="button" ng-click="updateCampaign({id: campaign.id, name: name, image: image, message: message, status: status})">Update</button>
+    <button type="button" name="button" ng-click="deleteCampaign(campaign)">Delete</button>
+    <button type="button" name="button" ng-click='updateCampaignStatus(campaign)'>Select</button>
+    <button type="button" name="button" ng-click="cancel()">Cancel</button>
+  </div>
+
+
 
 </ul>

@@ -1,0 +1,9 @@
+.sendLinkSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sendLinkSection input {
+  margin-bottom: 2vw;
+}

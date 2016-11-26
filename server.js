@@ -29,23 +29,18 @@ var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae1
 
 //Send an SMS text message
 app.post('/api/sendmessage', function(req, res){
-  client.sendMessage({
 
+  client.sendMessage({
       to:req.body.phone, // Any number Twilio can deliver to
       from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
-      body: req.body.message + " " + req.body.link// body of the SMS message
-      // mediaUrl: req.body.image
+      body: req.body.message + " " + req.body.link,// body of the SMS message
+      mediaUrl: req.body.image
   }, function(err, responseData) { //this function is executed when a response is received from Twilio
     if(err){
       console.log(err);
       res.status(500).json(err)
     }
-      if (!err) { // "err" is an error received during the request, if any
-
-          // "responseData" is a JavaScript object containing data received from Twilio.
-          // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-          // http://www.twilio.com/docs/api/rest/sending-sms#example-1
-           // outputs "word to your mother."
+      if (!err) { 
           res.status(200).json({sent: true})
       }
   });
@@ -226,6 +221,30 @@ app.put('/api/campaigns/:campaignId', function(req, res){
     }
     else {
       res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/updatecampaignstatus/:campaignId', function(req, res){
+  db.remove_campaign_status([], function(err, success){
+    db.update_campaign_status([req.params.campaignId], function(err, yeah){
+      if(err){
+        res.status(500).json(err)
+      }
+      else {
+        res.status(200).json('success')
+      }
+    })
+  })
+})
+
+app.get('/api/getactivecampaign', function(req, res){
+  db.get_active_campaign([], function(err, campaigns){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(campaigns)
     }
   })
 })

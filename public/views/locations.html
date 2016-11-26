@@ -1,23 +1,31 @@
-locations
-<h1 style="display: flex;">Add Location &nbsp;<div class="icon-plus-circle" ng-click='showAddSection()'></div></h1>
-<div ng-if="addLocationSection">
+<h1 class="dashTitle">Locations</h1>
+<div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
+<div class="addCampaignInputs"ng-if="addLocationSection">
   <input type="text" name="name" ng-model="location.address"placeholder="Address">
   <input type="text" name="name" ng-model="location.phone"placeholder="Phone Number">
   <input type="text" name="name" ng-model="location.link"placeholder="Review Link">
+  <br>
   <button type="button" name="button" ng-click="submit(location)">Submit</button>
   <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
 
 </div>
+<div class="campaignTitle"><div>Address</div><div>Phone Number</div><div>Review Link</div></div>
 
-
-<ul class="customerList" ng-repeat="location in locations track by $index">
-  <li ng-click="showUpdate(location, $index)">{{location}}</li>
+<ul class="campaignList" ng-repeat="location in locations track by $index">
+  <li class="campaignItem hvr-sweep-to-right"ng-click="showUpdate(location, $index)">
+    <h2>{{location.address}}</h2><h2>{{location.phonenumber}}</h2><h2>{{location.link}}</h2>
+  </li>
   <div ng-if="$index === selected">
+    <div ng-hide="updateInputs">
     <input type="text" name="name" ng-model="address">
     <input type="text" name="name" ng-model="phone">
     <input type="text" name="name" ng-model="link">
-    <button type="button" name="button" ng-click="updateLocation({id: location.id, address: address, phone: phone, link: link})">Update</button>
+  </div>
+  <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
+
+    <button ng-hide="updateInputs"type="button" name="button" ng-click="updateLocation({id: location.id, address: address, phone: phone, link: link})">Update</button>
+    <button type="button" name="button" ng-click="deleteLocation(location)">Delete</button>
+    <button type="button" name="button" ng-click="cancel()">Cancel</button>
   </div>
 
-  <button type="button" name="button" ng-click="deleteLocation(location)">Delete</button>
 </ul>
