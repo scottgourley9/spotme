@@ -1,3 +1,10 @@
+.entireWelcomeSection {
+  background-image: url('http://theappliedknowledgenetwork.co.uk/wp-content/uploads/2014/09/insight.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  color: black;
+}
 nav {
   position: absolute;
   width: 100%;
@@ -15,7 +22,11 @@ nav ul {
   width: 90%;
 }
 nav li {
-  margin-left: 10%;
+  margin-left: 5%;
+  color: black;
+}
+nav li:hover {
+  cursor: pointer;
 }
 .welcomeSection {
   height: 100vh;
@@ -23,6 +34,12 @@ nav li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
+  text-shadow:
+   -.5px -.5px 0 #fff,
+    .5px -.5px 0 #fff,
+    -.5px .5px 0 #fff,
+     .5px .5px 0 #fff;
   /*background-image: url('http://www.todayifoundout.com/wp-content/uploads/2010/05/blue-sky.jpg');
   background-size: contain;*/
 }
@@ -30,16 +47,27 @@ nav li {
   z-index: 1;
   text-align: center;
   margin-top: 20vh;
-  font-family: sans-serif;
-}
-.welcomeSection h1 {
-  font-size: 40px;
+  font-family: 'Poiret One', cursive;
+  font-weight: 900;
 
 }
+.welcomeSection h1 {
+  font-size: 4vw;
+}
 .welcomeSection h4 {
-  font-size: 30px;
+  font-size: 3vw;
 }
 .welcomeSection img {
- position: absolute;
- width: 60%;
+ /*position: absolute;*/
+ width: 25vw;
+ margin-top: 2.5vw;
+}
+.typewrite {
+  color: white;
+  margin-top: 2.5vw;
+  text-shadow:
+   -.5px -.5px 0 #000,
+    .5px -.5px 0 #000,
+    -.5px .5px 0 #000,
+     .5px .5px 0 #000;
 }
