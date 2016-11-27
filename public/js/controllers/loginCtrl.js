@@ -10,6 +10,8 @@ $scope.submit = function(user){
     }
   })
 }
-
+$scope.cancel = function(){
+  $state.go('welcome')
+}
 
 })

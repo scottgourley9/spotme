@@ -6,8 +6,11 @@
   <input style="width: 19vw"type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
   <input style="width: 19vw"type="text" name="name" ng-model="user.email"placeholder="Email">
   <br>
-  <button type="button" name="button" ng-click="submit(user)">Submit</button>
-  <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+  <div class="">
+    <button type="button" name="button" ng-click="submit(user)">Submit</button>
+    <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+
+  </div>
 
 </div>
 <div class="campaignTitle"><div>Name</div><div>Phone Number</div><div>Email</div></div>
@@ -17,7 +20,7 @@
     <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.phonenumber}}</h2><h2>{{customer.email}}</h2>
   </li>
   <div ng-if="$index === selected">
-    <div ng-hide="updateInputs">
+    <div class="theUpdateInputs"ng-hide="updateInputs">
     <input style="width: 19vw"type="text" name="name" ng-model="first">
     <input style="width: 19vw"type="text" name="name" ng-model="last">
     <input style="width: 19vw"type="text" name="name" ng-model="phone">

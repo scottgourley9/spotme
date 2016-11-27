@@ -9,6 +9,7 @@ input {
   width: 26vw;
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
   border: none;
+  border-radius: 5px;
 }
 button {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
