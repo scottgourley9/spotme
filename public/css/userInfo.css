@@ -20,3 +20,6 @@
   box-shadow: 1vw 1vw 1.5vw #000;
   /*background-color: white;*/
 }
+.showBreak {
+  display: none;
+}

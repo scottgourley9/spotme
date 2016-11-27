@@ -5,8 +5,11 @@
   <input type="text" name="name" ng-model="location.phone"placeholder="Phone Number">
   <input type="text" name="name" ng-model="location.link"placeholder="Review Link">
   <br>
-  <button type="button" name="button" ng-click="submit(location)">Submit</button>
-  <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+  <div class="">
+    <button type="button" name="button" ng-click="submit(location)">Submit</button>
+    <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+
+  </div>
 
 </div>
 <div class="campaignTitle"><div>Address</div><div>Phone Number</div><div>Review Link</div></div>
@@ -16,7 +19,7 @@
     <h2>{{location.address}}</h2><h2>{{location.phonenumber}}</h2><h2>{{location.link}}</h2>
   </li>
   <div ng-if="$index === selected">
-    <div ng-hide="updateInputs">
+    <div class="theUpdateInputs"ng-hide="updateInputs">
     <input type="text" name="name" ng-model="address">
     <input type="text" name="name" ng-model="phone">
     <input type="text" name="name" ng-model="link">

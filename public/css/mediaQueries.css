@@ -13,10 +13,9 @@
       margin-top: 7vw;
     }
     .typewrite {
-      /*margin-top: 8.5vw;
       text-align: center;
-      line-height: 200%;*/
-      display: none;
+      line-height: 150%;
+      /*display: none;*/
     }
     .ham {
       display: inherit;
@@ -28,17 +27,17 @@
       color: #0765FF;
     }
     #hamMenu {
-      padding-top: 3vw;
-      position: absolute;
-    width: 100%;
-    text-decoration: underline;
-    font-size: 40px;
-    background-color: #0765FF;
-    color: white;
-    margin-top: 103vw;
-    height: 70vw;
-    z-index: 3;
-    text-align: center;
+      padding-top: 45vw;
+position: absolute;
+width: 100%;
+text-decoration: underline;
+font-size: 40px;
+background-color: #0765FF;
+color: white;
+margin-top: 12vh;
+height: 88vh;
+z-index: 3;
+text-align: center;
     }
     #hamMenu li {
       margin-bottom: 5vw;
@@ -49,9 +48,16 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      height: 130vw;
+      /*height: 100%;*/
       width: 100%;
-      margin-top: 30vw;
+      /*margin-top: 30vw;*/
+      padding-top: 80vw;
+    }
+    .signupSection h1 {
+      margin-bottom: 5vw;
+    }
+    .buttons {
+      margin-top: 5vw !important;
     }
     input {
       font-size: 30px;
@@ -59,23 +65,27 @@
     }
     .dashTitle {
       font-size: 40px;
+      padding-top: 5vw;
     }
     button {
-      font-size: 30px;
+      font-size: 17px;
     }
 
     .dashboardTitle h1{
       display: none;
     }
+    .dashboardTitle {
+      height: 70px;
+    }
 
     .dashboardMenu {
       position: fixed;
-      width: 50vw;
-      margin-left: 50vw;
-      /*display: none;*/
-      font-size: 25px;
-      height: 148vw;
-      margin-top: 17.5vw;
+  width: 50vw;
+  margin-left: 50vw;
+  /* display: none; */
+  font-size: 28px;
+  height: 621px;
+  margin-top: 69px;
     }
 
     .subSection {
@@ -120,11 +130,36 @@
       width: 98vw !important;
     }
     .sendLinkSection input {
-      margin-top: 15vw;
+      margin-top: 7vw;
     }
     .sendLinkSection button {
       margin-top: 10vw;
     }
+    .sendLinkSection select {
+      font-size: 30px !important;
+      background-color: white;
+      text-align: center;
+      width: 90vw;
+      margin-top: 7vw;
+
+    }
+    .lines div {
+      text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    font-size: 20px;
+    height: 100px;
+    justify-content: center;
+    box-shadow: 1vw 1vw 1.5vw #000;
+}
+  .lastLine {
+    flex-direction: column;
+  }
+  .lastLine div {
+    width: 94vw;
+  }
 
 
     .campaignSection button{
@@ -191,7 +226,7 @@
       text-align: center;
     }
     .campaignItem h2 {
-      font-size: 20px;
+      font-size: 18px;
     }
     .campaignItem p {
       font-size: 15px;
@@ -202,5 +237,40 @@
     .secondDashMenu {
       display: none;
     }
+    .addCampaignInputs input {
+      width: 90vw !important;
+    }
+    .campaignSection ul input {
+      margin-bottom: 1vw;
+    }
+    .theUpdateInputs input {
+      width: 90vw !important;
+      margin-bottom: 1vw;
+    }
+    .showBreak {
+      display: inherit;
+    }
+
+}
+
+
+
+@media screen and (max-width: 320px) {
+  .icon-plus-circle {
+    font-size: 30px;
+  }
+  .campaignTitle div {
+    font-size: 20px;
+  }
+  .campaignItem h2 {
+    font-size: 12px;
+  }
+  .campaignItem p {
+    font-size: 9px;
+  }
+  .dashboardMenu {
+    font-size: 23px;
+  }
+
 
 }
