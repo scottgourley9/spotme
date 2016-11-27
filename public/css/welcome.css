@@ -1,9 +1,10 @@
 .entireWelcomeSection {
-  background-image: url('http://theappliedknowledgenetwork.co.uk/wp-content/uploads/2014/09/insight.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+
   width: 100%;
   color: black;
+}
+.ham {
+  display: none;
 }
 nav {
   position: absolute;
@@ -40,8 +41,7 @@ nav li:hover {
     .5px -.5px 0 #fff,
     -.5px .5px 0 #fff,
      .5px .5px 0 #fff;
-  /*background-image: url('http://www.todayifoundout.com/wp-content/uploads/2010/05/blue-sky.jpg');
-  background-size: contain;*/
+
 }
 .title {
   z-index: 1;
@@ -58,7 +58,6 @@ nav li:hover {
   font-size: 3vw;
 }
 .welcomeSection img {
- /*position: absolute;*/
  width: 25vw;
  margin-top: 2.5vw;
 }
