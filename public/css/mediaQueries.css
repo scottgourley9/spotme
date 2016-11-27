@@ -1,0 +1,206 @@
+@media screen and (max-width: 480px) {
+    nav {
+      display: none;
+    }
+    .welcomeSection h1 {
+      font-size: 40px;
+    }
+    .welcomeSection h4 {
+      font-size: 30px;
+    }
+    .welcomeSection img {
+      width: 70vw;
+      margin-top: 7vw;
+    }
+    .typewrite {
+      /*margin-top: 8.5vw;
+      text-align: center;
+      line-height: 200%;*/
+      display: none;
+    }
+    .ham {
+      display: inherit;
+      font-size: 60px;
+      position: fixed;
+      margin-left: 80vw;
+      margin-top: 1.5vw;
+      z-index: 2;
+      color: #0765FF;
+    }
+    #hamMenu {
+      padding-top: 3vw;
+      position: absolute;
+    width: 100%;
+    text-decoration: underline;
+    font-size: 40px;
+    background-color: #0765FF;
+    color: white;
+    margin-top: 103vw;
+    height: 70vw;
+    z-index: 3;
+    text-align: center;
+    }
+    #hamMenu li {
+      margin-bottom: 5vw;
+    }
+
+    .signupSection {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 130vw;
+      width: 100%;
+      margin-top: 30vw;
+    }
+    input {
+      font-size: 30px;
+      width: 90%;
+    }
+    .dashTitle {
+      font-size: 40px;
+    }
+    button {
+      font-size: 30px;
+    }
+
+    .dashboardTitle h1{
+      display: none;
+    }
+
+    .dashboardMenu {
+      position: fixed;
+      width: 50vw;
+      margin-left: 50vw;
+      /*display: none;*/
+      font-size: 25px;
+      height: 148vw;
+      margin-top: 17.5vw;
+    }
+
+    .subSection {
+      width: 100vw;
+      margin-left: 0vw;
+      margin-top: 10vh;
+    }
+
+    .graphSection {
+      flex-direction: column;
+      /*justify-content: space-around;*/
+      margin-bottom: .5vw;
+    }
+    .graphSection div {
+      width: 100% !important;
+    }
+
+
+    .links {
+      width: 98vw;
+      height: 20vh;
+      margin-top: .5vw;
+      margin-left: .1vw;
+      background-color: white;
+    }
+    .links h2 {
+      text-align: center;
+      font-size: 30px;
+    }
+    .bottomSection {
+      flex-direction: column;
+      margin-top: .5vw;
+    }
+    .bottomSection h2 {
+      text-align: center;
+      font-size: 30px;
+    }
+    .pieCharts div {
+      width: 98vw !important;
+    }
+    .dashReviews {
+      width: 98vw !important;
+    }
+    .sendLinkSection input {
+      margin-top: 15vw;
+    }
+    .sendLinkSection button {
+      margin-top: 10vw;
+    }
+
+
+    .campaignSection button{
+      font-size: 21px;
+    }
+
+    .campaignTitle {
+      font-size: 30px;
+      display: flex;
+      background-color: #03327F;
+      color: white;
+      height: 70px;
+      align-items: center;
+      width: 98vw;
+      box-shadow: 1vw 1vw 1.5vw #000;
+      margin-top: 10px;
+    }
+    .icon-plus-circle {
+      color: #03327F;
+      font-size: 40px;
+      position: absolute;
+      margin-top: -11vw;
+      margin-left: 88vw;
+    }
+    .icon-plus-circle:hover {
+      cursor: pointer;
+    }
+    .campaignTitle > * {
+      width: 33vw;
+      text-align: center;
+
+      /*padding-left: 1vw;*/
+
+    }
+    .addCampaignInputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .addCampaignInputs input {
+      margin-bottom: 1vw;
+    }
+    .campaignItem {
+      box-shadow: 1vw 1vw 1.5vw #000;
+      width: 98vw;
+      height: 25vw;
+      /*border: 2px solid black;*/
+      margin-top: 1vw;
+      margin-bottom: 2vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+    }
+    .campaignItem:hover {
+      cursor: pointer;
+    }
+    .campaignItem > * {
+      width: 28vw;
+      margin: 1vw;
+      text-align: center;
+    }
+    .campaignList > * {
+      text-align: center;
+    }
+    .campaignItem h2 {
+      font-size: 20px;
+    }
+    .campaignItem p {
+      font-size: 15px;
+    }
+    .campaignItem img {
+      width: 80px;
+    }
+    .secondDashMenu {
+      display: none;
+    }
+
+}

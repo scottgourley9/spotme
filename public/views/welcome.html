@@ -1,4 +1,11 @@
 <section class="entireWelcomeSection">
+  <div ng-click="hamClick()"class="ham icon-bars"></div>
+  <ul id="hamMenu" ng-class="slideMenu"ng-if="hamMenuShowing">
+    <li>About</li>
+    <li>Contact Us</li>
+    <li ui-sref="signup">Sign Up</li>
+    <li ui-sref="login">Login</li>
+  </ul>
   <nav>
     <ul>
       <li>About</li>
