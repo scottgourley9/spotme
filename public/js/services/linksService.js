@@ -8,6 +8,13 @@ angular.module('spotme').service('linksService', function($http){
     })
   }
 
+  this.getLink = function(linkId){
+    return $http({
+      method: 'GET',
+      url: '/api/links/' + linkId
+    })
+  }
+
 
   this.addLink = function(link){
     return $http({

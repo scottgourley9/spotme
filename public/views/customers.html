@@ -29,7 +29,7 @@
   <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
   <button ng-hide="updateInputs"type="button" name="button" ng-click="updateCustomer({id: customer.id, first: first, last: last, phone: phone, email: email})">Update</button>
     <button type="button" name="button" ng-click="deleteCustomer(customer)">Delete</button>
-    <button type="button" name="button" ng-click="sendLink({first: first, last: last, phone: phone, email: email})">Send Link</button>
+    <button type="button" name="button" ng-click="sendLink({id: customer.id, first: first, last: last, phone: phone, email: email})">Send Link</button>
     <button type="button" name="button" ng-click="cancel()">Cancel</button>
   </div>
 

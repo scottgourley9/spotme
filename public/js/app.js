@@ -17,7 +17,7 @@ angular.module('spotme', ['ui.router', 'satellizer', 'googlechart']).config(func
     controller: 'loginCtrl'
   })
   .state('yesOrNo', {
-    url: '/yesOrNo/:id/:locationId',
+    url: '/yesOrNo/:id/:linkId/:customerId',
     templateUrl: '../views/yesOrNo.html',
     controller: 'yesOrNoCtrl'
   })

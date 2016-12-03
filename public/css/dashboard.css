@@ -1,7 +1,8 @@
 body {
-  background: linear-gradient(white, #0765FF);
-  height: 100vh;
-  background-attachment: fixed;
+  /*background: linear-gradient(white, #0765FF);*/
+  /*background: #0765FF;*/
+  /*height: 100vh;*/
+  /*background-attachment: fixed;*/
 }
 input {
   font-size: 1.5vw;

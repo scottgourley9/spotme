@@ -1,6 +1,9 @@
 @media screen and (max-width: 480px) {
-    nav {
+    nav li{
       display: none;
+    }
+    nav {
+      height: 12%;
     }
     .welcomeSection h1 {
       font-size: 40px;
@@ -20,11 +23,11 @@
     .ham {
       display: inherit;
       font-size: 60px;
-      position: fixed;
+      /*position: fixed;
       margin-left: 80vw;
       margin-top: 1.5vw;
-      z-index: 2;
-      color: #0765FF;
+      z-index: 4;*/
+      color: white;
     }
     #hamMenu {
       padding-top: 45vw;

@@ -7,10 +7,12 @@
 <input type="text" name="name" ng-model="email"placeholder="Email">
 
 <input type="text" ng-model="phone"name="name" placeholder="Phone Number">
-<select style="font-size: 1.5vw;"ng-model="locationId">
+<select style="font-size: 1.5vw;"ng-model="locationId" ng-change="getLinks(locationId)">
   <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
   </select>
+  <select style="font-size: 1.5vw;"ng-model="linkId">
+    <option ng-repeat="link in links"value="{{link.id}}">{{link.name}}</option>
+    </select>
 
-
-<button type="button" name="button" ng-click="sendMessage({phone: phone, link: link}); submit({first: first, last: last, phone: phone, email: email})">Send Review Link</button>
+<button type="button" name="button" ng-click="submit({first: first, last: last, phone: phone, link: link, email: email})">Send Review Link</button>
 </section>

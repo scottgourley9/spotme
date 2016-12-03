@@ -29,7 +29,6 @@ var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae1
 
 //Send an SMS text message
 app.post('/api/sendmessage', function(req, res){
-
   client.sendMessage({
       to:req.body.phone, // Any number Twilio can deliver to
       from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
@@ -91,7 +90,7 @@ app.post('/api/customers', function(req, res){
           res.status(500).json(err)
         }
         else {
-          res.status(200).json('success')
+          res.status(200).json(success[0])
         }
 
       })
@@ -132,6 +131,17 @@ app.put('/api/customers/:id', function(req, res){
     }
     else {
       res.status(200).json('success')
+    }
+  })
+})
+
+app.get('/api/user/:id', function(req, res){
+  db.get_user_by_id([req.params.id], function(err, user){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(user)
     }
   })
 })
@@ -257,6 +267,17 @@ app.get('/api/links/:id', function(req, res){
     }
     else {
       res.status(200).json(links)
+    }
+  })
+})
+
+app.get('/api/link/:id', function(req, res){
+  db.get_link([req.params.id], function(err, link){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(link)
     }
   })
 })
