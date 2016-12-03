@@ -71,4 +71,9 @@ angular.module('spotme', ['ui.router', 'satellizer', 'googlechart']).config(func
     templateUrl: '../views/userInfo.html',
     controller: 'userInfoCtrl'
   })
+  .state('dashboard.updateLinks', {
+    url: '/updateLinks/:address/:id',
+    templateUrl: '../views/updateLinks.html',
+    controller: 'updateLinksCtrl'
+  })
 })

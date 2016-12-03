@@ -40,7 +40,7 @@ app.post('/api/sendmessage', function(req, res){
       console.log(err);
       res.status(500).json(err)
     }
-      if (!err) { 
+      if (!err) {
           res.status(200).json({sent: true})
       }
   });
@@ -181,7 +181,7 @@ app.put('/api/locations/:locationId', function(req, res){
 })
 
 
-// Campain ENDPOINTS
+// Campaign ENDPOINTS
 
 app.get('/api/campaigns/:userId', function(req, res){
   db.get_campaigns([req.params.userId], function(err, campaigns){
@@ -245,6 +245,51 @@ app.get('/api/getactivecampaign', function(req, res){
     }
     else {
       res.status(200).json(campaigns)
+    }
+  })
+})
+
+// Links ENDPOINTS
+app.get('/api/links/:id', function(req, res){
+  db.get_links([req.params.id], function(err, links){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(links)
+    }
+  })
+})
+
+app.post('/api/links', function(req, res){
+  db.add_link([req.body.name, req.body.link, req.body.locationId], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/links', function(req, res){
+  db.update_link([req.body.id, req.body.name, req.body.link], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.delete('/api/links/:id', function(req, res){
+  db.delete_link([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
     }
   })
 })

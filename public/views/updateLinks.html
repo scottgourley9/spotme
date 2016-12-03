@@ -1,0 +1,35 @@
+<h1 class="dashTitle">Update Links for {{forAddress}}</h1>
+<div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
+<div class="addCampaignInputs"ng-if="addLocationSection">
+  <input type="text" name="name" ng-model="link.name"placeholder="Name">
+  <input type="text" name="name" ng-model="link.link"placeholder="Review Link">
+  <!-- <input type="text" name="name" ng-model="location.link"placeholder="Review Link"> -->
+  <br>
+  <div class="">
+    <button type="button" name="button" ng-click="submit(link)">Submit</button>
+    <button type="button" name="button" ng-click="hideAddSection()">Cancel</button>
+
+  </div>
+
+</div>
+<div class="campaignTitle"><div>Link Name</div><div></div><div>Review Link</div></div>
+
+<ul class="campaignList" ng-repeat="link in links track by $index">
+  <li class="campaignItem hvr-sweep-to-right"ng-click="showUpdate(link, $index)">
+    <h2>{{link.name}}</h2><h2></h2><h2>{{link.reviewlink}}</h2>
+  </li>
+  <div ng-if="$index === selected">
+    <div class="theUpdateInputs"ng-hide="updateInputs">
+    <input type="text" name="name" ng-model="name">
+    <input type="text" name="name" ng-model="myLink">
+    <!-- <input type="text" name="name" ng-model="link"> -->
+  </div>
+  <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
+
+    <button ng-hide="updateInputs"type="button" name="button" ng-click="updateLink({id: link.id, name: name, link: myLink})">Update</button>
+    <button type="button" name="button" ng-click="deleteLink(link)">Delete</button>
+    <button type="button" name="button" ng-click="cancel()">Cancel</button>
+    <button type="button" name="button" ui-sref="dashboard.locations">Back to Locations</button>
+  </div>
+
+</ul>

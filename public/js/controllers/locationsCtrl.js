@@ -1,8 +1,11 @@
-angular.module('spotme').controller('locationsCtrl', function($scope, $state, messageService, userService, locationsService){
+angular.module('spotme').controller('locationsCtrl', function($scope, $state, linksService, messageService, userService, locationsService){
 
   $scope.addLocationSection = false
   $scope.updateInputs = true
   $scope.fakeButton = false
+
+
+
 
   $scope.fakeUpdate = function(){
     $scope.updateInputs = false
@@ -40,7 +43,6 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
   var getLocations = function(){
     locationsService.getLocations(userService.user.id).then(function(res){
         $scope.locations = res.data.reverse()
-
     })
   }
   getLocations()
@@ -87,4 +89,10 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
       }
     })
   }
+
+
+
+
+
+
 })
