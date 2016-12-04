@@ -315,6 +315,63 @@ app.delete('/api/links/:id', function(req, res){
   })
 })
 
+// Message ENDPOINTS
+
+app.post('/api/messages', function(req, res){
+  db.add_message([req.body.senttime, req.body.message, req.body.linkid, req.body.userid, req.body.customerid, req.body.linktype], function(err, messageId){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(messageId[0])
+    }
+  })
+})
+
+app.get('/api/messages/:userId', function(req, res){
+  db.get_messages([req.params.userId], function(err, messages){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(messages)
+    }
+  })
+})
+
+app.put('/api/positivemessage/:id', function(req, res){
+  db.positive_message([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/negativemessage/:id', function(req, res){
+  db.negative_message([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/complaint/:id', function(req, res){
+  db.complaint([req.params.id, req.body.complaint], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
 
 
 

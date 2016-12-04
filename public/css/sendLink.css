@@ -7,3 +7,22 @@
 .sendLinkSection input {
   margin-bottom: 2vw;
 }
+
+.linkTypes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 300px;
+  width: 100%;
+}
+.linkTypes li{
+  font-size: 30px;
+  display: flex;
+  width: 230px;
+  justify-content: center;
+  height: 50px;
+  border: 2px solid;
+  align-items: center;
+  cursor: pointer;
+}

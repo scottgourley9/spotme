@@ -1,4 +1,9 @@
-angular.module('spotme').controller('theDashboardCtrl', function($scope, $state, messageService){
+angular.module('spotme').controller('theDashboardCtrl', function($scope, $state, messageService, userService){
+
+  messageService.getMessages(userService.user.id).then(function(res){
+    console.log(res.data);
+  })
+
 
   $scope.myChartLinksSent = {};
 

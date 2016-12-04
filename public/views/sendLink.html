@@ -10,9 +10,8 @@
 <select style="font-size: 1.5vw;"ng-model="locationId" ng-change="getLinks(locationId)">
   <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
   </select>
-  <select style="font-size: 1.5vw;"ng-model="linkId">
-    <option ng-repeat="link in links"value="{{link.id}}">{{link.name}}</option>
-    </select>
-
-<button type="button" name="button" ng-click="submit({first: first, last: last, phone: phone, link: link, email: email})">Send Review Link</button>
+  <ul ng-if="linkTypesShowing"class="linkTypes animated fadeInDown">
+    <li ng-repeat="link in links"ng-click="chooseLinkType(link)">{{link.name}}</li>
+  </ul>
+<button type="button" name="button" ng-click="submit({first: first, last: last, phone: phone, email: email})">Send Review Link</button>
 </section>
