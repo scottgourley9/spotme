@@ -1,4 +1,4 @@
-angular.module('spotme').controller('yesOrNoCtrl', function($scope, $state, linksService, messageService, userService, locationsService){
+angular.module('spotme').controller('yesOrNoCtrl', function($location, $scope, $state, linksService, messageService, userService, locationsService){
 
   $scope.yesOrNoSectionShowing = true;
   $scope.noFromSectionShowing = false;
@@ -12,7 +12,10 @@ linksService.getLink($state.params.linkId).then(function(res){
 })
   })
   $scope.clickedYes = function(){
-    messageService.positive($state.params.messageId)
+    messageService.positive($state.params.messageId).then(function(res){
+      $location.path($scope.reviewLink)
+    })
+
   }
   $scope.clickedNo = function(){
     $scope.yesOrNoSectionShowing = false;
