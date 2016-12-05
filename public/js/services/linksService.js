@@ -11,7 +11,7 @@ angular.module('spotme').service('linksService', function($http){
   this.getLink = function(linkId){
     return $http({
       method: 'GET',
-      url: '/api/links/' + linkId
+      url: '/api/link/' + linkId
     })
   }
 
