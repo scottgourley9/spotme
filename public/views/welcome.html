@@ -1,5 +1,5 @@
 <section class="entireWelcomeSection">
-  <div ng-click="hamClick()"class="ham icon-bars"></div>
+
   <ul id="hamMenu" ng-class="slideMenu"ng-if="hamMenuShowing">
     <li>About</li>
     <li>Contact Us</li>
@@ -7,11 +7,15 @@
     <li ui-sref="login">Login</li>
   </ul>
   <nav>
+    <div>In-sight Reviews</div>
     <ul>
+
       <li>About</li>
       <li>Contact Us</li>
       <li ui-sref="signup">Sign Up</li>
       <li ui-sref="login">Login</li>
+      <div ng-click="hamClick()"class="ham icon-bars"></div>
+
     </ul>
   </nav>
 
@@ -22,7 +26,7 @@
       <h4 class="animated fadeInRight">Get your business more positive reviews more often</h4>
 
     </div>
-    <img src="./images/fiveStar.png" alt="" />
+    <img src="http://thrivesearch.com/wp-content/uploads/2015/03/Review-Stars.png" alt="" />
     <h1>
     <div href="" class="typewrite" data-period="2000" data-type='[ "This is an AWESOME product!", "I love these guys!", "My business has doubled!", "Great customer service!" ]'>
       <span class="wrap"></span>
@@ -30,4 +34,32 @@
   </h1>
 
   </section>
+  <section class="welcomeSectionBar">
+    <img src="http://thrivesearch.com/wp-content/uploads/2015/03/Review-Stars.png" alt="" />
+    <h1>"This is an AWESOME product!"</h1>
+    <h6><i>Steven Johnson</i></h6>
+  </section>
+  <section class="welcomeSectionBottom">
+    <div class="cover"></div>
+
+  </section>
+  <section class="welcomeSectionBar">
+    <img src="http://thrivesearch.com/wp-content/uploads/2015/03/Review-Stars.png" alt="" />
+    <h1>"My business has doubled!"</h1>
+    <h6><i>Jared McNeal</i></h6>
+  </section>
+
+  <footer>
+    <div class="cover"></div>
+  </footer>
+  <section style="height: 15vh;"class="welcomeSectionBar">
+    <div class="allFooterInfo">
+      <div class="copyright">
+        <div class="icon-copyright"></div> <p>In-Sight Reviews. All Rights Reserved.</p>
+      </div>
+      <p class="footerInfo"><span ui-sref="privacyPolicy">Privacy Policy</span> &nbsp; <span style="font-size: 30px;">|</span> &nbsp; <span ui-sref="termsAndConditions">Terms & Conditions</span></p>
+
+    </div>
+      </section>
+
 </section>

@@ -6,4 +6,41 @@ angular.module('spotme').service('messageService', function($http){
       data: obj
     })
   }
+
+  this.getMessages = function(userId){
+    return $http({
+      method: 'GET',
+      url: '/api/messages/' + userId
+    })
+  }
+
+  this.addMessage = function(obj){
+    return $http({
+      method: 'POST',
+      url: '/api/messages',
+      data: obj
+    })
+  }
+
+  this.positive = function(id){
+    return $http({
+      method: 'PUT',
+      url: '/api/positivemessage/' + id
+    })
+  }
+
+  this.negative = function(id){
+    return $http({
+      method: 'PUT',
+      url: '/api/negativemessage/' + id
+    })
+  }
+
+  this.complaint = function(id, complaint){
+    return $http({
+      method: 'PUT',
+      url: '/api/complaint/' + id,
+      data: {complaint: complaint}
+    })
+  }
 })

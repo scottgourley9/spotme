@@ -1,7 +1,10 @@
 body {
-  background: linear-gradient(white, #0765FF);
-  height: 100vh;
+  /*background: linear-gradient(white, #0765FF);*/
+  /*background: #90FFAC;*/
+  /*height: 100vh;*/
+  /*background-image: url('../images/cool-blue.jpg');
   background-attachment: fixed;
+  background-size: cover;*/
 }
 input {
   font-size: 1.5vw;
@@ -13,14 +16,15 @@ input {
 }
 button {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  font-size: 1.5vw;
+  font-size: 25px;
   background-color: #0765FF;
   color: white;
   border: none;
   margin-top: 1vw;
   margin-bottom: 1vw;
-  padding: 1vw 2vw 1vw 2vw;
+  padding: 10px 20px 10px 20px;
   border-radius: 10px;
+  outline: none;
 }
 button:hover {
   cursor: pointer;
@@ -76,16 +80,13 @@ button:hover {
   margin-top: 10vh;
 }
 .dashTitle {
-  font-size: 2.5vw;
+  font-size: 40px;
   text-align: center;
   margin-bottom: 1vw;
   font-weight: bolder;
+  /*color: white;*/
 }
-.graphSection {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: .5vw;
-}
+
 .links {
   width: 80.5vw;
   height: 20vh;

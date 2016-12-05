@@ -1,6 +1,19 @@
 @media screen and (max-width: 480px) {
-    nav {
+    nav li{
       display: none;
+    }
+    nav {
+      height: 12%;
+    }
+    #base {
+      display: none;
+    }
+    #doughnut {
+      display: none;
+    }
+    .welcomeSection {
+      background-size: 200% 100%;
+background-position: -200px 65px;
     }
     .welcomeSection h1 {
       font-size: 40px;
@@ -11,6 +24,32 @@
     .welcomeSection img {
       width: 70vw;
       margin-top: 7vw;
+    }
+    .welcomeSectionBar {
+      text-align: center;
+    }
+    .welcomeSectionBar h1{
+      font-size: 30px;
+    }
+    .welcomeSectionBar i{
+      font-size: 20px;
+    }
+    .welcomeSectionBar img {
+      width: 75vw;
+    }
+    .welcomeSectionBottom {
+        background-size: 100% 100%;
+
+    }
+    footer {
+          background-size: 170% 100%;
+    }
+    .allFooterInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
     }
     .typewrite {
       text-align: center;
@@ -23,8 +62,10 @@
       position: fixed;
       margin-left: 80vw;
       margin-top: 1.5vw;
-      z-index: 2;
-      color: #0765FF;
+      z-index: 4;
+      color: white;
+
+
     }
     #hamMenu {
       padding-top: 45vw;
@@ -98,9 +139,10 @@ text-align: center;
       flex-direction: column;
       /*justify-content: space-around;*/
       margin-bottom: .5vw;
+      align-items: center;
     }
     .graphSection div {
-      width: 100% !important;
+      width: 90% !important;
     }
 
 
@@ -251,6 +293,8 @@ text-align: center;
       display: inherit;
     }
 
+
+
 }
 
 
@@ -271,6 +315,27 @@ text-align: center;
   .dashboardMenu {
     font-size: 23px;
   }
+  .copyright {
+    font-size: 15px;
+  }
+  .footerInfo {
+    font-size: 15px;
 
+  }
 
 }
+
+/*@media (max-width: 768px) and (min-width: 600px) {
+  .welcomeSection {
+    background-size: 150% 100%;
+    background-position: -260px 65px;
+  }
+  .welcomeSectionBottom {
+    background-size: 150% 100%;
+    background-position: -260px 65px;
+  }
+  footer {
+    background-size: 170% 100%;
+    background-position: 0px 65px;
+  }
+}*/

@@ -21,7 +21,7 @@
 
 <!-- <h2>{{activeCampaign}}</h2> -->
 <ul class="campaignList"ng-repeat="campaign in campaigns track by $index">
-  <li class="campaignItem hvr-sweep-to-right"ng-click="showUpdate(campaign, $index)">
+  <li class="campaignItem hvr-sweep-to-right" ng-class="campaign.status === 'active' ? 'theSelected': null"ng-click="showUpdate(campaign, $index)">
     <h2>{{campaign.name}}</h2> <div><img src="{{campaign.image}}"/></div>  <p>{{campaign.message}}</p>
 
   </li>
@@ -35,7 +35,7 @@
               <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
     <button ng-hide="updateInputs"type="button" name="button" ng-click="updateCampaign({id: campaign.id, name: name, image: image, message: message, status: status})">Update</button>
     <button type="button" name="button" ng-click="deleteCampaign(campaign)">Delete</button>
-    <button type="button" name="button" ng-click='updateCampaignStatus(campaign)'>Select</button>
+    <button type="button" name="button" ng-click='updateCampaignStatus(campaign, $index)'>Select</button>
     <button type="button" name="button" ng-click="cancel()">Cancel</button>
   </div>
 

@@ -1,20 +1,23 @@
 .entireWelcomeSection {
 
   width: 100%;
-  color: black;
+  color: white;
 }
 .ham {
   display: none;
 }
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 5%;
+  height: 8%;
   align-items: center;
-  z-index: 1;
+  z-index: 3;
   font-family: sans-serif;
+  background: #0765FF;
+  padding-left: 2%;
+    padding-right: 2%;
 }
 nav ul {
   display: flex;
@@ -24,7 +27,7 @@ nav ul {
 }
 nav li {
   margin-left: 5%;
-  color: black;
+  color: white;
 }
 nav li:hover {
   cursor: pointer;
@@ -35,12 +38,16 @@ nav li:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
-  text-shadow:
+  color: white;
+  background-image: url('../images/phone-min.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*text-shadow:
    -.5px -.5px 0 #fff,
     .5px -.5px 0 #fff,
     -.5px .5px 0 #fff,
-     .5px .5px 0 #fff;
+     .5px .5px 0 #fff;*/
 
 }
 .title {
@@ -64,9 +71,78 @@ nav li:hover {
 .typewrite {
   color: white;
   margin-top: 2.5vw;
-  text-shadow:
+  /*text-shadow:
    -.5px -.5px 0 #000,
     .5px -.5px 0 #000,
     -.5px .5px 0 #000,
-     .5px .5px 0 #000;
+     .5px .5px 0 #000;*/
+}
+.cover {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: .8;
+  background-attachment: fixed;
+}
+.welcomeSectionBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 35vh;
+  width: 100vw;
+  padding: 2vw;
+  /*background-image: url('https://blog.kissmetrics.com/wp-content/uploads/2015/01/2015-google-analytics-resources.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;*/
+  background-color: #0765FF;
+  background-attachment: fixed;
+}
+.welcomeSectionBar img {
+  width: 25vw;
+}
+.welcomeSectionBar h1 {
+  font-size: 50px;
+}
+.welcomeSectionBar h6 {
+  font-size: 25px;
+  font-style: italic;
+}
+
+.welcomeSectionBottom {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../images/phone2-min.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+footer {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../images/computer-min.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.allFooterInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.copyright {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+
+}
+.footerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
 }

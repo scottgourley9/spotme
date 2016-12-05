@@ -4,6 +4,9 @@ var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
 var connectionString = "postgres://postgres:pass1234@localhost/spotme";
+var axios = require('axios');
+// var cors = require('cors');
+
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -13,7 +16,11 @@ app.set('db', db);
 
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
+// app.use(cors(corsOptions))
 
+// var corsOptions = {
+//   origin: 'http://localhost:3000'
+// }
 
 var createJWT = (user) => {
   var payload = {
@@ -29,7 +36,6 @@ var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae1
 
 //Send an SMS text message
 app.post('/api/sendmessage', function(req, res){
-
   client.sendMessage({
       to:req.body.phone, // Any number Twilio can deliver to
       from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
@@ -40,7 +46,7 @@ app.post('/api/sendmessage', function(req, res){
       console.log(err);
       res.status(500).json(err)
     }
-      if (!err) { 
+      if (!err) {
           res.status(200).json({sent: true})
       }
   });
@@ -91,7 +97,7 @@ app.post('/api/customers', function(req, res){
           res.status(500).json(err)
         }
         else {
-          res.status(200).json('success')
+          res.status(200).json(success[0])
         }
 
       })
@@ -136,6 +142,17 @@ app.put('/api/customers/:id', function(req, res){
   })
 })
 
+app.get('/api/user/:id', function(req, res){
+  db.get_user_by_id([req.params.id], function(err, user){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(user)
+    }
+  })
+})
+
 //Location ENDPOINTS
 
 app.get('/api/locations/:userId', function(req, res){
@@ -149,7 +166,9 @@ app.get('/api/locations/:userId', function(req, res){
   })
 })
 app.post('/api/locations', function(req, res){
-  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid], function(err, success){
+  var address = req.body.address.split(' ').join('+')
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
+  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -157,6 +176,7 @@ app.post('/api/locations', function(req, res){
       res.status(200).json('success')
     }
 
+  })
   })
 })
 app.delete('/api/locations/:locationId', function(req, res){
@@ -181,7 +201,7 @@ app.put('/api/locations/:locationId', function(req, res){
 })
 
 
-// Campain ENDPOINTS
+// Campaign ENDPOINTS
 
 app.get('/api/campaigns/:userId', function(req, res){
   db.get_campaigns([req.params.userId], function(err, campaigns){
@@ -245,6 +265,119 @@ app.get('/api/getactivecampaign', function(req, res){
     }
     else {
       res.status(200).json(campaigns)
+    }
+  })
+})
+
+// Links ENDPOINTS
+app.get('/api/links/:id', function(req, res){
+  db.get_links([req.params.id], function(err, links){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(links)
+    }
+  })
+})
+
+app.get('/api/link/:id', function(req, res){
+  db.get_link([req.params.id], function(err, link){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(link)
+    }
+  })
+})
+
+app.post('/api/links', function(req, res){
+  db.add_link([req.body.name, req.body.link, req.body.locationId], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/links', function(req, res){
+  db.update_link([req.body.id, req.body.name, req.body.link], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.delete('/api/links/:id', function(req, res){
+  db.delete_link([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+// Message ENDPOINTS
+
+app.post('/api/messages', function(req, res){
+  db.add_message([req.body.senttime, req.body.message, req.body.linkid, req.body.userid, req.body.customerid, req.body.linktype], function(err, messageId){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(messageId[0])
+    }
+  })
+})
+
+app.get('/api/messages/:userId', function(req, res){
+  db.get_messages([req.params.userId], function(err, messages){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(messages)
+    }
+  })
+})
+
+app.put('/api/positivemessage/:id', function(req, res){
+  db.positive_message([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/negativemessage/:id', function(req, res){
+  db.negative_message([req.params.id], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
+    }
+  })
+})
+
+app.put('/api/complaint/:id', function(req, res){
+  db.complaint([req.params.id, req.body.complaint], function(err, success){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json('success')
     }
   })
 })

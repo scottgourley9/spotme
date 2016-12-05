@@ -8,7 +8,7 @@
   height: 4vw;
   align-items: center;
   width: 81vw;
-  box-shadow: 1vw 1vw 1.5vw #000;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
 
 }
 .icon-plus-circle {
@@ -32,17 +32,22 @@
   text-align: center;
 }
 .campaignItem {
-  box-shadow: 1vw 1vw 1.5vw #000;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
   width: 81vw;
   height: 10vw;
-  /*border: 2px solid black;*/
-  margin-top: 1vw;
-  margin-bottom: 2vw;
+  border: 1px solid black;
+  /*margin-top: 1vw;
+  margin-bottom: 2vw;*/
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   overflow: hidden;
+  margin-bottom: .5vw;
+  margin-top: .5vw;
+}
+.theSelected {
+  background-color: #FFE81A;
 }
 .campaignItem:hover {
   cursor: pointer;

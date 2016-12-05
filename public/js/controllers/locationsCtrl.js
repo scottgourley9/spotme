@@ -1,8 +1,11 @@
-angular.module('spotme').controller('locationsCtrl', function($scope, $state, messageService, userService, locationsService){
+angular.module('spotme').controller('locationsCtrl', function($scope, $state, linksService, messageService, userService, locationsService){
 
   $scope.addLocationSection = false
   $scope.updateInputs = true
   $scope.fakeButton = false
+
+
+
 
   $scope.fakeUpdate = function(){
     $scope.updateInputs = false
@@ -22,6 +25,7 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
   $scope.hideAddSection = function(){
     $scope.addLocationSection = false
   }
+
   $scope.submit = function(location){
     $scope.updateInputs = true
     $scope.fakeButton = false
@@ -29,18 +33,30 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
     $scope.flag = false;
     $scope.addLocationSection = false
     location.userid = userService.user.id
+
+
+
+
+
+
     locationsService.addLocation(location).then(function(response){
       if (response.status === 200) {
-          locationsService.getLocations(userService.user.id).then(function(res){
-            $scope.locations = res.data.reverse()
-          })
+          // locationsService.getLocations(userService.user.id).then(function(res){
+          //   $scope.locations = res.data.reverse()
+          // })
+          getLocations()
         }
     })
   }
+
   var getLocations = function(){
     locationsService.getLocations(userService.user.id).then(function(res){
-        $scope.locations = res.data.reverse()
+        var locations = res.data.reverse()
+        locations.forEach(function(val){
+          val.theMap = 'https://maps.googleapis.com/maps/api/staticmap?center=' + val.lat + ',' + val.lng + '&zoom=18&size=400x400&maptype=satellite&markers=color:red%7C' + val.lat + ',' + val.lng + '&key=AIzaSyDBKFYcusAlV3Ujwcm35vgoxZ6KRXr96Z0'
 
+        })
+        $scope.locations = locations
     })
   }
   getLocations()
@@ -87,4 +103,10 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, me
       }
     })
   }
+
+
+
+
+
+
 })

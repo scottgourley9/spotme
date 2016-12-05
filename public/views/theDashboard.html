@@ -1,12 +1,116 @@
 <h1 class="dashTitle">Dashboard</h1>
+
+
 <div class="graphSection">
-  <div google-chart chart="myChartObject" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
-  <div google-chart chart="myChartObject" style="height:42vh; width:40vw;"></div>
+<canvas id="base" class="chart chart-horizontal-bar"
+  chart-data="data" chart-labels="labels" chart-options="options" chart-colors='colors'>
+</canvas>
+<div class=" stats">
+  <p>Total Links Sent: <span>{{totalLinksSent}}<span></p>
+  <p><img src="./images/google1.png" alt="" />{{googleLinks}}</p>
+  <p><img src="./images/facebook.png" alt="" />{{facebookLinks}}</p>
+  <p><img src="./images/yelp2.png" alt="" />{{yelpLinks}}</p>
+</div>
+</div>
+
+
+<div class="graphSection doughnutSection">
+  <div class=" stats">
+    <p>Percent of Links Sent</p>
+    <p><img src="./images/google1.png" alt="" />{{googlePercent}}%</p>
+    <p><img src="./images/facebook.png" alt="" />{{facebookPercent}}%</p>
+    <p><img src="./images/yelp2.png" alt="" />{{yelpPercent}}%</p>
+
+  </div>
+  <canvas id="doughnut" class="chart chart-doughnut"
+    chart-data="doughnutData" chart-labels="labels" chart-colors='colors'>
+  </canvas>
+</div>
+
+
+<div class="graphSection">
+  <canvas id="base" class="chart chart-horizontal-bar"
+    chart-data="clickedData" chart-labels="labels" chart-options="clickedOptions" chart-colors='colors'>
+  </canvas>
+<div class=" stats">
+  <p>Total Links Clicked: <span>{{totalLinksClicked}}<span></p>
+  <p><img src="./images/google1.png" alt="" />{{googleClicked}}</p>
+  <p><img src="./images/facebook.png" alt="" />{{facebookClicked}}</p>
+  <p><img src="./images/yelp2.png" alt="" />{{yelpClicked}}</p>
+
+</div>
+</div>
+
+
+<div class="graphSection doughnutSection">
+<div class=" stats">
+  <p>Percent of Links Clicked </p>
+  <p><img src="./images/google1.png" alt="" />{{googlePercentClicked}}%</p>
+  <p><img src="./images/facebook.png" alt="" />{{facebookPercentClicked}}%</p>
+  <p><img src="./images/yelp2.png" alt="" />{{yelpPercentClicked}}%</p>
+
+</div>
+<canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="clickedData" chart-labels="labels" chart-colors='colors'>
+</canvas>
+</div>
+
+
+<div class="graphSection">
+  <canvas id="base" class="chart chart-bar"
+    chart-data="positiveData" chart-labels="labels" chart-options="positiveOptions" chart-colors='colors'>
+  </canvas>
+<div class=" stats">
+  <p>Positive Feedback</p>
+  <p><img src="./images/google1.png" alt="" />{{googlePositive}}</p>
+  <p><img src="./images/facebook.png" alt="" />{{facebookPositive}}</p>
+  <p><img src="./images/yelp2.png" alt="" />{{yelpPositive}}</p>
+
+</div>
+</div>
+
+
+<!-- <div class="graphSection doughnutSection">
+<div class="chart stats">
+</div>
+<canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="positiveData" chart-labels="labels" chart-colors='colors'>
+</canvas>
+</div> -->
+
+
+<div class="graphSection">
+
+<div class=" stats">
+  <p>Negative Feedback</p>
+  <p><img src="./images/google1.png" alt="" />{{googleNegative}}</p>
+  <p><img src="./images/facebook.png" alt="" />{{facebookNegative}}</p>
+  <p><img src="./images/yelp2.png" alt="" />{{yelpNegative}}</p>
+
+</div>
+<canvas id="base" class="chart chart-bar"
+  chart-data="negativeData" chart-labels="labels" chart-options="negativeOptions" chart-colors='colors'>
+</canvas>
+</div>
+
+
+<!-- <div class="graphSection doughnutSection">
+<div class="chart stats">
+</div>
+<canvas id="doughnut" class="chart chart-doughnut"
+  chart-data="positiveData" chart-labels="labels" chart-colors='colors'>
+</canvas>
+</div> -->
+
+
+<!-- <div class="graphSection">
+  <div google-chart chart="myChartLinksSent" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
+  <div google-chart chart="myChartLinksClicked" style="height:42vh; width:40vw;"></div>
 
 </div>
 <div class="graphSection">
-  <div google-chart chart="myChartObject" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
-  <div google-chart chart="myChartObject" style="height:42vh; width:40vw;"></div>
+  <div google-chart chart="myChartPositiveClicks" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
+  <div google-chart chart="myChartNegativeClicks" style="height:42vh; width:40vw;"></div>
 
 </div>
 <div class="links">
@@ -24,4 +128,4 @@
   <div class="dashReviews">
     <h2>Recent Reviews</h2>
   </div>
-</section>
+</section> -->
