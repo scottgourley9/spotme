@@ -8,7 +8,7 @@ angular.module('spotme').controller('yesOrNoCtrl', function($scope, $state, link
   userService.getUser($state.params.id).then(function(res){
     $scope.user = res.data[0]
 linksService.getLink($state.params.linkId).then(function(res){
-      $scope.reviewLink = res.data[0].reviewLink
+      $scope.reviewLink = res.data[0].reviewlink
 })
   })
   $scope.clickedYes = function(){

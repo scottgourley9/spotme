@@ -1,6 +1,6 @@
 <section ng-if='yesOrNoSectionShowing'class="yesOrNoSection">
   <h1 class="animated fadeInLeft">Would you recommend {{user.businessname}} to your friends or family?</h1>
-  <a class="animated fadeInRight"href="{{reviewLink}}" ng-click="clickedYes()">YES</a>
+  <a class="animated fadeInRight"ng-href="{{reviewLink}}" ng-click="clickedYes()">YES</a>
   <div class="animated fadeInLeft" ng-click="clickedNo()">NO</div>
 </section>
 <section ng-if="noFromSectionShowing"class="noFormSection">
