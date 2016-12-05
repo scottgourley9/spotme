@@ -4,6 +4,9 @@ var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
 var connectionString = "postgres://postgres:pass1234@localhost/spotme";
+var axios = require('axios');
+// var cors = require('cors');
+
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -13,7 +16,11 @@ app.set('db', db);
 
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
+// app.use(cors(corsOptions))
 
+// var corsOptions = {
+//   origin: 'http://localhost:3000'
+// }
 
 var createJWT = (user) => {
   var payload = {
@@ -159,7 +166,9 @@ app.get('/api/locations/:userId', function(req, res){
   })
 })
 app.post('/api/locations', function(req, res){
-  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid], function(err, success){
+  var address = req.body.address.split(' ').join('+')
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
+  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -167,6 +176,7 @@ app.post('/api/locations', function(req, res){
       res.status(200).json('success')
     }
 
+  })
   })
 })
 app.delete('/api/locations/:locationId', function(req, res){

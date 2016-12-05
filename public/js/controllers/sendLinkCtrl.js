@@ -18,6 +18,7 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
       $scope.locations = res.data
     })
     $scope.getLinks = function(id){
+
       linksService.getLinks(id).then(function(res){
         $scope.links = res.data
         $scope.linkTypesShowing = true;
@@ -38,14 +39,18 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
   //   })
   //
   // }
-  $scope.chooseLinkType = function(link){
+  $scope.typeClass = []
+$scope.selected = -1;
+  $scope.chooseLinkType = function(link, i){
     $scope.theLink = link
+    $scope.selected = i
+
 
   }
 
 
   $scope.submit = function(user){
-    
+
     $scope.addCustomerSection = false
     user.userid = userService.user.id
     user.time = new Date()

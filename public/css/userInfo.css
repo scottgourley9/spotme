@@ -13,13 +13,16 @@
   flex-direction: row;
   align-items: center;
   width: 30vw;
-  /*border: 2px solid black;*/
+  border: 2px solid black;
   font-size: 2vw;
   height: 10vw;
   justify-content: center;
-  box-shadow: 1vw 1vw 1.5vw #000;
-  /*background-color: white;*/
+  margin: 10px;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+  background-color: white;
+  cursor: pointer;
 }
+
 .showBreak {
   display: none;
 }

@@ -2,12 +2,12 @@
 
 <section class="signupSection animated fadeInDown">
   <h1 class="dashTitle">Sign Up</h1>
-  <input type="text" name="name" ng-model="user.business"placeholder="Business Name">
-  <input type="text" name="name" ng-model="user.first"placeholder="First Name">
-  <input type="text" name="name" ng-model="user.last"placeholder="Last Name">
-  <input type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
-  <input type="text" name="name" ng-model="user.email"placeholder="Email">
-  <input type="text" name="name" ng-model="user.password"placeholder="Password">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.business"placeholder="Business Name">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.first"placeholder="First Name">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.last"placeholder="Last Name">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.email"placeholder="Email">
+  <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.password"placeholder="Password">
 <div class="buttons"style="margin-top: -1vw;">
   <button type="button" name="button" ng-click="submit(user)">Submit</button>
   <button type="button" name="button" ng-click="cancel()">Cancel</button>

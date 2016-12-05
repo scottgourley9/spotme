@@ -10,8 +10,9 @@
 <select style="font-size: 1.5vw;"ng-model="locationId" ng-change="getLinks(locationId)">
   <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
   </select>
-  <ul ng-if="linkTypesShowing"class="linkTypes animated fadeInDown">
-    <li ng-repeat="link in links"ng-click="chooseLinkType(link)">{{link.name}}</li>
+  <ul ng-if="linkTypesShowing"class="linkTypes">
+    <!-- ng-class="link.name.toLowerCase() === 'google'? 'googleCss' : ( link.name.toLowerCase() === 'facebook' ? 'facebookCss' : 'yelpCss')" -->
+    <li ng-repeat="link in links track by $index" class="hvr-grow" ng-class="{googleCss: $index == selected}"ng-click="chooseLinkType(link, $index)">{{link.name}}</li>
   </ul>
 <button type="button" name="button" ng-click="submit({first: first, last: last, phone: phone, email: email})">Send Review Link</button>
 </section>

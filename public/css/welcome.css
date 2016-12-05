@@ -16,6 +16,8 @@ nav {
   z-index: 3;
   font-family: sans-serif;
   background: #0765FF;
+  padding-left: 2%;
+    padding-right: 2%;
 }
 nav ul {
   display: flex;
@@ -122,4 +124,25 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+.allFooterInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.copyright {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+
+}
+.footerInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
 }
