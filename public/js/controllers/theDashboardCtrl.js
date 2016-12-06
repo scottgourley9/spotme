@@ -34,7 +34,10 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
     $scope.yelpPercent = Math.floor((($scope.yelpLinks / $scope.totalLinksSent) * 100).toFixed(2))
 
 
-    Chart.defaults.global.defaultFontSize = 30;
+    Chart.defaults.global.defaultFontSize = 55;
+    Chart.defaults.global.defaultFontFamily = 'Poiret One';
+    Chart.defaults.global.defaultFontColor = 'white';
+
 
 
               $scope.labels = ["Google", "Facebook", "Yelp"];
@@ -73,7 +76,7 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
           title: {
                 display: true,
                 text: 'Links Sent',
-                fontSize: 50,
+                fontSize: 70,
                 position: 'top'
             },
             labels: {
@@ -87,10 +90,18 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                 xAxes: [{
                   ticks: {
                     beginAtZero:true
+                  },
+                  gridLines: {
+                      display: false
                   }
-                }]
-              }
-        }
+                }],
+                yAxes: [{
+                      gridLines: {
+                          display: false
+                      }
+                    }]
+                  }
+                }
 
 
       var googleClicked = google.filter(function(val){
@@ -134,9 +145,17 @@ $scope.clickedOptions = {
         xAxes: [{
           ticks: {
             beginAtZero:true
+          },
+          gridLines: {
+              display: false
           }
-        }]
-      }
+        }],
+        yAxes: [{
+              gridLines: {
+                  display: false
+              }
+            }]
+          }
 }
 
 
@@ -175,9 +194,17 @@ $scope.clickedOptions = {
             yAxes: [{
               ticks: {
                 beginAtZero:true
+              },
+              gridLines: {
+                  display: false
               }
-            }]
-          }
+            }],
+            xAxes: [{
+                  gridLines: {
+                      display: false
+                  }
+                }]
+              }
     }
 
 
@@ -216,9 +243,17 @@ $scope.clickedOptions = {
                 yAxes: [{
                   ticks: {
                     beginAtZero:true
+                  },
+                  gridLines: {
+                      display: false
                   }
-                }]
-              }
+                }],
+                xAxes: [{
+                      gridLines: {
+                          display: false
+                      }
+                    }]
+                  }
         }
 
 
