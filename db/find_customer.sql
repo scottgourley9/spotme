@@ -1,1 +1,1 @@
-select * from Customers where email = $1 AND userid = $2;
+select * from Customers where phonenumber = $1 AND userid = $2;

@@ -5,6 +5,9 @@
     nav {
       height: 12%;
     }
+    .loginNav {
+      display: none;
+    }
     #base {
       display: none;
     }
@@ -12,8 +15,9 @@
       display: none;
     }
     .welcomeSection {
-      background-size: 200% 100%;
-background-position: -200px 65px;
+      /*background-size: 200% 100%;
+background-position: -200px 65px;*/
+background: black !important;
     }
     .welcomeSection h1 {
       font-size: 40px;
@@ -38,11 +42,14 @@ background-position: -200px 65px;
       width: 75vw;
     }
     .welcomeSectionBottom {
-        background-size: 100% 100%;
+        /*background-size: 100% 100%;*/
+        background: black !important;
 
     }
     footer {
-          background-size: 170% 100%;
+          /*background-size: 170% 100%;*/
+          background: black !important;
+
     }
     .allFooterInfo {
       display: flex;

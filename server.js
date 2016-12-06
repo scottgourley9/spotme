@@ -90,7 +90,8 @@ app.post('/auth/login', function(req, res){
     })
 
 app.post('/api/customers', function(req, res){
-  db.find_customer([req.body.email, req.body.userid], function(err, theUser){
+  db.find_customer([req.body.phone, req.body.userid], function(err, theUser){
+
     if(!theUser.length){
       db.add_customer([req.body.first, req.body.last, req.body.phone, req.body.email, req.body.userid], function(err, success){
         if(err){
