@@ -60,8 +60,8 @@ background-position: -200px 65px;
       display: inherit;
       font-size: 60px;
       position: fixed;
-      margin-left: 80vw;
-      margin-top: 1.5vw;
+      margin-left: 38vw;
+      /*margin-top: 1.5vw;*/
       z-index: 4;
       color: white;
 
@@ -69,14 +69,14 @@ background-position: -200px 65px;
     }
     #hamMenu {
       padding-top: 45vw;
-position: absolute;
+position: fixed;
 width: 100%;
 text-decoration: underline;
 font-size: 40px;
-background-color: #0765FF;
+background-color: #00a6e5;
 color: white;
-margin-top: 12vh;
-height: 88vh;
+margin-top: 7vh;
+height: 100vh;
 z-index: 3;
 text-align: center;
     }
@@ -99,6 +99,7 @@ text-align: center;
     }
     .buttons {
       margin-top: 5vw !important;
+      text-align: center;
     }
     input {
       font-size: 30px;
@@ -109,7 +110,7 @@ text-align: center;
       padding-top: 5vw;
     }
     button {
-      font-size: 17px;
+      font-size: 28px;
     }
 
     .dashboardTitle h1{
@@ -121,12 +122,20 @@ text-align: center;
 
     .dashboardMenu {
       position: fixed;
-  width: 50vw;
-  margin-left: 50vw;
+  width: 100vw;
+  /*margin-left: 50vw;*/
   /* display: none; */
-  font-size: 28px;
-  height: 621px;
+  font-size: 36px;
+  height: 100vh;
   margin-top: 69px;
+  padding: 0px 50px 0px 50px;
+    }
+    .dashboardMenu li {
+      height: 44px;
+      margin-top: 3.5vh;
+    }
+    .hvr-underline-from-center {
+      display: none;
     }
 
     .subSection {
@@ -194,7 +203,7 @@ text-align: center;
     font-size: 20px;
     height: 100px;
     justify-content: center;
-    box-shadow: 1vw 1vw 1.5vw #000;
+    /*box-shadow: 1vw 1vw 1.5vw #000;*/
 }
   .lastLine {
     flex-direction: column;
@@ -216,7 +225,7 @@ text-align: center;
       height: 70px;
       align-items: center;
       width: 98vw;
-      box-shadow: 1vw 1vw 1.5vw #000;
+      /*box-shadow: 1vw 1vw 1.5vw #000;*/
       margin-top: 10px;
     }
     .icon-plus-circle {
@@ -240,14 +249,15 @@ text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 15px;
     }
     .addCampaignInputs input {
       margin-bottom: 1vw;
     }
     .campaignItem {
-      box-shadow: 1vw 1vw 1.5vw #000;
+      /*box-shadow: 1vw 1vw 1.5vw #000;*/
       width: 98vw;
-      height: 25vw;
+      height: 25vw !important;
       /*border: 2px solid black;*/
       margin-top: 1vw;
       margin-bottom: 2vw;
@@ -313,7 +323,12 @@ text-align: center;
     font-size: 9px;
   }
   .dashboardMenu {
-    font-size: 23px;
+    font-size: 30px;
+    padding: 0px 50px 0px 50px;
+  }
+  .dashboardMenu li {
+    height: 42px;
+    margin-top: 3vh;
   }
   .copyright {
     font-size: 15px;

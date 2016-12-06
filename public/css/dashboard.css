@@ -1,6 +1,6 @@
 body {
-  /*background: linear-gradient(white, #0765FF);*/
-  /*background: #90FFAC;*/
+  /*background: linear-gradient(white, #00a6e5);*/
+  background: #fff;
   /*height: 100vh;*/
   /*background-image: url('../images/cool-blue.jpg');
   background-attachment: fixed;
@@ -11,13 +11,22 @@ input {
   text-align: center;
   width: 26vw;
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  border: none;
+  border: 2px solid #110B47;
   border-radius: 5px;
 }
+select {
+  font-size: 1.5vw;
+  text-align: center;
+  width: 26.5vw;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+  border: 2px solid #110B47;
+  border-radius: 5px;
+}
+
 button {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
   font-size: 25px;
-  background-color: #0765FF;
+  background-color: #00a6e5;
   color: white;
   border: none;
   margin-top: 1vw;
@@ -36,7 +45,7 @@ button:hover {
   flex-direction: column;
   padding-left: 2vw;
   font-size: 2vw;
-  background-color: #021940;
+  background-color: #110B47;
   padding-right: 2vw;
   position: fixed;
   z-index: 2;
@@ -65,7 +74,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #03327F;
+  background-color: #00a6e5;
   padding-right: 2vw;
   color: white;
   position: fixed;

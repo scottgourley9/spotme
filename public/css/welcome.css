@@ -1,3 +1,7 @@
+/*FF9E01 light orange
+110B47 dark orange
+110B47 dark blue
+00a6e5 light blue*/
 .entireWelcomeSection {
 
   width: 100%;
@@ -15,7 +19,7 @@ nav {
   align-items: center;
   z-index: 3;
   font-family: sans-serif;
-  background: #0765FF;
+  background: #00a6e5;
   padding-left: 2%;
     padding-right: 2%;
 }
@@ -31,6 +35,9 @@ nav li {
 }
 nav li:hover {
   cursor: pointer;
+}
+.logo {
+  width: 140px;
 }
 .welcomeSection {
   height: 100vh;
@@ -95,7 +102,7 @@ nav li:hover {
   /*background-image: url('https://blog.kissmetrics.com/wp-content/uploads/2015/01/2015-google-analytics-resources.jpg');
   background-size: cover;
   background-repeat: no-repeat;*/
-  background-color: #0765FF;
+  background-color: #00a6e5;
   background-attachment: fixed;
 }
 .welcomeSectionBar img {
