@@ -1,5 +1,18 @@
 
+<nav class="loginNav">
+  <img class="logo"src="../images/logo.png" alt="" />
+  <!-- <div>In-sight Reviews</div> -->
+  <ul>
 
+    <li>About</li>
+    <li>Contact Us</li>
+    <li ui-sref="signup">Sign Up</li>
+    <li ui-sref="login">Login</li>
+
+  </ul>
+  <div ng-click="hamClick()"class="ham icon-bars"></div>
+
+</nav>
 <section class="signupSection animated fadeInDown">
   <h1 class="dashTitle">Sign Up</h1>
   <input ng-keyup="enter($event)"type="text" name="name" ng-model="user.business"placeholder="Business Name">
