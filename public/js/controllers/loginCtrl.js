@@ -1,12 +1,13 @@
 angular.module('spotme').controller('loginCtrl', function($scope, $state, userService, $auth){
 $scope.submit = function(){
   userService.login($scope.user).then(function(response){
-    if (response.status === 200) {
+    if (response.data.message !== 'Invalid email and/or password') {
       $auth.setToken(response)
       $state.go('dashboard.theDashboard')
     }
     else {
-      alert('Either the password or email is incorrect')
+      swal("Nope", "Invalid email and/or password", 'error')
+      // alert('Either the password or email is incorrect')
     }
   })
 }

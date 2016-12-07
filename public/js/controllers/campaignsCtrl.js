@@ -49,6 +49,18 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
   getCampaigns()
 
   $scope.deleteCampaign = function(campaign){
+    swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this information!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Successfully deleted.", "success");
+
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1;
@@ -58,6 +70,7 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
         getCampaigns()
       }
     })
+    });
   }
   $scope.flag = false
   $scope.showUpdate = function(campaign, i){

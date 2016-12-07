@@ -23,6 +23,13 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
     $scope.addCustomerSection = false
   }
   $scope.submit = function(user){
+    for(var i = 0; i < $scope.customers.length; i++){
+      if($scope.customers[i].phonenumber === user.phone){
+        swal("Error", "Invalid email and/or password", 'error')
+        return;
+      }
+
+    }
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1;
@@ -36,6 +43,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
           })
         }
     })
+
   }
   var getCustomers = function(){
     userService.getCustomers(userService.user.id).then(function(res){
@@ -46,6 +54,17 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   getCustomers()
 
   $scope.deleteCustomer = function(customer){
+    swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this information!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Successfully deleted.", "success");
     $scope.selected = -1;
     $scope.flag = false;
     $scope.updateInputs = true
@@ -55,6 +74,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
         getCustomers()
       }
     })
+  })
   }
   $scope.flag = false
   $scope.showUpdate = function(customer, i){
@@ -78,6 +98,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   $scope.selected = -1
 
   $scope.updateCustomer = function(customer){
+
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1

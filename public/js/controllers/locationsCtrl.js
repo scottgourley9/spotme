@@ -62,6 +62,17 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
   getLocations()
 
   $scope.deleteLocation = function(customer){
+    swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this information!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Successfully deleted.", "success");
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1;
@@ -71,6 +82,7 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
         getLocations()
       }
     })
+  })
   }
   $scope.flag = false
   $scope.showUpdate = function(location, i){

@@ -1,10 +1,14 @@
 angular.module('spotme').controller('signupCtrl', function($auth, $scope, $state, userService){
 $scope.submit = function(){
   userService.signUp($scope.user).then(function(response){
-    if (response.status === 200) {
-        $scope.errorMessage = ''
+    if (response.data.message !== 'already taken') {
+        // $scope.errorMessage = ''
         $auth.setToken(response)
         $state.go('dashboard')
+      }
+      else {
+        swal("Sorry", "Email and/or phone number is taken", 'error')
+
       }
   })
 }

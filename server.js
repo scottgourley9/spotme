@@ -55,7 +55,7 @@ app.post('/api/sendmessage', function(req, res){
 app.post('/auth/signup', function(req, res){
   db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, req.body.password], function(err, user){
     if(err){
-      res.status(500).json(err)
+      res.json({message: 'already taken'})
     }
     else {
       res.status(200).send({
@@ -69,7 +69,7 @@ app.post('/auth/login', function(req, res){
   db.get_user([req.body.email], function(err, user){
       if (err) return res.status(500)
       if (!user[0]) {
-        return res.status(401).send({
+        return res.send({
           message: 'Invalid email and/or password'
         })
       }
@@ -80,7 +80,7 @@ app.post('/auth/login', function(req, res){
         })
       }
       else {
-        return res.status(401).send({
+        return res.send({
           message: 'Invalid email and/or password'
         })
       }
@@ -91,7 +91,7 @@ app.post('/auth/login', function(req, res){
 
 app.post('/api/customers', function(req, res){
   db.find_customer([req.body.phone, req.body.userid], function(err, theUser){
-
+    console.log(theUser);
     if(!theUser.length){
       db.add_customer([req.body.first, req.body.last, req.body.phone, req.body.email, req.body.userid], function(err, success){
         if(err){
