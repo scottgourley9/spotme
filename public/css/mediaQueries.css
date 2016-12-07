@@ -130,17 +130,18 @@ text-align: center;
 
     .dashboardMenu {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: fixed;
+flex-direction: column;
+justify-content: center;
+position: fixed;
 width: 100vw;
 /* margin-left: 50vw; */
 /* display: none; */
-font-size: 36px;
+font-size: 32px;
 height: 100vh;
 margin-top: 0px;
-padding: 0px 50px 0px 50px;
+padding: 25px 50px 0px 50px;
 background-color: #00a6e5;
+z-index: 3;
     }
     .dashboardMenu li {
       height: 44px;
@@ -342,7 +343,7 @@ background-color: #00a6e5;
   }
   .dashboardMenu {
     font-size: 30px;
-    padding: 0px 50px 0px 50px;
+    padding: 25px 50px 0px 50px;
   }
   .dashboardMenu li {
     height: 42px;
