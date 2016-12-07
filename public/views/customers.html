@@ -3,7 +3,7 @@
 <div class="addCampaignInputs"ng-if="addCustomerSection">
   <input style="width: 19vw"type="text" name="name" ng-model="user.first"placeholder="First Name">
   <input style="width: 19vw"type="text" name="name" ng-model="user.last"placeholder="Last Name">
-  <input style="width: 19vw"type="text" name="name" ng-model="user.phone"placeholder="Phone Number">
+  <input style="width: 19vw"type="tel" name="name" ng-model="user.phone"placeholder="Phone Number">
   <input style="width: 19vw"type="text" name="name" ng-model="user.email"placeholder="Email">
   <br>
   <div class="">
@@ -23,7 +23,7 @@
     <div class="theUpdateInputs"ng-hide="updateInputs">
     <input style="width: 19vw"type="text" name="name" ng-model="first">
     <input style="width: 19vw"type="text" name="name" ng-model="last">
-    <input style="width: 19vw"type="text" name="name" ng-model="phone">
+    <input style="width: 19vw"type="tel" name="name" ng-model="phone">
     <input style="width: 19vw"type="text" name="name" ng-model="email">
   </div>
   <button ng-hide="fakeButton"type="button" name="button" ng-click='fakeUpdate()'>Update</button>
