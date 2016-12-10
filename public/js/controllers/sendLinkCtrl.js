@@ -50,6 +50,11 @@ $scope.selected = -1;
 
 
   $scope.submit = function(user){
+    if(!user.phone || !user.first || !user.last || !$scope.locationId || !$scope.theLink){
+      swal("Invalid Input", "You must enter a name, phone number, location, and link", "error")
+      return
+    }
+    if(messageService.phonenumber(user.phone)){
 
     $scope.addCustomerSection = false
     user.userid = userService.user.id
@@ -61,7 +66,7 @@ $scope.selected = -1;
           user.image = res.data[0].image
             messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: response.data.id, linktype: $scope.theLink.name}).then(function(messageRes){
 
-              user.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.theLink.id + '/' + response.data.id + '/' + messageRes.data.id
+              user.link = 'http://www.in-sightreviews.com/#/yesOrNo/' + userService.user.id + '/' + $scope.theLink.id + '/' + response.data.id + '/' + messageRes.data.id
 
             messageService.sendMessage(user).then(function(resp){
               if(resp.status === 200){
@@ -75,11 +80,12 @@ $scope.selected = -1;
         }
         else {
           campaignsService.getActiveCampaign().then(function(res){
+            userService.getCustomer(userService.user.id, user.phone).then(function(custResp){
             user.message = res.data[0].message
             user.image = res.data[0].image
-            messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: userService.customer.id, linktype: $scope.theLink.name}).then(function(messageRes){
+            messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: custResp.data[0].id, linktype: $scope.theLink.name}).then(function(messageRes){
 
-                user.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.theLink.id + '/' + userService.customer.id + '/' + messageRes.data.id
+                user.link = 'http://www.in-sightreviews.com/#/yesOrNo/' + userService.user.id + '/' + $scope.theLink.id + '/' + custResp.data[0].id + '/' + messageRes.data.id
 
               messageService.sendMessage(user).then(function(resp){
                 if(resp.status === 200){
@@ -88,10 +94,11 @@ $scope.selected = -1;
               })
             })
 
-
+          })
           })
         }
     })
+  }
   }
 
 

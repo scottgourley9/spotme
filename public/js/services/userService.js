@@ -12,6 +12,12 @@ angular.module('spotme').service('userService', function($http){
       url: '/api/customers/' + userid
     })
   }
+  this.getCustomer = function(userid, phone){
+    return $http({
+      method: 'GET',
+      url: '/api/customer/' + userid + '/' + phone
+    })
+  }
 
   this.getUser = function(userid){
     return $http({
