@@ -5,8 +5,9 @@ var bodyParser = require('body-parser');
 var massive = require('massive');
 var connectionString = "postgres://postgres:pass1234@localhost/spotme";
 var axios = require('axios');
+var bcrypt = require('bcrypt');
 // var cors = require('cors');
-
+var saltRounds = 10;
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -36,24 +37,48 @@ var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae1
 
 //Send an SMS text message
 app.post('/api/sendmessage', function(req, res){
-  client.sendMessage({
-      to:req.body.phone, // Any number Twilio can deliver to
-      from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
-      body: req.body.message + " " + req.body.link,// body of the SMS message
-      mediaUrl: req.body.image
-  }, function(err, responseData) { //this function is executed when a response is received from Twilio
-    if(err){
-      console.log(err);
-      res.status(500).json(err)
-    }
-      if (!err) {
-          res.status(200).json({sent: true})
+  if(req.body.image){
+    client.sendMessage({
+        to:req.body.phone, // Any number Twilio can deliver to
+        from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+        body: req.body.message + " " + req.body.link,// body of the SMS message
+        mediaUrl: req.body.image
+    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+      if(err){
+        console.log(err);
+        res.status(500).json(err)
       }
-  });
+        if (!err) {
+            res.status(200).json({sent: true})
+        }
+    })
+  }
+  else {
+    client.sendMessage({
+        to:req.body.phone, // Any number Twilio can deliver to
+        from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+        body: req.body.message + " " + req.body.link // body of the SMS message
+        // mediaUrl: req.body.image
+    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+      if(err){
+        console.log(err);
+        res.status(500).json(err)
+      }
+        if (!err) {
+            res.status(200).json({sent: true})
+        }
+    })
+  }
+
+
 })
 //USER ENDPOINTS
 app.post('/auth/signup', function(req, res){
-  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, req.body.password], function(err, user){
+  bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+
+
+
+  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, hash], function(err, user){
     if(err){
       res.json({message: 'already taken'})
     }
@@ -62,6 +87,7 @@ app.post('/auth/signup', function(req, res){
         token: createJWT(user[0])
       })
     }
+  })
   })
 })
 
@@ -73,17 +99,19 @@ app.post('/auth/login', function(req, res){
           message: 'Invalid email and/or password'
         })
       }
+      bcrypt.compare(req.body.password, user[0].password, function(err, resp) {
+        if(resp) {
+          res.send({
+            token: createJWT(user[0])
+          })
+        }
+        else {
+          res.send({
+            message: 'Invalid email and/or password'
+          })
+        }
+      })
 
-      if(req.body.password === user[0].password) {
-        res.send({
-          token: createJWT(user[0])
-        })
-      }
-      else {
-        return res.send({
-          message: 'Invalid email and/or password'
-        })
-      }
 
 
       })
@@ -117,6 +145,17 @@ app.get('/api/customers/:userid', function(req, res){
     }
     else {
       res.status(200).json(customers)
+    }
+  })
+})
+
+app.get('/api/customer/:userid/:phone', function(req, res){
+  db.get_customer([req.params.userid, req.params.phone], function(err, customer){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(customer)
     }
   })
 })
@@ -169,7 +208,7 @@ app.get('/api/locations/:userId', function(req, res){
 app.post('/api/locations', function(req, res){
   var address = req.body.address.split(' ').join('+')
   axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
-  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng], function(err, success){
+  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -191,7 +230,10 @@ app.delete('/api/locations/:locationId', function(req, res){
   })
 })
 app.put('/api/locations/:locationId', function(req, res){
-  db.update_location([req.params.locationId, req.body.address, req.body.phone, req.body.link], function(err, success){
+  var address = req.body.address.split(' ').join('+')
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
+
+  db.update_location([req.params.locationId, req.body.address, req.body.phone, req.body.link, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -199,6 +241,7 @@ app.put('/api/locations/:locationId', function(req, res){
       res.status(200).json('success')
     }
   })
+})
 })
 
 

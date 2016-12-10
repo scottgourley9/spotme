@@ -43,4 +43,28 @@ angular.module('spotme').service('messageService', function($http){
       data: {complaint: complaint}
     })
   }
+
+  this.ValidateEmail = function (email) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return (true)
+  }
+    swal("Error", "Invalid email address", 'error')
+    return (false)
+  }
+
+  this.phonenumber = function (inputtxt) {
+  var phoneno = /^\d{10}$/;
+  if(inputtxt.match(phoneno)) {
+      return true;
+      }
+      else
+      {
+        swal("Error", "Invalid phone number, must be numbers with no spaces or symbols and a length of 10 characters", 'error')
+        return false;
+      }
+  }
+
+
+
+
 })

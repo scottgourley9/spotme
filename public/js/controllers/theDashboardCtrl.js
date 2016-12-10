@@ -34,7 +34,7 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
     $scope.yelpPercent = Math.floor((($scope.yelpLinks / $scope.totalLinksSent) * 100).toFixed(2))
 
 
-    Chart.defaults.global.defaultFontSize = 55;
+    Chart.defaults.global.defaultFontSize = 45;
     Chart.defaults.global.defaultFontFamily = 'Poiret One';
     Chart.defaults.global.defaultFontColor = 'white';
 

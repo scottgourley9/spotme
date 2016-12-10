@@ -22,7 +22,7 @@
 <!-- <h2>{{activeCampaign}}</h2> -->
 <ul class="campaignList"ng-repeat="campaign in campaigns track by $index">
   <li class="campaignItem hvr-sweep-to-right" ng-class="campaign.status === 'active' ? 'theSelected': null"ng-click="showUpdate(campaign, $index)">
-    <h2>{{campaign.name}}</h2> <div><img src="{{campaign.image}}"/></div>  <p>{{campaign.message}}</p>
+    <h2>{{campaign.name}}</h2> <div><img src="{{campaign.image}}" alt="NO IMAGE"></div>  <p>{{campaign.message}}</p>
 
   </li>
   <div ng-if="$index === selected">

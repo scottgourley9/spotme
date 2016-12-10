@@ -27,6 +27,8 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
   }
 
   $scope.submit = function(location){
+    if(messageService.phonenumber(location.phone)){
+
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1;
@@ -47,6 +49,7 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
           getLocations()
         }
     })
+  }
   }
 
   var getLocations = function(){
@@ -90,6 +93,7 @@ function(){
     $scope.fakeButton = false
     if(!$scope.flag){
       $scope.selected = i;
+      $scope.name = location.name;
       $scope.address = location.address;
       $scope.phone = location.phonenumber;
       $scope.link = location.link;
@@ -105,15 +109,17 @@ function(){
   $scope.selected = -1
 
   $scope.updateLocation = function(location){
-    $scope.updateInputs = true
-    $scope.fakeButton = false
-    $scope.selected = -1
-    $scope.flag = false
-    locationsService.updateLocation(location).then(function(res){
-      if(res.status === 200){
-        getLocations()
-      }
-    })
+    if(messageService.phonenumber(location.phone)){
+      $scope.updateInputs = true
+      $scope.fakeButton = false
+      $scope.selected = -1
+      $scope.flag = false
+      locationsService.updateLocation(location).then(function(res){
+        if(res.status === 200){
+          getLocations()
+        }
+      })
+    }
   }
 
 

@@ -25,11 +25,13 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
   $scope.submit = function(user){
     for(var i = 0; i < $scope.customers.length; i++){
       if($scope.customers[i].phonenumber === user.phone){
-        swal("Error", "Invalid email and/or password", 'error')
+        swal("Error", "Existing phone number", 'error')
         return;
       }
 
     }
+    if(messageService.phonenumber(customer.phone)){
+
     $scope.updateInputs = true
     $scope.fakeButton = false
     $scope.selected = -1;
@@ -43,7 +45,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
           })
         }
     })
-
+  }
   }
   var getCustomers = function(){
     userService.getCustomers(userService.user.id).then(function(res){
@@ -98,6 +100,7 @@ function(){
   $scope.selected = -1
 
   $scope.updateCustomer = function(customer){
+    if(messageService.phonenumber(customer.phone)){
 
     $scope.updateInputs = true
     $scope.fakeButton = false
@@ -108,6 +111,7 @@ function(){
         getCustomers()
       }
     })
+  }
   }
 
   $scope.sendLink = function(customer){
