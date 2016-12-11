@@ -1,4 +1,7 @@
-angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js']).config(function($stateProvider, $urlRouterProvider){
+angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js']).config(function($locationProvider, $stateProvider, $urlRouterProvider){
+
+  $locationProvider.html5Mode(true);
+
   $urlRouterProvider.otherwise('/')
   $stateProvider
   .state('welcome', {
