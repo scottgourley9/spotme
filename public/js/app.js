@@ -1,9 +1,6 @@
 angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js']).config(function($locationProvider, $stateProvider, $urlRouterProvider){
 
-  $locationProvider.html5Mode({
-  enabled: true,
-  requireBase: false
-});
+  $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/')
   $stateProvider
