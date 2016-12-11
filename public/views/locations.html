@@ -17,7 +17,7 @@
 
 <ul class="campaignList" ng-repeat="location in locations track by $index">
   <li class="campaignItem hvr-sweep-to-right" ng-click="showUpdate(location, $index)" >
-    <h2>{{location.name}}</h2><h2>{{location.address}}</h2><img style="width: 25vw;"src="{{location.theMap}}" alt="" /><h2>{{location.phonenumber}}</h2></div>
+    <h2>{{location.name}}</h2><h2>{{location.address}}</h2><img style="width: 18vw;"src="{{location.theMap}}" alt="" /><h2>{{location.phonenumber}}</h2></div>
 
   </li>
   <div ng-if="$index === selected">

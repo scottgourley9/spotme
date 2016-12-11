@@ -23,6 +23,10 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
     $scope.addCustomerSection = false
   }
   $scope.submit = function(user){
+    if(!user || !user.first || !user.last || !user.phone){
+      swal("Invalid Input", "Must enter name and phone number", 'error')
+      return;
+    }
     for(var i = 0; i < $scope.customers.length; i++){
       if($scope.customers[i].phonenumber === user.phone){
         swal("Error", "Existing phone number", 'error')
@@ -30,7 +34,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, me
       }
 
     }
-    if(messageService.phonenumber(customer.phone)){
+    if(messageService.phonenumber(user.phone)){
 
     $scope.updateInputs = true
     $scope.fakeButton = false
