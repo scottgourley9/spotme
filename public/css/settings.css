@@ -1,0 +1,29 @@
+.changes {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.changes ul {
+  display: flex;
+  flex-direction: column;
+}
+.changes h2 {
+  font-size: 30px;
+}
+.changes li {
+  margin-top: 20px;
+  font-size: 20px;
+  padding-bottom: 5px;
+  display: flex;
+  width: 270px;
+  justify-content: space-between;
+}
+.changes {
+  margin-top: 100px;
+}
+.changes li:hover {
+  cursor: pointer;
+}
+.changes input {
+  width:20px;
+}
