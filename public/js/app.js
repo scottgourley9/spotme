@@ -1,6 +1,5 @@
 angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js']).config(function($locationProvider, $stateProvider, $urlRouterProvider){
 
-  $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/')
   $stateProvider
@@ -79,4 +78,6 @@ angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js'])
     templateUrl: '../views/updateLinks.html',
     controller: 'updateLinksCtrl'
   })
+  // $locationProvider.html5Mode(true);
+
 })
