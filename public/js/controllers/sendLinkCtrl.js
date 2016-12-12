@@ -66,7 +66,7 @@ $scope.selected = -1;
           user.image = res.data[0].image
             messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: response.data.id, linktype: $scope.theLink.name}).then(function(messageRes){
 
-              user.link = 'http://yes-or-no.info/' + userService.user.id + '/' + $scope.theLink.id + '/' + response.data.id + '/' + messageRes.data.id
+              user.link = 'http://www.in-sightreviews.com/' + userService.user.id + '/' + $scope.theLink.id + '/' + response.data.id + '/' + messageRes.data.id
 
             messageService.sendMessage(user).then(function(resp){
               if(resp.status === 200){
@@ -85,7 +85,7 @@ $scope.selected = -1;
             user.image = res.data[0].image
             messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: custResp.data[0].id, linktype: $scope.theLink.name}).then(function(messageRes){
 
-                user.link = 'http://yes-or-no.info' + '/' + userService.user.id + '/' + $scope.theLink.id + '/' + custResp.data[0].id + '/' + messageRes.data.id
+                user.link = 'http://www.in-sightreviews.com/' + userService.user.id + '/' + $scope.theLink.id + '/' + custResp.data[0].id + '/' + messageRes.data.id
 
               messageService.sendMessage(user).then(function(resp){
                 if(resp.status === 200){
