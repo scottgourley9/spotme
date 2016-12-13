@@ -19,9 +19,9 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 // app.use(cors(corsOptions))
 
-var corsOptions = {
-  origin: 'http://www.yes-or-no.info'
-}
+// var corsOptions = {
+//   origin: 'http://www.yes-or-no.info'
+// }
 
 var createJWT = (user) => {
   var payload = {
@@ -182,7 +182,7 @@ app.put('/api/customers/:id', function(req, res){
   })
 })
 
-app.get('/api/user/:id', function(req, res){
+app.get('/api/user/:id', cors(), function(req, res){
   db.get_user_by_id([req.params.id], function(err, user){
     if(err){
       res.status(500).json(err)
@@ -325,7 +325,7 @@ app.get('/api/links/:id', function(req, res){
   })
 })
 
-app.get('/api/link/:id', function(req, res){
+app.get('/api/link/:id', cors(), function(req, res){
   db.get_link([req.params.id], function(err, link){
     if(err){
       res.status(500).json(err)
@@ -393,7 +393,7 @@ app.get('/api/messages/:userId', function(req, res){
   })
 })
 
-app.put('/api/positivemessage/:id', function(req, res){
+app.put('/api/positivemessage/:id', cors(), function(req, res){
   db.positive_message([req.params.id], function(err, success){
     if(err){
       res.status(500).json(err)
@@ -404,7 +404,7 @@ app.put('/api/positivemessage/:id', function(req, res){
   })
 })
 
-app.put('/api/negativemessage/:id', function(req, res){
+app.put('/api/negativemessage/:id', cors(), function(req, res){
   db.negative_message([req.params.id], function(err, success){
     if(err){
       res.status(500).json(err)
@@ -415,7 +415,7 @@ app.put('/api/negativemessage/:id', function(req, res){
   })
 })
 
-app.put('/api/complaint/:id', function(req, res){
+app.put('/api/complaint/:id', cors(), function(req, res){
   db.complaint([req.params.id, req.body.complaint], function(err, success){
     if(err){
       res.status(500).json(err)
