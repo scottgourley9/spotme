@@ -1,4 +1,5 @@
 angular.module('spotme').controller('loginCtrl', function($scope, $state, userService, $auth){
+
 $scope.submit = function(){
   userService.login($scope.user).then(function(response){
     if (response.data.message !== 'Invalid email and/or password') {
