@@ -6,7 +6,7 @@ var massive = require('massive');
 var connectionString = "postgres://postgres:pass1234@localhost/spotme";
 var axios = require('axios');
 var bcrypt = require('bcrypt');
-// var cors = require('cors');
+var cors = require('cors');
 var saltRounds = 10;
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
@@ -19,9 +19,9 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 // app.use(cors(corsOptions))
 
-// var corsOptions = {
-//   origin: 'http://localhost:3000'
-// }
+var corsOptions = {
+  origin: 'http://www.yes-or-no.info'
+}
 
 var createJWT = (user) => {
   var payload = {
