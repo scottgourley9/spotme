@@ -193,8 +193,11 @@ z-index: 3;
     .dashReviews {
       width: 98vw !important;
     }
+    .sendLinkSection {
+      margin-top: 4vw;
+    }
     .sendLinkSection input {
-      margin-top: 7vw;
+      margin-top: 0vw;
     }
     .sendLinkSection button {
       margin-top: 10vw;
@@ -204,7 +207,7 @@ z-index: 3;
       background-color: white;
       text-align: center;
       width: 90vw;
-      margin-top: 7vw;
+      margin-top: 0vw;
 
     }
     .lines div {
