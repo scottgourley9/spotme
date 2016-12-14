@@ -1,13 +1,78 @@
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 725px) {
+  #hamMenu {
+    padding-top: 10vw;
+    position: fixed;
+    width: 100%;
+    text-decoration: underline;
+    font-size: 20px;
+    background-color: #00a6e5;
+    color: white;
+    margin-top: 7vh;
+    height: 100vh;
+    z-index: 3;
+    text-align: center;
+  }
+  .welcomeSectionBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 35vh !important;
+    width: 100vw;
+    padding: 2vw;
+    background-color: #00a6e5;
+    background-attachment: fixed;
+}
+.dashboardMenu {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+position: fixed;
+width: 100vw;
+/* margin-left: 50vw; */
+/* display: none; */
+font-size: 50px;
+height: 100vh;
+margin-top: 20px;
+padding: 25px 50px 0px 50px;
+background-color: #00a6e5;
+z-index: 3;
+}
+.dashboardMenu li {
+  height: 30px;
+  margin-top: 5vh;
+}
+.dashTitle {
+    font-size: 40px;
+    padding-top: 8vw;
+}
+nav {
+  height: 20%;
+}
+}
+
+@media screen and (max-width: 780px) {
   nav li{
     display: none;
   }
   .logo {
     width: 150px;
+
   }
   nav {
-    height: 20%;
+    height: 10%;
   }
+  .welcomeSectionBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 100vw;
+    padding: 2vw;
+    background-color: #00a6e5;
+    background-attachment: fixed;
+}
   .changes {
     flex-direction: column;
     justify-content: space-around;
@@ -99,13 +164,17 @@
     position: fixed;
     width: 100%;
     text-decoration: underline;
-    font-size: 20px;
+    font-size: 50px;
     background-color: #00a6e5;
     color: white;
-    margin-top: 7vh;
+    /*margin-top: 7vh;*/
     height: 100vh;
     z-index: 3;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   #hamMenu li {
     margin-bottom: 5vw;
@@ -134,7 +203,7 @@
   }
   .dashTitle {
     font-size: 40px;
-    padding-top: 8vw;
+    padding-top: -4vw;
   }
   button {
     font-size: 12px;
@@ -156,16 +225,16 @@
   width: 100vw;
   /* margin-left: 50vw; */
   /* display: none; */
-  font-size: 20px;
+  font-size: 40px;
   height: 100vh;
   margin-top: 20px;
-  padding: 25px 50px 0px 50px;
+  padding: 0px 100px 0px 100px;
   background-color: #00a6e5;
   z-index: 3;
   }
   .dashboardMenu li {
-    height: 30px;
-    margin-top: -.5vh;
+    height: 50px;
+    margin-top: 5vh;
   }
   /*.hvr-underline-from-center {
     display: none;
@@ -434,7 +503,7 @@ background: black !important;
 
     }
     #hamMenu {
-      padding-top: 45vw;
+      /*padding-top: 45vw;*/
 position: fixed;
 width: 100%;
 text-decoration: underline;
