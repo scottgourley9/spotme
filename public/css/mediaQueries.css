@@ -109,11 +109,8 @@ text-align: center;
       text-align: center;
     }
     input {
-      font-size: 20px;
+      font-size: 30px;
       width: 90%;
-    }
-    select {
-      font-size: 20px;
     }
     .dashTitle {
       font-size: 40px;
@@ -203,7 +200,7 @@ z-index: 3;
       margin-top: 0vw;
     }
     .sendLinkSection button {
-      margin-top: 10vw;
+      margin-top: 5vw;
     }
     .sendLinkSection select {
       font-size: 30px !important;
