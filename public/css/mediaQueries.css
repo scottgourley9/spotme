@@ -179,6 +179,9 @@ z-index: 3;
       text-align: center;
       font-size: 30px;
     }
+    .linkTypes {
+      height: 180px;
+    }
     .bottomSection {
       flex-direction: column;
       margin-top: .5vw;
