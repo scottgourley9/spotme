@@ -1,9 +1,357 @@
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
+  nav li{
+    display: none;
+  }
+  .logo {
+    width: 150px;
+  }
+  nav {
+    height: 20%;
+  }
+  .userInfoSection {
+    height: 100%;
+  }
+  .loginNav {
+    display: none;
+  }
+  #base {
+    display: none;
+  }
+  #doughnut {
+    display: none;
+  }
+  .title {
+    margin-top: 28vh;
+  }
+  .welcomeSection {
+    /*background-size: 200% 100%;
+  background-position: -200px 65px;*/
+  background: black !important;
+  }
+  .welcomeSection h1 {
+    font-size: 30px;
+  }
+  .welcomeSection h4 {
+    font-size: 20px;
+  }
+  .welcomeSection img {
+    width: 30vw;
+    margin-top: 7vw;
+  }
+  .welcomeSectionBar {
+    text-align: center;
+  }
+  .welcomeSectionBar h1{
+    font-size: 20px;
+  }
+  .welcomeSectionBar i{
+    font-size: 10px;
+  }
+  .welcomeSectionBar img {
+    width: 30vw;
+  }
+  .welcomeSectionBottom {
+      /*background-size: 100% 100%;*/
+      background: black !important;
+
+  }
+  footer {
+        /*background-size: 170% 100%;*/
+        background: black !important;
+
+  }
+  .allFooterInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .typewrite {
+    text-align: center;
+    line-height: 150%;
+    /*display: none;*/
+  }
+  .ham {
+    display: inherit;
+    font-size: 60px;
+    position: fixed;
+    margin-left: 38vw;
+    /*margin-top: 1.5vw;*/
+    z-index: 4;
+    color: white;
+
+
+  }
+  #hamMenu {
+    padding-top: 10vw;
+    position: fixed;
+    width: 100%;
+    text-decoration: underline;
+    font-size: 20px;
+    background-color: #00a6e5;
+    color: white;
+    margin-top: 7vh;
+    height: 100vh;
+    z-index: 3;
+    text-align: center;
+  }
+  #hamMenu li {
+    margin-bottom: 5vw;
+  }
+
+  .signupSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*height: 100%;*/
+    width: 100%;
+    /*margin-top: 30vw;*/
+    /*padding-top: 80vw;*/
+  }
+  .signupSection h1 {
+    margin-bottom: 1vw;
+  }
+  .buttons {
+    margin-top: -2vw !important;
+    text-align: center;
+  }
+  input {
+    font-size: 13px;
+    width: 50%;
+  }
+  .dashTitle {
+    font-size: 40px;
+    padding-top: 5vw;
+  }
+  button {
+    font-size: 12px;
+  }
+
+  .dashboardTitle h1{
+    display: none;
+  }
+  .dashboardTitle {
+    height: 70px;
+    z-index: 4;
+  }
+
+  .dashboardMenu {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  /* margin-left: 50vw; */
+  /* display: none; */
+  font-size: 20px;
+  height: 100vh;
+  margin-top: 20px;
+  padding: 25px 50px 0px 50px;
+  background-color: #00a6e5;
+  z-index: 3;
+  }
+  .dashboardMenu li {
+    height: 30px;
+    margin-top: -.5vh;
+  }
+  /*.hvr-underline-from-center {
+    display: none;
+  }*/
+
+  .subSection {
+    width: 100vw;
+    margin-left: 0vw;
+    margin-top: 10vh;
+  }
+
+  .graphSection {
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    margin-bottom: .5vw;
+    align-items: center;
+  }
+  .graphSection div {
+    width: 90% !important;
+  }
+
+
+  .links {
+    width: 98vw;
+    height: 20vh;
+    margin-top: .5vw;
+    margin-left: .1vw;
+    background-color: white;
+  }
+  .links h2 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .linkTypes {
+    height: 180px;
+  }
+  .bottomSection {
+    flex-direction: column;
+    margin-top: .5vw;
+  }
+  .bottomSection h2 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .pieCharts div {
+    width: 98vw !important;
+  }
+  .dashReviews {
+    width: 98vw !important;
+  }
+  .sendLinkSection {
+    margin-top: 4vw;
+  }
+  .sendLinkSection input {
+    margin-top: 0vw;
+  }
+  .sendLinkSection button {
+    margin-top: 5vw;
+  }
+  .sendLinkSection select {
+    font-size: 15px !important;
+    background-color: white;
+    text-align: center;
+    width: 50vw;
+    margin-top: 0vw;
+
+  }
+  .lines div {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  font-size: 20px;
+  height: 100px;
+  justify-content: center;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+  }
+  .lastLine {
+  flex-direction: column;
+  }
+  .lastLine div {
+  width: 94vw;
+  }
+
+
+  .campaignSection button{
+    font-size: 12px;
+  }
+
+  .campaignTitle {
+    font-size: 30px;
+    display: flex;
+    background-color: #03327F;
+    color: white;
+    height: 70px;
+    align-items: center;
+    width: 98vw;
+    /*box-shadow: 1vw 1vw 1.5vw #000;*/
+    margin-top: 10px;
+  }
+  .icon-plus-circle {
+    color: #03327F;
+    font-size: 40px;
+    position: absolute;
+    margin-top: -6.5vw;
+    margin-left: 88vw;
+  }
+  .icon-plus-circle:hover {
+    cursor: pointer;
+  }
+  .campaignTitle > * {
+    width: 33vw;
+    text-align: center;
+
+    /*padding-left: 1vw;*/
+
+  }
+  .addCampaignInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+  }
+  .addCampaignInputs input {
+    margin-bottom: 1vw;
+  }
+  .campaignItem {
+    /*box-shadow: 1vw 1vw 1.5vw #000;*/
+    width: 98vw;
+    height: 25vw !important;
+    /*border: 2px solid black;*/
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+  }
+  .campaignItem:hover {
+    cursor: pointer;
+  }
+  .campaignItem > * {
+    width: 28vw;
+    margin: 1vw;
+    text-align: center;
+  }
+  .campaignList > * {
+    text-align: center;
+  }
+  .campaignItem h2 {
+    font-size: 18px;
+  }
+  .campaignItem p {
+    font-size: 15px;
+  }
+  .campaignItem img {
+    width: 80px;
+  }
+  .secondDashMenu {
+    display: none;
+  }
+  .addCampaignInputs input {
+    width: 90vw !important;
+  }
+  .campaignSection ul input {
+    margin-bottom: 1vw;
+  }
+  .theUpdateInputs input {
+    width: 90vw !important;
+    margin-bottom: 1vw;
+  }
+  .showBreak {
+    display: inherit;
+  }
+
+
+
+
+}
+
+
+@media screen and (max-width: 480px) {
     nav li{
       display: none;
     }
+    .userInfoSection {
+      height: 70vh;
+    }
+    .logo {
+      width: 150px;
+    }
     nav {
       height: 12%;
+    }
+    .title {
+      margin-top: 20vh;
     }
     .loginNav {
       display: none;
