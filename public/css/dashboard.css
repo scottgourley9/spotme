@@ -6,6 +6,9 @@ body {
   background-attachment: fixed;
   background-size: cover;*/
 }
+.icon-bars {
+  z-index: 10;
+}
 input {
   font-size: 1.5vw;
   text-align: center;
@@ -18,7 +21,7 @@ select {
   font-size: 1.5vw;
   text-align: center;
   width: 26.5vw;
-  outline-color: #FF9E01;  
+  outline-color: #FF9E01;
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
   border: 2px solid #110B47;
   border-radius: 5px;
