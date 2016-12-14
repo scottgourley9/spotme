@@ -8,6 +8,17 @@
   nav {
     height: 20%;
   }
+  .changes {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0px !important;
+    text-align: center;
+  }
+  .changes h2 {
+    margin-top: 30px;
+    text-decoration: underline;
+  }
   .userInfoSection {
     height: 100%;
   }
@@ -123,7 +134,7 @@
   }
   .dashTitle {
     font-size: 40px;
-    padding-top: 5vw;
+    padding-top: 8vw;
   }
   button {
     font-size: 12px;
