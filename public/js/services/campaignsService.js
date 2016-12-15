@@ -40,7 +40,7 @@ angular.module('spotme').service('campaignsService', function($http){
   this.getActiveCampaign = function(){
     return $http({
       method: 'GET',
-      url: '/api/getactivecampaign'
+      url: '/api/getactivecampaign/' + this.user.id
     })
   }
 
