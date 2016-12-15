@@ -304,8 +304,8 @@ app.put('/api/updatecampaignstatus/:campaignId', function(req, res){
   })
 })
 
-app.get('/api/getactivecampaign', function(req, res){
-  db.get_active_campaign([], function(err, campaigns){
+app.get('/api/getactivecampaign/:id', function(req, res){
+  db.get_active_campaign([req.params.id], function(err, campaigns){
     if(err){
       res.status(500).json(err)
     }
