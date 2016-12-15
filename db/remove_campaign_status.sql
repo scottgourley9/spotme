@@ -1,2 +1,3 @@
 UPDATE Campaigns
-SET status=null;
+SET status=null
+where userid = $1;
