@@ -81,6 +81,11 @@ $scope.selected = -1;
         else {
           campaignsService.getActiveCampaign().then(function(res){
             userService.getCustomer(userService.user.id, user.phone).then(function(custResp){
+              console.log(res.data[0]);
+              if(!res.data[0]){
+                swal("Error", "No campaign message selected!", "error")
+                return
+              }
             user.message = res.data[0].message
             user.image = res.data[0].image
             messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: custResp.data[0].id, linktype: $scope.theLink.name}).then(function(messageRes){

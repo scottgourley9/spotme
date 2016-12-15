@@ -264,7 +264,7 @@ app.post('/api/campaigns', function(req, res){
       res.status(500).json(err)
     }
     else {
-      res.status(200).json('success')
+      res.status(200).json(success)
     }
 
   })
