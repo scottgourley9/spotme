@@ -30,9 +30,13 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
     campaign.userid = userService.user.id
     campaignsService.addCampaign(campaign).then(function(response){
       if (response.status === 200) {
+        campaignsService.updateCampaignStatus(response.data[0].id).then(function(resp){
           campaignsService.getCampaigns(userService.user.id).then(function(res){
             $scope.campaigns = res.data.reverse()
           })
+        })
+
+
         }
     })
   }
