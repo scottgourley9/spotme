@@ -1,5 +1,7 @@
 angular.module('spotme').service('campaignsService', function($http){
 
+  this.user;
+
   this.addCampaign = function(campaign){
     return $http({
       method: 'POST',
@@ -31,6 +33,7 @@ angular.module('spotme').service('campaignsService', function($http){
     return $http({
       method: 'PUT',
       url: '/api/updatecampaignstatus/' + campaignId,
+      data: {userid: this.user.id}
     })
   }
 

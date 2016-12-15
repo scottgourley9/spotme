@@ -1,4 +1,4 @@
-angular.module('spotme').controller('dashboardCtrl', function($auth, $scope, $state, messageService, userService){
+angular.module('spotme').controller('dashboardCtrl', function($auth, $scope, $state, messageService, userService, campaignsService){
 
 $scope.menuHidden = true;
 $scope.dashMenu = [];
@@ -6,6 +6,7 @@ $scope.dashMenu = [];
   var payload = () => {
       var payloadData = $auth.getPayload()
       userService.user = payloadData.sub
+      campaignsService.user = payloadData.sub
     }
     payload()
 
