@@ -291,6 +291,7 @@ app.put('/api/campaigns/:campaignId', function(req, res){
 })
 
 app.put('/api/updatecampaignstatus/:campaignId', function(req, res){
+  console.log(req.body);
   db.remove_campaign_status([req.body.userid], function(err, success){
     db.update_campaign_status([req.params.campaignId], function(err, yeah){
       if(err){
