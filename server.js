@@ -454,7 +454,6 @@ app.put('/api/positivemessage/:id', function(req, res){
       res.status(500).json(err)
     }
     else {
-      res.status(200).json('success')
       client.sendMessage({
           to: '+18015298841', // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
@@ -491,7 +490,6 @@ app.post('/api/complaint/:id/:complaint', function(req, res){
       res.status(500).json(err)
     }
     else {
-      res.status(200).json('success')
       client.sendMessage({
           to: '+18015298841', // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
