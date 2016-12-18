@@ -155,7 +155,7 @@ nav {
   .ham {
     display: inherit;
     width: 90px;
-    position: absolute;
+    position: fixed;
     margin-left: 38vw;
     /*margin-top: 1.5vw;*/
     z-index: 4;
@@ -506,7 +506,7 @@ background: black !important;
     .ham {
       display: inherit;
       width: 90px;
-      position: absolute;
+      position: fixed;
       margin-left: 38vw;
       /*margin-top: 1.5vw;*/
       z-index: 4;
