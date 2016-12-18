@@ -46,10 +46,11 @@ nav li:hover {
   flex-direction: column;
   align-items: center;
   color: white;
-  background-image: url('../images/phone-min.jpg');
+  /*background-image: url('../images/phone-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background: black;
   /*text-shadow:
    -.5px -.5px 0 #fff,
     .5px -.5px 0 #fff,
@@ -119,18 +120,20 @@ nav li:hover {
 .welcomeSectionBottom {
   height: 100vh;
   width: 100vw;
-  background-image: url('../images/phone2-min.jpg');
+  /*background-image: url('../images/phone2-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background: black;
 }
 footer {
   height: 100vh;
   width: 100vw;
-  background-image: url('../images/computer-min.jpg');
+  /*background-image: url('../images/computer-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background: black;
 }
 .allFooterInfo {
   display: flex;

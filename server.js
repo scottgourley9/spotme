@@ -73,6 +73,45 @@ app.post('/api/sendmessage', function(req, res){
 
 
 })
+//PASSWORD
+app.post('/api/password/:id', function(req, res){
+  db.get_user_by_id([req.params.id], function(err, user){
+    if(err){
+      res.status(500).json(err)
+      return
+    }
+  bcrypt.compare(req.body.input, user[0].password, function(err, resp) {
+    if(resp) {
+      res.status(200).json(true)
+    }
+    else {
+      res.status(200).json(false)
+    }
+  })
+  })
+
+})
+app.put('/api/password/:id', function(req, res){
+  db.get_user_by_id([req.params.id], function(err, user){
+    if(err){
+      res.status(500).json(err)
+      return
+    }
+    else {
+      bcrypt.hash(req.body.input2, saltRounds, function(err, hash) {
+        db.update_password([user[0].id, hash], function(err, success){
+          if(err){
+            res.status(500).json(err)
+          }
+          else {
+            res.status(200).json('success')
+          }
+        })
+      })
+    }
+  })
+
+})
 //USER ENDPOINTS
 app.post('/auth/signup', function(req, res){
   bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
@@ -189,10 +228,24 @@ app.get('/api/user/:id', function(req, res){
       res.status(500).json(err)
     }
     else {
+
       res.status(200).json(user)
     }
   })
 })
+app.put('/api/user/:id', function(req, res){
+  // bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+  db.update_user([req.params.id, req.body.businessname, req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email], function(err, user){
+    if(err){
+      res.status(500).json(err)
+    }
+    else {
+      res.status(200).json(user)
+    }
+  // })
+})
+})
+
 
 //Location ENDPOINTS
 

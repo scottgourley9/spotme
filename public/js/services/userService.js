@@ -25,6 +25,13 @@ angular.module('spotme').service('userService', function($http){
       url: '/api/user/' + userid
     })
   }
+  this.updateUser = function(obj){
+    return $http({
+      method: 'PUT',
+      url: '/api/user/' + this.user.id,
+      data: obj
+    })
+  }
 
   this.deleteCustomer = function(customerId){
     return $http({
@@ -43,7 +50,20 @@ angular.module('spotme').service('userService', function($http){
   this.user;
   this.customer;
 
-
+  this.checkPass = function(input){
+    return $http({
+      method: "POST",
+      url: '/api/password/' + this.user.id,
+      data: {input: input}
+    })
+  }
+  this.changePassword = function(input2){
+    return $http({
+      method: "PUT",
+      url: '/api/password/' + this.user.id,
+      data: {input2: input2}
+    })
+  }
   this.signUp = user => {
     return $http({
       method: 'POST',
