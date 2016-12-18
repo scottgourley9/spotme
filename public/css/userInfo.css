@@ -8,9 +8,9 @@
 .lines {
   display: flex;
 }
-.lines div {
+.eachBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 30vw;
   border: 2px solid black;
@@ -20,9 +20,30 @@
   margin: 10px;
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
   background-color: white;
+  padding: 0vw 1vw 0vw 1vw;
+}
+.icon-pencil {
   cursor: pointer;
+
 }
 
+.eachBox input {
+  font-size: 2vw;
+  background-color: white;
+  font-family: 'Poiret One', cursive;
+  border: 1px solid black;
+}
 .showBreak {
   display: none;
+}
+.pencil {
+  font-size: 2vw;
+    margin-left: 70vw;
+    position: absolute;
+    margin-top: -3.5vw;
+}
+.bottomButton {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
