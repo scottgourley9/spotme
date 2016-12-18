@@ -470,7 +470,7 @@ app.put('/api/negativemessage/:id', function(req, res){
   })
 })
 
-app.put('/api/complaint/:id', function(req, res){
+app.post('/api/complaint/:id', function(req, res){
   db.complaint([req.params.id, req.body.complaint], function(err, success){
     if(err){
       res.status(500).json(err)
