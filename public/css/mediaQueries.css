@@ -12,6 +12,9 @@
     z-index: 3;
     text-align: center;
   }
+  .eachBox input {
+    font-size: 5vw;
+  }
   .welcomeSectionBar {
     display: flex;
     flex-direction: column;
@@ -152,7 +155,7 @@ nav {
   .ham {
     display: inherit;
     width: 90px;
-    position: fixed;
+    position: absolute;
     margin-left: 38vw;
     /*margin-top: 1.5vw;*/
     z-index: 4;
@@ -422,6 +425,14 @@ nav {
     nav li{
       display: none;
     }
+    .icon-pencil {
+      font-size: 35px;
+    margin: -10vw 88vw;
+    }
+    .icon-times-circle {
+      font-size: 35px;
+    margin: -10vw 88vw;
+    }
     .userInfoSection {
       height: 70vh;
     }
@@ -495,7 +506,7 @@ background: black !important;
     .ham {
       display: inherit;
       width: 90px;
-      position: fixed;
+      position: absolute;
       margin-left: 38vw;
       /*margin-top: 1.5vw;*/
       z-index: 4;
@@ -542,7 +553,7 @@ text-align: center;
       width: 90%;
     }
     .dashTitle {
-      font-size: 40px;
+      font-size: 30px;
       padding-top: 5vw;
     }
     button {
