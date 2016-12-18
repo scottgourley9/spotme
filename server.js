@@ -465,6 +465,7 @@ app.put('/api/positivemessage/:id', function(req, res){
           res.status(500).json(err)
         }
           if (!err) {
+            console.log(responseData);
               res.status(200).json({sent: true})
           }
       })
@@ -501,6 +502,7 @@ app.post('/api/complaint/:id/:complaint', function(req, res){
           res.status(500).json(err)
         }
           if (!err) {
+            console.log(responseData);
               res.status(200).json({sent: true})
           }
       })
