@@ -484,16 +484,19 @@ app.put('/api/negativemessage/:id', function(req, res){
   })
 })
 
-app.post('/api/complaint/:id/:complaint', function(req, res){
+app.post('/api/complaint/:id/:complaint/:customerId', function(req, res){
   db.complaint([req.params.id, req.params.complaint], function(err, success){
     if(err){
       res.status(500).json(err)
     }
     else {
+      db.get_one_customer([req.params.customerId], function(err2, customer){
+
+
       client.sendMessage({
           to: '+18015298841', // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
-          body: 'Customer ' + " " + 'gave negative feedback... Message: '// body of the SMS message
+          body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave negative feedback... Message: "' + req.params.complaint + '"' // body of the SMS message
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
         if(err){
           console.log(err);
@@ -503,6 +506,7 @@ app.post('/api/complaint/:id/:complaint', function(req, res){
             console.log(responseData);
               res.status(200).json({sent: true})
           }
+      })
       })
     }
   })
