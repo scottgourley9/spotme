@@ -448,16 +448,18 @@ app.get('/api/messages/:userId', function(req, res){
   })
 })
 
-app.put('/api/positivemessage/:id/:customerId', function(req, res){
+app.put('/api/positivemessage/:id/:customerId/:userId', function(req, res){
   db.positive_message([req.params.id], function(err, success){
     if(err){
       res.status(500).json(err)
     }
     else {
+      db.get_user_by_id([req.params.userId], function(err3, user){
+
       db.get_one_customer([req.params.customerId], function(err2, customer){
 
       client.sendMessage({
-          to: '+18015298841', // Any number Twilio can deliver to
+          to: user[0].phonenumber, // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
           body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave positive feedback!'
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
@@ -471,6 +473,7 @@ app.put('/api/positivemessage/:id/:customerId', function(req, res){
           }
       })
     })
+  })
     }
   })
 })
@@ -487,17 +490,18 @@ app.put('/api/negativemessage/:id', function(req, res){
   })
 })
 
-app.post('/api/complaint/:id/:complaint/:customerId', function(req, res){
+app.post('/api/complaint/:id/:complaint/:customerId/:userId', function(req, res){
   db.complaint([req.params.id, req.params.complaint], function(err, success){
     if(err){
       res.status(500).json(err)
     }
     else {
+      db.get_user_by_id([req.params.userId], function(err3, user){
       db.get_one_customer([req.params.customerId], function(err2, customer){
 
 
       client.sendMessage({
-          to: '+18015298841', // Any number Twilio can deliver to
+          to: user[0].phonenumber, // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
           body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave negative feedback... Message: "' + req.params.complaint + '"' // body of the SMS message
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
@@ -509,6 +513,7 @@ app.post('/api/complaint/:id/:complaint/:customerId', function(req, res){
             console.log(responseData);
               res.status(200).json({sent: true})
           }
+      })
       })
       })
     }
