@@ -448,16 +448,18 @@ app.get('/api/messages/:userId', function(req, res){
   })
 })
 
-app.put('/api/positivemessage/:id', function(req, res){
+app.put('/api/positivemessage/:id/:customerId', function(req, res){
   db.positive_message([req.params.id], function(err, success){
     if(err){
       res.status(500).json(err)
     }
     else {
+      db.get_one_customer([req.params.customerId], function(err2, customer){
+
       client.sendMessage({
           to: '+18015298841', // Any number Twilio can deliver to
           from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
-          body: 'Customer ' + " " + 'gave positive feedback!'// body of the SMS message
+          body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave positive feedback!'
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
         if(err){
           console.log(err);
@@ -468,6 +470,7 @@ app.put('/api/positivemessage/:id', function(req, res){
               res.status(200).json({sent: true})
           }
       })
+    })
     }
   })
 })
