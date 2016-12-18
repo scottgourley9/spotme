@@ -151,7 +151,7 @@ nav {
   }
   .ham {
     display: inherit;
-    font-size: 60px;
+    width: 90px;
     position: fixed;
     margin-left: 38vw;
     /*margin-top: 1.5vw;*/
@@ -494,7 +494,7 @@ background: black !important;
     }
     .ham {
       display: inherit;
-      font-size: 60px;
+      width: 90px;
       position: fixed;
       margin-left: 38vw;
       /*margin-top: 1.5vw;*/
@@ -760,6 +760,9 @@ z-index: 3;
 @media screen and (max-width: 320px) {
   .icon-plus-circle {
     font-size: 30px;
+  }
+  .ham {
+    margin-left: 75vw !important;
   }
   .campaignSection button{
     font-size: 10px;
