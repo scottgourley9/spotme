@@ -13,16 +13,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 200px;
+  height: 20vw;
   width: 100%;
-  margin-bottom: -15px;
+  margin-bottom: -1.5vw;
 }
 .linkTypes li{
-  font-size: 30px;
+  font-size: 3vw;
   display: flex;
-  width: 230px;
+  width: 23vw;
   justify-content: center;
-  height: 50px;
+  height: 5vw;
   /*border: 2px solid;*/
   align-items: center;
   cursor: pointer;

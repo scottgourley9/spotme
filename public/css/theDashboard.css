@@ -1,16 +1,16 @@
 
 #base {
-  height: 300px !important;
-  width: 500px !important;
+  height: 25vw !important;
+  width: 45vw !important;
   background-color: #110B47;
   border: 2px solid #110B47;
   border-radius: 15px;
-  padding: 15px;
+  padding: 1.5vw;
 }
 
 #doughnut {
-  height: 300px !important;
-  width: 300px !important;
+  height: 25vw !important;
+  width: 25vw !important;
   /*margin-left: 100px;*/
   /*margin-right: 100px;*/
   /*background-color: white;
@@ -19,9 +19,9 @@
 }
 .stats {
   /*border: 2px solid black;*/
-  height: 300px !important;
-  width: 350px !important;
-  font-size: 30px;
+  height: 25vw !important;
+  width: 30vw !important;
+  font-size: 2.5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,14 +31,14 @@
   /*padding: 10px;*/
 }
 .stats img {
-  width: 100px;
+  width: 10vw;
 }
 .stats p {
-  height: 150px;
+  height: 15vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 30px 0px 30px;
+  padding: 0px 3vw 0px 3vw;
 
 }
 

@@ -8,22 +8,22 @@
   flex-direction: column;
 }
 .changes h2 {
-  font-size: 30px;
+  font-size: 3vw;
 }
 .changes li {
-  margin-top: 20px;
-  font-size: 20px;
-  padding-bottom: 5px;
+  margin-top: 2vw;
+  font-size: 2vw;
+  padding-bottom: .5vw;
   display: flex;
-  width: 270px;
+  width: 27vw;
   justify-content: space-between;
 }
 .changes {
-  margin-top: 100px;
+  margin-top: 10vw;
 }
 .changes li:hover {
   cursor: pointer;
 }
 .changes input {
-  width:20px;
+  width:2vw;
 }
