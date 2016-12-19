@@ -7,6 +7,7 @@
   width: 100%;
   color: white;
 }
+
 .ham {
   display: none;
 }
@@ -46,11 +47,11 @@ nav li:hover {
   flex-direction: column;
   align-items: center;
   color: white;
-  /*background-image: url('../images/phone-min.jpg');
+  background-image: url('../images/analyticsBackground2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;*/
-  background: black;
+  background-attachment: fixed;
+  /*background: #110B47;*/
   /*text-shadow:
    -.5px -.5px 0 #fff,
     .5px -.5px 0 #fff,
@@ -66,10 +67,10 @@ nav li:hover {
   font-weight: 900;
 
 }
-.welcomeSection h1 {
+.welcomeh1 {
   font-size: 4vw;
 }
-.welcomeSection h4 {
+.welcomeh4 {
   font-size: 3vw;
 }
 .welcomeSection img {
@@ -85,19 +86,42 @@ nav li:hover {
     -.5px .5px 0 #000,
      .5px .5px 0 #000;*/
 }
+.animationImage {
+  width: 12.5vw;
+}
+.imagePair {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 20vw;
+}
+.imagePair img{
+  width: 17.5vw;
+  margin: 2vw;
+}
+.imagePair p {
+  font-size: 2.25vw;
+}
+
 .cover {
   width: 100vw;
   height: 100vh;
-  background: black;
-  opacity: .8;
+  background: #110B47;
+  /*opacity: .8;*/
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5vw 2vw 5vw 2vw;
+
 }
 .welcomeSectionBar {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 35vh;
+  height: 25vh;
   width: 100vw;
   padding: 2vw;
   /*background-image: url('https://blog.kissmetrics.com/wp-content/uploads/2015/01/2015-google-analytics-resources.jpg');
@@ -107,13 +131,13 @@ nav li:hover {
   background-attachment: fixed;
 }
 .welcomeSectionBar img {
-  width: 25vw;
+  width: 15vw;
 }
 .welcomeSectionBar h1 {
-  font-size: 50px;
+  font-size: 30px;
 }
 .welcomeSectionBar h6 {
-  font-size: 25px;
+  font-size: 15px;
   font-style: italic;
 }
 

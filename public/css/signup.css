@@ -1,13 +1,18 @@
 .signupSection {
   display: flex;
 flex-direction: column;
-justify-content: space-around;
+justify-content: center;
 align-items: center;
-height: 30vh;
+height: 100vh;
 width: 100%;
+background-color: #110B47;
+
 /* margin-top: 10vw; */
-padding-top: 50vh;
+/*padding-top: 50vh;*/
 }
 .signupSection input {
   margin-bottom: 2vw;
+}
+.signupSection h1 {
+  color: white;
 }
