@@ -16,32 +16,33 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 8%;
+  height: 4vw;
   align-items: center;
   z-index: 3;
   font-family: sans-serif;
   background: #00a6e5;
-  padding-left: 2%;
-    padding-right: 2%;
+  padding-left: 2vw;
+    padding-right: 2vw;
 }
 nav ul {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  width: 90%;
+  width: 90vw;
 }
 nav li {
-  margin-left: 5%;
+  margin-left: 5vw;
   color: white;
+  font-size: 1.5vw;
 }
 nav li:hover {
   cursor: pointer;
 }
 .logo {
-  width: 140px;
+  width: 11vw;
 }
 .welcomeSection {
-  height: 100vh;
+  height: 49vw;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -62,11 +63,17 @@ nav li:hover {
 .title {
   z-index: 1;
   text-align: center;
-  margin-top: 20vh;
+  margin-top: 10vw;
   font-family: 'Poiret One', cursive;
   font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  height: 20vw;
+  justify-content: space-around;
+  align-items: center;
 
 }
+
 .welcomeh1 {
   font-size: 4vw;
 }
@@ -105,7 +112,7 @@ nav li:hover {
 
 .cover {
   width: 100vw;
-  height: 100vh;
+  height: 49vw;
   background: #110B47;
   /*opacity: .8;*/
   background-attachment: fixed;
@@ -121,7 +128,7 @@ nav li:hover {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 25vh;
+  height: 12.5vw;
   width: 100vw;
   padding: 2vw;
   /*background-image: url('https://blog.kissmetrics.com/wp-content/uploads/2015/01/2015-google-analytics-resources.jpg');
@@ -129,20 +136,21 @@ nav li:hover {
   background-repeat: no-repeat;*/
   background-color: #00a6e5;
   background-attachment: fixed;
+  font-size: 1.5vw;
 }
 .welcomeSectionBar img {
   width: 15vw;
 }
 .welcomeSectionBar h1 {
-  font-size: 30px;
+  font-size: 3vw;
 }
 .welcomeSectionBar h6 {
-  font-size: 15px;
+  font-size: 1.5vw;
   font-style: italic;
 }
 
 .welcomeSectionBottom {
-  height: 100vh;
+  height: 49vw;
   width: 100vw;
   /*background-image: url('../images/phone2-min.jpg');
   background-size: cover;
@@ -151,7 +159,7 @@ nav li:hover {
   background: black;
 }
 footer {
-  height: 100vh;
+  height: 49vw;
   width: 100vw;
   /*background-image: url('../images/computer-min.jpg');
   background-size: cover;
@@ -170,13 +178,13 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 30px;
+  height: 3vw;
 
 }
 .footerInfo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  height: 3vw;
   cursor: pointer;
 }
