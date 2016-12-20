@@ -76,7 +76,7 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
           title: {
                 display: true,
                 text: 'Links Sent',
-                fontSize: 70,
+                fontSize: 50,
                 position: 'top'
             },
             labels: {
