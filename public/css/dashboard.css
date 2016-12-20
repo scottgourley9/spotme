@@ -29,7 +29,7 @@ select {
 
 button {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  font-size: 2.5vw;
+  font-size: 2vw;
   background-color: #00a6e5;
   color: white;
   border: none;
@@ -53,13 +53,15 @@ button:hover {
   padding-right: 2vw;
   position: fixed;
   z-index: 2;
-  margin-top: 4vw;
+  margin-top: 5vw;
+  justify-content: space-around;
+  padding-bottom: 5vw;
 }
 .dashboardMenu li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2vw;
+  /*margin-top: 2vw;*/
   color: white;
 }
 .dashboardMenu li:hover {
@@ -74,7 +76,7 @@ button:hover {
   width: 100%;
   padding-left: 2vw;
   font-size: 2.5vw;
-  height: 4vw;
+  height: 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;

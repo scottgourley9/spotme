@@ -16,7 +16,7 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 4vw;
+  height: 5vw;
   align-items: center;
   z-index: 3;
   font-family: sans-serif;
@@ -49,7 +49,7 @@ nav li:hover {
   align-items: center;
   color: white;
   background-image: url('../images/analyticsBackground2.jpg');
-  background-size: cover;
+  background-size: 104vw 52vw;
   background-repeat: no-repeat;
   background-attachment: fixed;
   /*background: #110B47;*/
