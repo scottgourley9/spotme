@@ -1,4 +1,15 @@
-angular.module('spotme').controller('welcomeCtrl', function($scope, $state, messageService){
+angular.module('spotme').controller('welcomeCtrl', function($document, $scope, $state, messageService){
+
+$document.on('scroll', function(){
+  if($(this).scrollTop() > 75){
+    $('nav').css({background: '#110B47', opacity: .8}, 'slow');
+}
+if($(this).scrollTop() <= 75){
+  $('nav').css({background: 'none', opacity: 1}, 'slow');
+}
+})
+
+
 $scope.hamMenuShowing = false;
 $scope.slideMenu = []
   $scope.hamClick = function(){

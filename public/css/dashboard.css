@@ -29,14 +29,14 @@ select {
 
 button {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  font-size: 2vw;
+  font-size: 1.5vw;
   background-color: #00a6e5;
   color: white;
   border: none;
   margin-top: 1vw;
   margin-bottom: 1vw;
   padding: 1vw 2vw 1vw 2vw;
-  border-radius: 10px;
+  border-radius: 25px;
   outline: none;
 }
 button:hover {
@@ -98,6 +98,7 @@ button:hover {
   font-size: 4vw;
   text-align: center;
   margin-bottom: 1vw;
+  margin-top: 1vw;
   font-weight: bolder;
   /*color: white;*/
 }
