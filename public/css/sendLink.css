@@ -3,9 +3,17 @@
   flex-direction: column;
   align-items: center;
 }
+.entireSendLink {
+  height: 62vw;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .sendLinkSection input {
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
 }
 
 .linkTypes {

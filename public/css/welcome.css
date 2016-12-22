@@ -3,6 +3,21 @@
 110B47 dark blue
 00a6e5 light blue*/
 
+/*.easy {
+    background-color: F4F4F4;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease;
+}*/
+
+.topP {
+  width: 50%;
+  font-size: 1.5vw;
+  line-height: 150%;
+  z-index: 2;
+  margin-top: 1vw;
+}
 
 .entireWelcomeSection {
 
@@ -20,11 +35,13 @@ nav {
   justify-content: center;
   height: 5vw;
   align-items: center;
-  z-index: 3;
+  z-index: 5;
   font-family: sans-serif;
-  background: #00a6e5;
+  /*background: #00a6e5;*/
   padding-left: 2vw;
     padding-right: 2vw;
+    /*opacity: .8;*/
+    padding-top: .5vw;
 }
 nav ul {
   display: flex;
@@ -43,17 +60,26 @@ nav li:hover {
 .logo {
   width: 11vw;
 }
+.topCover {
+  height: 56.15vw;
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+  background-color: black;
+  opacity: .5;
+}
 .welcomeSection {
-  height: 49vw;
+  height: 57vw;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
-  background-image: url('../images/analyticsBackground2.jpg');
+  margin-top: -.5vw;
+  /*background-image: url('../images/analyticsBackground2.jpg');
   background-size: 104vw 52vw;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
   /*background: #110B47;*/
   /*text-shadow:
    -.5px -.5px 0 #fff,
@@ -63,21 +89,30 @@ nav li:hover {
 
 }
 .title {
-  z-index: 1;
+  z-index: 3;
   text-align: center;
   margin-top: 10vw;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Nunito', cursive;
   font-weight: 900;
   display: flex;
   flex-direction: column;
-  height: 20vw;
-  justify-content: space-around;
+  height: 37vw;
+  justify-content: center;
   align-items: center;
+
+}
+.title > * {
+  margin-bottom: 3vw;
 
 }
 
 .welcomeh1 {
-  font-size: 4vw;
+  font-size: 3vw;
+  z-index: 1;
+  /*color: #00a6e5;*/
+}
+orange {
+  color: #FF9E01;
 }
 .welcomeh4 {
   font-size: 3vw;
@@ -112,19 +147,78 @@ nav li:hover {
 .imagePair p {
   font-size: 2.25vw;
 }
-
+.reasons {
+  display: flex;
+width: 100%;
+font-size: 2.5vw;
+height: 3vw;
+justify-content: space-between;
+padding: 0vw 26vw;
+align-items: center;
+}
+.reasons > * {
+  margin: 1vw;
+}
+.reasons p {
+  font-size: 2vw;
+}
 .cover {
   width: 100vw;
   height: 49vw;
-  background: #110B47;
+  /*background: #110B47;*/
+  background-color: white;
   /*opacity: .8;*/
+  color: #5b5b5b;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 5vw 2vw 5vw 2vw;
+  /*justify-content: space-around;*/
+  padding: 2vw 2vw 2vw 2vw;
+  margin-top: -1vw;
+}
+.thinLine {
+  height: 1px;
+  width: 80%;
+  background-color: #5b5b5b;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+  opacity: .5;
+}
+.statBox {
+  border: 1px solid #00a6e5;
+  height: 18vw;
+  width: 18vw;
+  font-size: 1.5vw;
+  display: flex;
+  text-align: center;
+  line-height: 150%;
+  flex-direction: column;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  margin: 1vw;
+  padding: 2vw;
+  border-radius: 50%;
+  background-color: #110B47;
+  color: #fff;
+}
 
+.pairing {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+.pairing img {
+  width: 20vw;
+  height: 15vw;
+  margin-top: 1vw;
+  box-shadow: 10px 10px 5px #888888;
+}
+.statBoxes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  justify-content: center;
 }
 .welcomeSectionBar {
   display: flex;
@@ -140,6 +234,7 @@ nav li:hover {
   background-color: #00a6e5;
   background-attachment: fixed;
   font-size: 1.5vw;
+      margin-top: -1vw;
 }
 .welcomeSectionBar img {
   width: 15vw;
