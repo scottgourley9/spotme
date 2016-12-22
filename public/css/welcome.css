@@ -2,6 +2,8 @@
 110B47 dark orange
 110B47 dark blue
 00a6e5 light blue*/
+
+
 .entireWelcomeSection {
 
   width: 100%;
@@ -101,6 +103,7 @@ nav li:hover {
   width: 100%;
   align-items: center;
   height: 20vw;
+  line-height: 250%;
 }
 .imagePair img{
   width: 17.5vw;
