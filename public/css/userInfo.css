@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 35vw;
+  height: 30vw;
 }
 .lines {
   display: flex;
@@ -15,7 +15,7 @@
   width: 30vw;
   border: 2px solid black;
   font-size: 2vw;
-  height: 10vw;
+  height: 8vw;
   justify-content: center;
   margin: 1vw;
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
