@@ -8,6 +8,7 @@ var axios = require('axios');
 var bcrypt = require('bcrypt');
 var cors = require('cors');
 var saltRounds = 10;
+var stripe = require('stripe')('sk_test_35iQM46SZHAgTjwUEnV9RqgA')
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -73,6 +74,27 @@ app.post('/api/sendmessage', function(req, res){
 
 
 })
+
+//STRIPE
+app.post('/api/payment', function(req, res){
+
+  stripe.charges.create({
+      amount: req.body.amount,
+      currency: 'usd',
+      source: req.body.token,
+      // customer: req.body.customerId,
+      receipt_email: req.body.receipt_email
+  }, function(err, charge) {
+      if (err) {
+          console.log(err);
+          res.status(500).json('error')
+      } else {
+            res.status(200).json('success')
+
+      }
+  });
+})
+
 //PASSWORD
 app.post('/api/password/:id', function(req, res){
   db.get_user_by_id([req.params.id], function(err, user){

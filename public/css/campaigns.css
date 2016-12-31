@@ -1,4 +1,16 @@
+.searchInput {
+  position: absolute;
+  display: flex;
+  width: 29vw;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4vw;
 
+}
+.icon-search {
+  color: #03327F;
+    font-size: 2vw;
+}
 
 .campaignTitle {
   font-size: 2vw;
@@ -15,7 +27,7 @@
   color: #03327F;
   font-size: 2vw;
   position: absolute;
-  margin-top: -3vw;
+  margin-top: -3.5vw;
   margin-left: 79vw;
 }
 .icon-plus-circle:hover {

@@ -1,6 +1,6 @@
-angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js']).config(function($locationProvider, $stateProvider, $urlRouterProvider){
+angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js', 'angularPayments']).config(function($locationProvider, $stateProvider, $urlRouterProvider){
 
-
+window.Stripe.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d')
   $urlRouterProvider.otherwise('/')
   $stateProvider
   .state('welcome', {
@@ -77,6 +77,11 @@ angular.module('spotme', ['ui.router', 'satellizer', 'googlechart', 'chart.js'])
     url: '/updateLinks/:address/:id',
     templateUrl: '../views/updateLinks.html',
     controller: 'updateLinksCtrl'
+  })
+  .state('dashboard.payment', {
+    url: '/payment',
+    templateUrl: '../views/payment.html',
+    controller: 'paymentCtrl'
   })
   // $locationProvider.html5Mode(true);
 

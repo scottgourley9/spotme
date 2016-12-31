@@ -1,4 +1,10 @@
 <h1 class="dashTitle">Customers</h1>
+<div class="searchInput">
+  <input type="text" name="" ng-model="names">
+  <div class="icon-search">
+
+  </div>
+</div>
 <div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
 <div class="addCampaignInputs"ng-if="addCustomerSection">
   <input style="width: 19vw"type="text" name="name" ng-model="user.first"placeholder="First Name">
@@ -13,9 +19,11 @@
   </div>
 
 </div>
+
+
 <div class="campaignTitle"><div>Name</div><div>Phone Number</div><div>Email</div></div>
 
-<ul class="campaignList" ng-repeat="customer in customers track by $index">
+<ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
   <li class="campaignItem hvr-sweep-to-right" style="height: 3vw;"ng-click="showUpdate(customer, $index)">
     <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.phonenumber}}</h2><h2>{{customer.email}}</h2>
   </li>

@@ -3,6 +3,22 @@
   width: 100%;
   justify-content: space-around;
 }
+.ng-invalid {
+    color: red;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  /* width: 50vw; */
+  align-items: center;
+  height: 37vw;
+  justify-content: space-around;
+}
+.paymentButtons {
+  width:20vw;
+  display: flex;
+  justify-content: space-around;
+}
 .changes ul {
   display: flex;
   flex-direction: column;
