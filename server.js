@@ -140,7 +140,7 @@ app.post('/auth/signup', function(req, res){
 
 
 
-  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, hash], function(err, user){
+  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, hash, req.body.employeeCode], function(err, user){
     if(err){
       res.json({message: 'already taken'})
     }
