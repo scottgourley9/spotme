@@ -1,4 +1,8 @@
 angular.module('spotme').controller('signupCtrl', function(messageService, $auth, $scope, $state, userService){
+$scope.theCode = false
+$scope.showCode = function(){
+  $scope.theCode = !$scope.theCode
+}
 $scope.submit = function(){
   if(!$scope.user){
     swal("No Input", "All fields are required", 'error')
