@@ -1,3 +1,6 @@
+<button style="position: absolute; margin: 6.3vw .3vw; font-size: 1vw;" class="selectAll" ng-click="selectAll()">
+  Select All
+</button>
 <div ng-if="popup"class="darkCover">
 
 </div>
@@ -45,7 +48,7 @@
 
 <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
 <div style="display: flex; justify-content: space-between; width: 81vw; align-items: center;">
-  <input id="{{customer.phonenumber}}"type="checkbox" style="width: 1vw;" ng-click="checkIt(customer, $index)" >
+  <input class="inputCheckBox"id="{{customer.phonenumber}}"type="checkbox" style="width: 1vw;" ng-click="checkIt(customer, $index)" >
   <li class="campaignItem hvr-sweep-to-right" style="height: 3vw; width: 78vw;"ng-click="showUpdate(customer, $index)">
     <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.phonenumber}}</h2><h2>{{customer.email}}</h2>
   </li>

@@ -1,4 +1,17 @@
 angular.module('spotme').controller('customersCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService){
+  $scope.selectAll = function(){
+    var checkboxes = document.getElementsByClassName("inputCheckBox");
+    for(var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = !checkboxes[i].checked;
+  }
+  if(checkboxes[0].checked){
+    $scope.massTextArray = $scope.customers
+  }
+  else {
+    $scope.massTextArray = []
+  }
+
+  }
 
   locationsService.getLocations(userService.user.id).then(function(res){
     $scope.locations = res.data
