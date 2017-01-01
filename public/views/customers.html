@@ -1,3 +1,21 @@
+<div ng-if="popup"class="darkCover">
+
+</div>
+<div ng-if="popup"class="popup">
+  <h1 class="dashTitle" >Select Location & Link</h1>
+  <div class="icon-times-circle theX" ng-click="theX()">
+
+  </div>
+  <select style="font-size: 1.5vw;"ng-model="locationId" ng-change="getLinks(locationId)">
+    <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
+    </select>
+    <ul ng-if="linkTypesShowing"class="linkTypes">
+      <!-- ng-class="link.name.toLowerCase() === 'google'? 'googleCss' : ( link.name.toLowerCase() === 'facebook' ? 'facebookCss' : 'yelpCss')" -->
+      <li ng-repeat="link in links track by $index" class="hvr-grow" ng-class="{googleCss: $index == theSelected}"ng-click="chooseLinkType(link, $index)">{{link.name}}</li>
+    </ul>
+    <button type="button" name="button" ng-click="submitMassLink()">Send Mass Review Links</button>
+
+</div>
 <h1 class="dashTitle">Customers</h1>
 <div class="searchInput">
   <input type="text" name="" ng-model="names">
@@ -21,12 +39,17 @@
 </div>
 
 
-<div class="campaignTitle"><div>Name</div><div>Phone Number</div><div>Email</div></div>
+<div class="campaignTitle" style="padding-left: 3vw;"><div>Name</div><div>Phone Number</div><div>Email</div></div>
+<button style="position: absolute; margin-top: -9vw; margin-left: 57vw;"type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Mass Links</button>
 
 <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
-  <li class="campaignItem hvr-sweep-to-right" style="height: 3vw;"ng-click="showUpdate(customer, $index)">
+<div style="display: flex; justify-content: space-between; width: 81vw; align-items: center;">
+  <input id="{{customer.phonenumber}}"type="checkbox" style="width: 1vw;" ng-click="checkIt(customer, $index)" >
+  <li class="campaignItem hvr-sweep-to-right" style="height: 3vw; width: 78vw;"ng-click="showUpdate(customer, $index)">
     <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.phonenumber}}</h2><h2>{{customer.email}}</h2>
   </li>
+</div>
+
   <div ng-if="$index === selected">
     <div class="theUpdateInputs"ng-hide="updateInputs">
     <input style="width: 19vw"type="text" name="name" ng-model="first">

@@ -1,8 +1,84 @@
-angular.module('spotme').controller('customersCtrl', function($scope, $state, messageService, userService){
+angular.module('spotme').controller('customersCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService){
 
+  locationsService.getLocations(userService.user.id).then(function(res){
+    $scope.locations = res.data
+  })
+  $scope.getLinks = function(id){
+
+    linksService.getLinks(id).then(function(res){
+      $scope.links = res.data
+      $scope.linkTypesShowing = true;
+
+    })
+  }
+  $scope.theSelected = -1;
+    $scope.chooseLinkType = function(link, i){
+      $scope.theLink = link
+      $scope.theSelected = i
+
+
+    }
+    $scope.theX = function(){
+      $scope.popup = !$scope.popup
+    }
+  $scope.popup = false
   $scope.addCustomerSection = false
   $scope.updateInputs = true
   $scope.fakeButton = false
+
+  $scope.sendMassLinks = function(){
+    if(!$scope.massTextArray.length){
+      swal("Error", "Must check at least one checkbox", 'error')
+      return;
+    }
+    $scope.popup = !$scope.popup
+
+  }
+  $scope.massTextArray = []
+  $scope.checkIt = function(customer){
+    if(document.getElementById(customer.phonenumber).checked){
+      $scope.massTextArray.push(customer)
+    }
+    else {
+      for(var i = 0; i < $scope.massTextArray.length; i++){
+        if($scope.massTextArray[i].phonenumber === customer.phonenumber){
+          $scope.massTextArray.splice(i, 1)
+        }
+      }
+
+    }
+// console.log($scope.massTextArray);
+  }
+
+  $scope.submitMassLink = function(){
+    $scope.massTextArray.forEach(function(user){
+    user.userid = userService.user.id
+    user.time = new Date()
+    user.phone = user.phonenumber
+    campaignsService.getActiveCampaign().then(function(res){
+      userService.getCustomer(userService.user.id, user.phone).then(function(custResp){
+        console.log(res.data[0]);
+        if(!res.data[0]){
+          swal("Error", "No campaign message selected!", "error")
+          return
+        }
+      user.message = res.data[0].message
+      user.image = res.data[0].image
+      messageService.addMessage({senttime: user.time, message: user.message, linkid: $scope.theLink.id, userid: userService.user.id, customerid: custResp.data[0].id, linktype: $scope.theLink.name}).then(function(messageRes){
+
+          user.link = 'https://www.yes-or-no.info/?one=' + userService.user.id + '&one=' + $scope.theLink.id + '&one='+ custResp.data[0].id + '&one=' + messageRes.data.id
+
+        messageService.sendMessage(user).then(function(resp){
+          if(resp.status === 200){
+            swal("Sent!", "Message sent successfully", "success")
+          }
+        })
+      })
+
+    })
+    })
+    })
+  }
 
   $scope.cancel = function(){
     $scope.selected = -1
