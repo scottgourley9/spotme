@@ -11,7 +11,38 @@
   color: #03327F;
     font-size: 2vw;
 }
-
+.darkCover {
+  height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: .3;
+    position: absolute;
+    z-index: 9;
+    margin-left: -18vw;
+    margin-top: -5vw;
+}
+.popup {
+  width: 50vw;
+  height: 35vw;
+  position: absolute;
+  background-color: white;
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vw;
+  margin-left: 7vw;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+}
+.theX {
+  position: absolute;
+    margin: 1vw 23vw;
+}
+.icon-times-circle{
+  font-size: 2vw;
+}
 .campaignTitle {
   font-size: 2vw;
   display: flex;
