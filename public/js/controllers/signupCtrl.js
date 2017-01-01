@@ -8,7 +8,7 @@ $scope.submit = function(){
     swal("No Input", "All fields are required", 'error')
     return
   }
-    if(Object.keys($scope.user).length !== 6){
+    if(Object.keys($scope.user).length < 6){
       swal("Missing Field", "All fields are required", 'error')
       return
     }
