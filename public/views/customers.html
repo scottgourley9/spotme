@@ -23,6 +23,8 @@
 
   </div>
 </div>
+<button style="position: absolute; margin-top: -5vw; margin-left: 57vw;"type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Mass Links</button>
+
 <div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
 <div class="addCampaignInputs"ng-if="addCustomerSection">
   <input style="width: 19vw"type="text" name="name" ng-model="user.first"placeholder="First Name">
@@ -40,7 +42,6 @@
 
 
 <div class="campaignTitle" style="padding-left: 3vw;"><div>Name</div><div>Phone Number</div><div>Email</div></div>
-<button style="position: absolute; margin-top: -9vw; margin-left: 57vw;"type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Mass Links</button>
 
 <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
 <div style="display: flex; justify-content: space-between; width: 81vw; align-items: center;">
