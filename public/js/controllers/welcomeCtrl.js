@@ -9,6 +9,9 @@ if($(this).scrollTop() <= 75){
 }
 })
 
+$scope.about = function(){
+  window.scrollTo( 0, 985 );
+}
 
 $scope.hamMenuShowing = false;
 $scope.slideMenu = []

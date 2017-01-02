@@ -83,6 +83,12 @@ window.Stripe.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d')
     templateUrl: '../views/payment.html',
     controller: 'paymentCtrl'
   })
+  .state('contactUs', {
+    url: '/contactUs',
+    templateUrl: '../views/contactUs.html',
+    controller: 'contactUsCtrl'
+  })
+
   // $locationProvider.html5Mode(true);
 
 })
