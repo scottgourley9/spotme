@@ -1,5 +1,5 @@
 angular.module('spotme').controller('welcomeCtrl', function($document, $scope, $state, messageService){
-
+window.scrollTo( 0, 0 );
 $document.on('scroll', function(){
   if($(this).scrollTop() > 75){
     $('nav').css({background: '#110B47', opacity: .8}, 'slow');

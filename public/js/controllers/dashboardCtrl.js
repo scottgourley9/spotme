@@ -1,6 +1,6 @@
 angular.module('spotme').controller('dashboardCtrl', function($auth, $scope, $state, messageService, userService, campaignsService){
 
-$scope.menuHidden = true;
+$scope.menuHidden = false;
 $scope.dashMenu = [];
 
   var payload = () => {

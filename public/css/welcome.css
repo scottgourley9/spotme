@@ -11,6 +11,13 @@
     transition: background-color 0.4s ease;
 }*/
 
+.mobileImg {
+  display: none;
+}
+.theLogo {
+  display: none;
+}
+
 .topP {
   width: 50%;
   font-size: 1.5vw;
@@ -23,6 +30,9 @@
 
   width: 100%;
   color: white;
+}
+#hamMenu {
+  display: none;
 }
 
 .ham {

@@ -1,11 +1,9 @@
-<button style="position: absolute; margin: 6.3vw .3vw; font-size: 1vw;" class="selectAll" ng-click="selectAll()">
-  Select All
-</button>
+
 <div ng-if="popup"class="darkCover">
 
 </div>
 <div ng-if="popup"class="popup">
-  <h1 class="dashTitle" >Select Location & Link</h1>
+  <h1 class="dashTitle " >Select Location & Link</h1>
   <div class="icon-times-circle theX" ng-click="theX()">
 
   </div>
@@ -19,9 +17,9 @@
     <button type="button" name="button" ng-click="submitMassLink()">Send Mass Review Links</button>
 
 </div>
-<h1 class="dashTitle">Customers</h1>
+<h1 class="dashTitle mobileDashTitle">Customers</h1>
 <div class="searchInput">
-  <input type="text" name="" ng-model="names">
+  <input type="text" name="" ng-model="names" placeholder="Search">
   <div class="icon-search">
 
   </div>
@@ -30,10 +28,10 @@
 
 <div class="icon-plus-circle hvr-grow" ng-click='showAddSection()'></div>
 <div class="addCampaignInputs"ng-if="addCustomerSection">
-  <input style="width: 19vw"type="text" name="name" ng-model="user.first"placeholder="First Name">
-  <input style="width: 19vw"type="text" name="name" ng-model="user.last"placeholder="Last Name">
-  <input style="width: 19vw"type="tel" name="name" ng-model="user.phone"placeholder="Phone Number">
-  <input style="width: 19vw"type="text" name="name" ng-model="user.email"placeholder="Email">
+  <input type="text" name="name" ng-model="user.first"placeholder="First Name">
+  <input type="text" name="name" ng-model="user.last"placeholder="Last Name">
+  <input type="tel" name="name" ng-model="user.phone"placeholder="Phone Number">
+  <input type="text" name="name" ng-model="user.email"placeholder="Email">
   <br>
   <div class="">
     <button type="button" name="button" ng-click="submit(user)">Submit</button>
@@ -44,7 +42,9 @@
 </div>
 
 
-<div class="campaignTitle" style="padding-left: 3vw;"><div>Name</div><div>Phone Number</div><div>Email</div></div>
+<div class="campaignTitle" style="padding-left: 3vw;"><button style="width: 10vw;font-size: 1vw;margin-left:-2.5vw;" class="selectAll" ng-click="selectAll()">
+  Select All
+</button><div class="moveLeft">Name</div><div>Phone Number</div><div>Email</div></div>
 
 <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
 <div style="display: flex; justify-content: space-between; width: 81vw; align-items: center;">
