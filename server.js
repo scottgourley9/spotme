@@ -3,12 +3,13 @@ var jwt = require('jwt-simple')
 var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var connectionString = "postgres://postgres:pass1234@localhost/spotme";
+var config = require('./config.js')
+var connectionString = "postgres://" + config.connectString;
 var axios = require('axios');
 var bcrypt = require('bcrypt');
 var cors = require('cors');
 var saltRounds = 10;
-var stripe = require('stripe')('sk_test_35iQM46SZHAgTjwUEnV9RqgA')
+var stripe = require('stripe')(config.stripe)
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -31,18 +32,18 @@ var createJWT = (user) => {
     iat: moment().unix(),
     exp: moment().add(14, 'days').unix()
   }
-  return jwt.encode(payload, 'mytestsecret')
+  return jwt.encode(payload, config.jwtSecret)
 }
 
 //require the Twilio module and create a REST client
-var client = require('twilio')('AC0050222b2c12244e5e56b37c7cd82824', '0876ad8ae136e8ff0b78261cf59964ee');
+var client = require('twilio')(config.twilio1, config.twilio2);
 
 //Send an SMS text message
 app.post('/api/sendmessage', function(req, res){
   if(req.body.image){
     client.sendMessage({
         to:req.body.phone, // Any number Twilio can deliver to
-        from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+        from: config.fromNumber, // A number you bought from Twilio and can use for outbound communication
         body: req.body.message + " " + req.body.link,// body of the SMS message
         mediaUrl: req.body.image
     }, function(err, responseData) { //this function is executed when a response is received from Twilio
@@ -58,7 +59,7 @@ app.post('/api/sendmessage', function(req, res){
   else {
     client.sendMessage({
         to:req.body.phone, // Any number Twilio can deliver to
-        from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+        from: config.fromNumber, // A number you bought from Twilio and can use for outbound communication
         body: req.body.message + " " + req.body.link // body of the SMS message
         // mediaUrl: req.body.image
     }, function(err, responseData) { //this function is executed when a response is received from Twilio
@@ -283,7 +284,7 @@ app.get('/api/locations/:userId', function(req, res){
 })
 app.post('/api/locations', function(req, res){
   var address = req.body.address.split(' ').join('+')
-  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + config.googleApiKey).then(function(theRes){
   db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
       res.status(500).json(err)
@@ -307,7 +308,7 @@ app.delete('/api/locations/:locationId', function(req, res){
 })
 app.put('/api/locations/:locationId', function(req, res){
   var address = req.body.address.split(' ').join('+')
-  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=AIzaSyDushQKP7P6oD1fLvSYNRHo4WnFN5SQIew').then(function(theRes){
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + config.googleApiKey).then(function(theRes){
 
   db.update_location([req.params.locationId, req.body.address, req.body.phone, req.body.link, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
@@ -482,7 +483,7 @@ app.put('/api/positivemessage/:id/:customerId/:userId', function(req, res){
 
       client.sendMessage({
           to: user[0].phonenumber, // Any number Twilio can deliver to
-          from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+          from: config.fromNumber, // A number you bought from Twilio and can use for outbound communication
           body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave positive feedback!'
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
         if(err){
@@ -524,7 +525,7 @@ app.post('/api/complaint/:id/:complaint/:customerId/:userId', function(req, res)
 
       client.sendMessage({
           to: user[0].phonenumber, // Any number Twilio can deliver to
-          from: '+13858812619', // A number you bought from Twilio and can use for outbound communication
+          from: config.fromNumber, // A number you bought from Twilio and can use for outbound communication
           body: 'Customer ' + customer[0].firstname + ' ' + customer[0].lastname + ' gave negative feedback... Message: "' + req.params.complaint + '"' // body of the SMS message
       }, function(err, responseData) { //this function is executed when a response is received from Twilio
         if(err){
@@ -555,7 +556,7 @@ function ensureAuthenticated (req, res, next) {
 
   var payload = null
   try {
-    payload = jwt.decode(token, 'mytestsecret')
+    payload = jwt.decode(token, config.jwtSecret)
   } catch (err) {
     return res.status(401).send({
       message: err.message
@@ -600,7 +601,7 @@ function adminEnsureAuthenticated (req, res, next) {
 
 
 
-var port = 3000
-app.listen(3000, function(){
-  console.log('listening on port ' + port);
+
+app.listen(config.port, function(){
+  console.log('listening on port ' + config.port);
 })
