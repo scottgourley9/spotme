@@ -32,6 +32,16 @@
   </head>
   <body style="font-family: 'Nunito', cursive; font-weight: 300;" ng-controller="frontPageCtrl">
     <div id="map"></div>
+
+      <ul id="hamMenu" ng-class="slideMenu"ng-if="hamMenuShowing" ng-click="hamClick()">
+        <li ng-click="about()">About</li>
+        <li ui-sref="contactUs">Contact Us</li>
+        <li ui-sref="signup">Sign Up</li>
+        <li ui-sref="login">Login</li>
+      </ul>
+
+
+    <img class="theLogo"src="../images/logo.png" alt=""><div ng-click="hamClick()"class="ham icon-bars"></div>
     <ui-view></ui-view>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>

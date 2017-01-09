@@ -1,3 +1,347 @@
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 750px) {
+  .red {
+    display: none;
+  }
+
+  .ham {
+    display: inherit;
+    position: fixed;
+    font-size: 40px;
+    color: white;
+    width: 100%;
+    background-color: #110B47;
+    height: 7vh;
+    z-index: 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*opacity: .9;*/
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 0vw !important;
+  }
+  .theLogo {
+      width: 23vw;
+      position: fixed;
+      z-index: 15;
+      margin: -2vw 2vw;
+      display: inherit;
+  }
+
+  .icon-bars {
+      padding-left: 87vw;
+      padding-top: 1vw !important;
+  }
+  #hamMenu {
+    display: inherit;
+    position: fixed;
+    color: white;
+    z-index: 10;
+    height: 101vh;
+    width: 100%;
+    background-color: #110B47;
+    /*opacity: .9;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+
+  }
+  #hamMenu li {
+    margin-top: 2vw;
+  }
+  .topCover {
+    display: none;
+  }
+  .cover {
+    height: 1290vw !important;
+  }
+  .pairing {
+    flex-direction: column;
+    align-items: center;
+  }
+  .indexImg {
+    display: none;
+  }
+  .mobileImg {
+    display: inherit;
+  }
+  .pairing img {
+    width: 76vw;
+    height: 60vw;
+    margin-top: 1vw;
+    box-shadow: 0px 0px 0px #888888;
+}
+  video {
+    display: none !important;
+  }
+  .welcomeSection {
+    color: #5b5b5b;
+    height: 104vw;
+  }
+  .signupSection h1{
+    font-size: 30px !important;
+  }
+  .signupSection p{
+    font-size: 20px !important;
+    text-align: center;
+  }
+  button {
+    font-size: 20px;
+  }
+  input {
+    width: 75vw;
+    font-size: 20px;
+  }
+
+  .secondDashMenu {
+    display: inherit !important;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20vw;
+    font-size: 30px;
+    background-color: #110B47;
+    padding-right: 20vw;
+    position: fixed;
+    z-index: 2;
+    margin-top: 5vw;
+    justify-content: center;
+    padding-bottom: 5vw;
+    color: white;
+  }
+  .secondDashMenu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-top: 2vw;
+
+  }
+
+  .dashboardMenu {
+    display: none !important;
+  }
+
+  #base {
+    display: none;
+  }
+  #doughnut {
+    display: none;
+  }
+  /*.icon-bars {
+    background: none;
+  }*/
+  .subSection {
+    width: 100vw;
+    margin-left: 0vw;
+    margin-top: 14vw;
+}
+.dashTitle {
+  font-size: 40px;
+}
+.stats {
+    /* border: 2px solid black; */
+    height: 60vw !important;
+    width: 75vw !important;
+    font-size: 6.5vw !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #110B47;
+    color: white;
+    border-radius: 15px;
+    /* padding: 10px; */
+}
+.icon-plus-circle {
+    color: #03327F;
+    font-size: 10vw;
+    position: absolute;
+    margin-top: -10.5vw;
+    margin-left: 86vw;
+}
+.campaignTitle {
+  width: 98vw;
+  height: 15vw;
+  font-size: 6vw;
+
+}
+.campaignItem {
+  width: 98vw !important;
+  height: 15vw;
+}
+.campaignList div {
+  width: 98vw !important;
+}
+
+.campaignTitle > * {
+    width: 32.66vw;
+    text-align: center;
+    /* padding-left: 1vw; */
+}
+.campaignItem img {
+    width: 13vw;
+}
+.addCampaignInputs {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+.campaignItem h2 {
+    font-size: 3vw;
+}
+.campaignItem p {
+    font-size: 2vw;
+}
+.mobileDashTitle {
+  margin-top: 20vw;
+}
+.selectMultiple {
+    margin-top: -22.5vw !important;
+    margin-left: 28vw !important;
+    font-size: 5vw;
+}
+.searchInput {
+  margin-top: -32vw;
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+}
+.icon-search {
+  display: none;
+}
+
+.entireSendLink {
+  height: 91vh;
+}
+select {
+  width: 76vw;
+  font-size: 20px !important;
+}
+.linkTypes li{
+  font-size: 20px !important;
+}
+.userInfoSection {
+    height: 62vh;
+    justify-content: center;
+    margin-top: 10vw !important;
+}
+.userInfoSection input {
+  font-size: 20px;
+}
+.eachBox {
+  height: 20vw;
+  width: 90vw;
+  font-size: 20px;
+}
+.lines {
+  flex-direction: column;
+}
+.pencil {
+    font-size: 10vw;
+    margin-left: 45vw;
+    position: absolute;
+    margin-top: -1vw;
+}
+.changes {
+  flex-direction: column;
+  font-size: 20px;
+}
+.changes ul {
+align-items: center;
+margin-top: 10vw;
+}
+.changes ul h2 {
+  font-size: 30px;
+}
+.changes ul li{
+  font-size: 20px;
+  width: 65vw;
+}
+.darkCover {
+    height: 94.5vh;
+    width: 100vw;
+    background-color: black;
+    opacity: .3;
+    position: absolute;
+    z-index: 9;
+    margin-left: -1vw;
+    margin-top: -5vw;
+}
+.popup {
+    width: 84vw;
+    height: 84vw;
+    position: absolute;
+    background-color: white;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 3vw;
+    margin-left: 7vw;
+    /* box-shadow: 1vw 1vw 1.5vw #000; */
+}
+.theX {
+    position: absolute;
+    margin: -18vw 33vw;
+    font-size: 10vw !important;
+    color: #110B47;
+}
+.title {
+    z-index: 3;
+    text-align: center;
+    margin-top: 17vw;
+    font-family: 'Nunito', cursive;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    height: 70vw;
+    justify-content: center;
+    align-items: center;
+}
+.welcomeh1 {
+  font-size: 6vw !important;
+    text-align: center;
+}
+.topP {
+    width: 80%;
+    font-size: 4.5vw;
+    line-height: 150%;
+    z-index: 2;
+    margin-top: 1vw;
+}
+.statBoxes {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 85%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.statBox {
+    border: 1px solid #00a6e5;
+    height: 50vw;
+    width: 50vw;
+    font-size: 4vw;
+    display: flex;
+    text-align: center;
+    line-height: 150%;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: 2vw;
+    padding: 2vw;
+    border-radius: 50%;
+    background-color: #110B47;
+    color: #fff;
+    justify-content: center;
+}
 
 }

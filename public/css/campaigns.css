@@ -73,6 +73,15 @@
 }
 .addCampaignInputs {
   text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.addCampaignInputs input{
+margin-bottom: .5vw;
+}
+.moveLeft {
+  margin-left: -7.5vw;
 }
 .campaignItem {
   /*box-shadow: 1vw 1vw 1.5vw #000;*/
