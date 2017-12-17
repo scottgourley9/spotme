@@ -3,8 +3,8 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
   $scope.addLocationSection = false
   $scope.updateInputs = true
   $scope.fakeButton = false
-
-
+  $scope.overlayShowing = false
+  $scope.isAnEdit = false
 
 
   $scope.fakeUpdate = function(){
@@ -19,15 +19,31 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
     $scope.fakeButton = false
   }
 
-  $scope.showAddSection = function(){
-    $scope.addLocationSection = true
+  $scope.showAddSection = function(name, address, phonenumber, id){
+      $scope.location = {
+          name: name,
+          address: address,
+          phonenumber: phonenumber,
+          id: id
+      }
+      if (id) {
+        $scope.isAnEdit = true;
+      }
+      $scope.overlayShowing = true
   }
   $scope.hideAddSection = function(){
-    $scope.addLocationSection = false
+      $scope.overlayShowing = false
+      $scope.isAnEdit = false;
   }
 
   $scope.submit = function(location){
-    if(messageService.phonenumber(location.phone)){
+      if ($scope.isAnEdit) {
+          $scope.updateLocation(location)
+          $scope.isAnEdit = false;
+      } else {
+          $scope.isAnEdit = false;
+
+    if(messageService.phonenumber(location.phonenumber)){
 
     $scope.updateInputs = true
     $scope.fakeButton = false
@@ -46,10 +62,12 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
           // locationsService.getLocations(userService.user.id).then(function(res){
           //   $scope.locations = res.data.reverse()
           // })
+          $scope.overlayShowing = false
           getLocations()
         }
     })
   }
+}
   }
 
   var getLocations = function(){
@@ -64,7 +82,7 @@ angular.module('spotme').controller('locationsCtrl', function($scope, $state, li
   }
   getLocations()
 
-  $scope.deleteLocation = function(customer){
+  $scope.deleteLocation = function(location){
     swal({
   title: "Are you sure?",
   text: "You will not be able to recover this information!",
@@ -80,7 +98,7 @@ function(){
     $scope.fakeButton = false
     $scope.selected = -1;
     $scope.flag = false;
-    locationsService.deleteLocation(customer.id).then(function(res){
+    locationsService.deleteLocation(location.id).then(function(res){
       if(res.status === 200){
         getLocations()
       }
@@ -95,7 +113,7 @@ function(){
       $scope.selected = i;
       $scope.name = location.name;
       $scope.address = location.address;
-      $scope.phone = location.phonenumber;
+      $scope.phonenumber = location.phonenumber;
       $scope.link = location.link;
       $scope.flag = true;
     }
@@ -109,13 +127,14 @@ function(){
   $scope.selected = -1
 
   $scope.updateLocation = function(location){
-    if(messageService.phonenumber(location.phone)){
+    if(messageService.phonenumber(location.phonenumber)){
       $scope.updateInputs = true
       $scope.fakeButton = false
       $scope.selected = -1
       $scope.flag = false
       locationsService.updateLocation(location).then(function(res){
         if(res.status === 200){
+          $scope.overlayShowing = false
           getLocations()
         }
       })

@@ -34,9 +34,10 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
     $scope.yelpPercent = Math.floor((($scope.yelpLinks / $scope.totalLinksSent) * 100).toFixed(2))
 
 
-    Chart.defaults.global.defaultFontSize = 40;
-    // Chart.defaults.global.defaultFontFamily = 'Handlee';
-    Chart.defaults.global.defaultFontColor = 'white';
+    Chart.defaults.global.defaultFontSize = 10;
+    Chart.defaults.global.defaultFontFamily = 'Roboto';
+    Chart.defaults.global.defaultFontColor = 'black';
+    Chart.defaults.global.defaultFontWeight = 'normal';
 
 
 
@@ -70,21 +71,21 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
               $scope.doughnutData = [$scope.googlePercent, $scope.facebookPercent, $scope.yelpPercent]
               $scope.data = [google.length, facebook.length, yelp.length];
         $scope.options = {
-          responsive: true,
+          responsive: false,
           responsiveAnimationDuration: 3000,
           maintainAspectRatio: true,
           title: {
-                display: true,
+                display: false,
                 text: 'Links Sent',
-                fontSize: 50,
+                fontSize: 20,
                 position: 'top'
             },
             labels: {
-              fontSize: 30
+              fontSize: 10
             },
               tooltips: {
-                titleFontSize: 30,
-                bodyFontSize: 30
+                titlefontSize: 10,
+                bodyfontSize: 10
               },
               scales: {
                 xAxes: [{
@@ -125,21 +126,21 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
 
 
 $scope.clickedOptions = {
-  responsive: true,
+  responsive: false,
   responsiveAnimationDuration: 3000,
   maintainAspectRatio: true,
   title: {
-        display: true,
+        display: false,
         text: 'Links Clicked',
-        fontSize: 50,
+        // fontSize: 40,
         position: 'top'
     },
     labels: {
-      fontSize: 30
+      fontSize: 10
     },
       tooltips: {
-        titleFontSize: 30,
-        bodyFontSize: 30
+        titlefontSize: 10,
+        bodyfontSize: 10
       },
       scales: {
         xAxes: [{
@@ -174,21 +175,21 @@ $scope.clickedOptions = {
           $scope.yelpPositive = yelpPositive.length;
           $scope.positiveData = [googlePositive.length, facebookPositive.length, yelpPositive.length];
     $scope.positiveOptions = {
-      responsive: true,
+      responsive: false,
       responsiveAnimationDuration: 3000,
       maintainAspectRatio: true,
       title: {
-            display: true,
+            display: false,
             text: 'Positive Feedback',
-            fontSize: 50,
+            // fontSize: 50,
             position: 'top'
         },
         labels: {
-          fontSize: 30
+          fontSize: 10
         },
           tooltips: {
-            titleFontSize: 30,
-            bodyFontSize: 30
+            titlefontSize: 100,
+            bodyfontSize: 100
           },
           scales: {
             yAxes: [{
@@ -205,6 +206,24 @@ $scope.clickedOptions = {
                   }
                 }]
               }
+    }
+    $scope.pieOptions = {
+      responsive: false,
+      responsiveAnimationDuration: 3000,
+      maintainAspectRatio: true,
+      title: {
+            display: false,
+            text: 'Positive Feedback',
+            // fontSize: 50,
+            position: 'top'
+        },
+        labels: {
+          fontSize: 10
+        },
+          tooltips: {
+            titlefontSize: 10,
+            bodyfontSize: 10
+          }
     }
 
 
@@ -223,21 +242,21 @@ $scope.clickedOptions = {
               $scope.yelpNegative = yelpNegative.length
               $scope.negativeData = [googleNegative.length, facebookNegative.length, yelpNegative.length];
         $scope.negativeOptions = {
-          responsive: true,
+          responsive: false,
           responsiveAnimationDuration: 3000,
           maintainAspectRatio: true,
           title: {
-                display: true,
+                display: false,
                 text: 'Negative Feedback',
-                fontSize: 50,
+                // fontSize: 50,
                 position: 'top'
             },
             labels: {
-              fontSize: 30
+              fontSize: 10
             },
               tooltips: {
-                titleFontSize: 30,
-                bodyFontSize: 30
+                titlefontSize: 10,
+                bodyfontSize: 10
               },
               scales: {
                 yAxes: [{

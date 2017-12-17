@@ -4,27 +4,27 @@
 </div>
 <section class="mainSection">
   <ul ng-hide="menuHidden"class="dashboardMenu" ng-class="dashMenu">
-    <li class="hvr-underline-from-center "ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>Dashboard</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>Campaigns</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.locations"><div class="icon-map-marker"></div>Locations</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.customers"><div class="icon-users"></div>Customers</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.sendLink"><div class="icon-paper-plane-o"></div>Send Link</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>User Info</li>
-    <li class="hvr-underline-from-center "ui-sref="dashboard.settings"><div class="icon-tools"></div>Settings</li>
-    <li class="hvr-underline-from-center "ng-click='logout(); hamClick()'><div class="icon-logout"></div>Logout</li>
+    <li ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>DASHBOARD</li>
+    <li ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>CAMPAIGNS</li>
+    <li ui-sref="dashboard.locations"><div class="icon-map-marker"></div>LOCATIONS</li>
+    <li ui-sref="dashboard.customers"><div class="icon-users"></div>CUSTOMERS</li>
+    <li ui-sref="dashboard.sendLink"><div class="icon-paper-plane-o"></div>SEND LINK</li>
+    <li ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>USER INFO</li>
+    <li ui-sref="dashboard.settings"><div class="icon-tools"></div>SETTINGS</li>
+    <li ng-click='logout(); hamClick()'><div class="icon-logout"></div>LOGOUT</li>
   </ul>
   <ul ng-hide="menuHidden"class="secondDashMenu" ng-class="dashMenu">
-    <li ng-click="hamClick()"ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>Dashboard</li>
-    <li ng-click="hamClick()"ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>Campaigns</li>
-    <li ng-click="hamClick()"ui-sref="dashboard.locations"><div class="icon-map-marker"></div>Locations</li>
-    <li ng-click="hamClick()"ui-sref="dashboard.customers"><div class="icon-users"></div>Customers</li>
-    <li ng-click="hamClick()"ui-sref="dashboard.sendLink"><div class="icon-paper-plane-o"></div>Send Link</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.theDashboard"><div class="icon-tachometer"></div>DASHBOARD</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.campaigns"><div class="icon-line-chart"></div>CAMPAIGNS</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.locations"><div class="icon-map-marker"></div>LOCATIONS</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.customers"><div class="icon-users"></div>CUSTOMERS</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.sendLink"><div class="icon-paper-plane-o"></div>SEND LINK</li>
     <!-- <li class="hvr-underline-from-center "ui-sref="dashboard.reviews"><div class="icon-star-o"></div>Reviews</li> -->
-    <li ng-click="hamClick()"ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>User Info</li>
-    <li ng-click="hamClick()"ui-sref="dashboard.settings"><div class="icon-tools"></div>Settings</li>
-    <li ng-click='logout(); hamClick()'><div class="icon-logout"></div>Logout</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.userInfo"><div class="icon-user-outline"></div>USER INFO</li>
+    <li ng-click="hamClick()"ui-sref="dashboard.settings"><div class="icon-tools"></div>SETTINGS</li>
+    <li ng-click='logout(); hamClick()'><div class="icon-logout"></div>LOGOUT</li>
   </ul>
-  <ui-view class="subSection " style="padding: 1vw 1vw 1vw 1vw;"></ui-view>
+  <ui-view class="subSection "></ui-view>
 </section>
 
 <!-- Welcome to dashboard

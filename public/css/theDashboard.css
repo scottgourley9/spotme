@@ -1,16 +1,18 @@
 
 #base {
-  height: 25vw !important;
-  width: 45vw !important;
-  background-color: #110B47;
-  border: 2px solid #110B47;
-  border-radius: 15px;
-  padding: 1.5vw;
+  height: 225px !important;
+  width: 500px !important;
+  background-color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 0 13px 0 rgba(147, 147, 147, 0.3);
+  margin-right: 20px;
+  border-radius: 3px;
 }
 
 #doughnut {
-  height: 25vw !important;
-  width: 25vw !important;
+  height: 250px !important;
+  width: 250px !important;
+  margin-right: 20px;
   /*margin-left: 100px;*/
   /*margin-right: 100px;*/
   /*background-color: white;
@@ -18,37 +20,32 @@
 
 }
 .stats {
-  /*border: 2px solid black;*/
-  height: 25vw;
-  width: 30vw;
-  font-size: 2.5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #110B47;
-  color: white;
-  border-radius: 15px;
-  /*padding: 10px;*/
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    border-radius: 3px;
+    align-items: flex-start;
+    margin-top: 30px;
+    line-height: 1.5;
 }
 .stats img {
-  width: 10vw;
+  width: 75px;
 }
 .stats p {
-  height: 15vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 3vw 0px 3vw;
-
 }
 
 .graphSection {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 5vw;
+  justify-content: flex-start;
+  margin-bottom: 20px;
   /*height: 75vh;*/
   align-items: center;
 }
+
 .doughnutSection {
   /*justify-content: center;*/
 }
