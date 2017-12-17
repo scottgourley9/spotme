@@ -1,147 +1,40 @@
 <h1 class="dashTitle">Dashboard</h1>
 
+<section class="campaignSection">
 
-<div class="graphSection">
-    <div class="chart">
+    <div id="base">
         <h2>Links Sent</h2>
-        <canvas id="base" class="chart chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-options="options" chart-colors='colors'>
+        <canvas class="chart chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-options="options" chart-colors='colors'>
     </canvas>
-    </div>
-    <div>
-        <div class=" stats">
-            <p>Google {{googleLinks}}</p>
-            <p>Facebook {{facebookLinks}}</p>
-            <p>Yelp {{yelpLinks}}</p>
-        </div>
-    </div>
-
 </div>
 
-<div class="graphSection">
-    <div class="chart">
-        <h2>Links Clicked</h2>
-        <canvas id="base" class="chart chart-horizontal-bar" chart-data="clickedData" chart-labels="labels" chart-options="clickedOptions" chart-colors='colors'>
-      </canvas>
-    </div>
-
-    <div>
-        <div class=" stats">
-
-            <p>Google {{googleClicked}}</p>
-            <p>Facebook {{facebookClicked}}</p>
-            <p>Yelp {{yelpClicked}}</p>
-
+        <div id="base">
+            <h2>Links Clicked</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="clickedData" chart-labels="labels" chart-options="clickedOptions" chart-colors='colors'>
+          </canvas>
         </div>
-    </div>
-</div>
 
-<div class="graphSection">
-    <div class="chart">
-        <h2>Positive Feedback</h2>
-        <canvas id="base" class="chart chart-bar" chart-data="positiveData" chart-labels="labels" chart-options="positiveOptions" chart-colors='colors'>
-      </canvas>
-    </div>
-    <div>
-        <div class=" stats">
-            <p>Google {{googlePositive}}</p>
-            <p>Facebook {{facebookPositive}}</p>
-            <p>Yelp {{yelpPositive}}</p>
 
+        <div id="base">
+            <h2>Positive Feedback</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="positiveData" chart-labels="labels" chart-options="positiveOptions" chart-colors='colors'>
+          </canvas>
         </div>
-    </div>
 
-</div>
+        <div id="base">
+            <h2>Negative Feedback</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="negativeData" chart-labels="labels" chart-options="negativeOptions" chart-colors='colors'>
+        </canvas>
+        </div>
 
-<div class="graphSection">
-    <div class="chart">
-        <h2>Negative Feedback</h2>
-        <canvas id="base" class="chart chart-bar" chart-data="negativeData" chart-labels="labels" chart-options="negativeOptions" chart-colors='colors'>
+<div id="doughnut">
+    <h2>Percent of Links Sent</h2>
+    <canvas class="chart chart-pie" chart-data="doughnutData" chart-labels="labels" chart-colors='colors' chart-options="pieOptions">
     </canvas>
-    </div>
-    <div>
-
-        <div class=" stats">
-            <p>Google {{googleNegative}}</p>
-            <p>Facebook {{facebookNegative}}</p>
-            <p>Yelp {{yelpNegative}}</p>
-
-        </div>
-    </div>
 </div>
-
-<div class="graphSection doughnutSection">
-    <div>
-        <h2>Percent of Links Sent</h2>
-        <canvas id="doughnut" class="chart chart-pie" chart-data="doughnutData" chart-labels="labels" chart-colors='colors' chart-options="pieOptions">
-      </canvas>
-    </div>
-<div>
-      <div class="stats">
-          <p>Google {{googlePercent}}%</p>
-          <p>Facebook {{facebookPercent}}%</p>
-          <p>Yelp {{yelpPercent}}%</p>
-      </div>
-</div>
-
-</div>
-<div class="graphSection doughnutSection">
-    <div>
-        <h2>Percent of Links Clicked </h2>
-        <canvas id="doughnut" class="chart chart-pie" chart-data="clickedData" chart-labels="labels" chart-colors='colors' chart-options="pieOptions">
+<div id="doughnut">
+    <h2>Percent of Links Clicked By Type</h2>
+    <canvas class="chart chart-pie" chart-data="doughnutData2" chart-labels="labels" chart-colors='colors' chart-options="pieOptions2">
     </canvas>
-    </div>
-    <div>
-        <div class=" stats">
-            <p>Google {{googlePercentClicked}}%</p>
-            <p>Facebook {{facebookPercentClicked}}%</p>
-            <p>Yelp {{yelpPercentClicked}}%</p>
-
-        </div>
-    </div>
 </div>
-
-
-<!-- <div class="graphSection doughnutSection">
-<div class="chart stats">
-</div>
-<canvas id="doughnut" class="chart chart-doughnut"
-  chart-data="positiveData" chart-labels="labels" chart-colors='colors'>
-</canvas>
-</div> -->
-
-
-<!-- <div class="graphSection doughnutSection">
-<div class="chart stats">
-</div>
-<canvas id="doughnut" class="chart chart-doughnut"
-  chart-data="positiveData" chart-labels="labels" chart-colors='colors'>
-</canvas>
-</div> -->
-
-
-<!-- <div class="graphSection">
-  <div google-chart chart="myChartLinksSent" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
-  <div google-chart chart="myChartLinksClicked" style="height:42vh; width:40vw;"></div>
-
-</div>
-<div class="graphSection">
-  <div google-chart chart="myChartPositiveClicks" style="height:42vh; width:40vw; margin-bottom: .5vw"></div>
-  <div google-chart chart="myChartNegativeClicks" style="height:42vh; width:40vw;"></div>
-
-</div>
-<div class="links">
-  <h2>Links</h2>
-  <div class="linkInfo">
-
-  </div>
-</div>
-<section class="bottomSection">
-  <div class="pieCharts">
-    <div google-chart chart="pieChartObject" style="height:42vh; width:40vw;"></div>
-    <div google-chart chart="pieChartObject" style="height:42vh; width:40vw;"></div>
-    <div google-chart chart="pieChartObject" style="height:42vh; width:40vw;"></div>
-  </div>
-  <div class="dashReviews">
-    <h2>Recent Reviews</h2>
-  </div>
-</section> -->
+</section>

@@ -415,7 +415,7 @@ app.get('/api/link/:id', function(req, res){
 })
 
 app.post('/api/links', function(req, res){
-  db.add_link([req.body.name, req.body.link, req.body.locationId], function(err, success){
+  db.add_link([req.body.name, req.body.reviewlink, req.body.locationId], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -426,7 +426,7 @@ app.post('/api/links', function(req, res){
 })
 
 app.put('/api/links', function(req, res){
-  db.update_link([req.body.id, req.body.name, req.body.link], function(err, success){
+  db.update_link([req.body.id, req.body.name, req.body.reviewlink], function(err, success){
     if(err){
       res.status(500).json(err)
     }

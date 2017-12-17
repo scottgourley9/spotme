@@ -41,7 +41,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
 
   $scope.sendMassLinks = function(){
     if(!$scope.massTextArray.length){
-      swal("Error", "Must check at least one checkbox", 'error')
+      swal("Error", "Must select at least one customer", 'error')
       return;
     }
     $scope.popup = !$scope.popup

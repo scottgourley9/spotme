@@ -55,7 +55,7 @@
 
   <input type="text" name="name" ng-model="location.phonenumber">
   <br>
-<div class="">
+<div class="addCardButtons">
   <button class="createCampButton"type="button" name="button" ng-click="submit(location)">SAVE NEW LOCATION</button>
 </div>
 
@@ -84,7 +84,7 @@
 
 </ul> -->
 <div ng-repeat="location in locations track by $index">
-    <div class="campaignCard" ng-click="showUpdate(location, $index)">
+    <div class="campaignCard">
         <div>
             <button class="reviewLinksButton" type="button" name="button" ui-sref="dashboard.updateLinks({address: location.address, id: location.id})">Add/Edit Review Links for this Address</button>
             <h2 class="campaignCardTitleSection"><span class="campaignCardTitle">{{location.name}}</span>

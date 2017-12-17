@@ -4,6 +4,8 @@ $scope.forAddress = $state.params.address
 $scope.addLocationSection = false
 $scope.updateInputs = true
 $scope.fakeButton = false
+$scope.overlayShowing = false
+$scope.isAnEdit = false
 
 $scope.fakeUpdate = function(){
   $scope.updateInputs = false
@@ -17,13 +19,27 @@ $scope.cancel = function(){
   $scope.fakeButton = false
 }
 
-$scope.showAddSection = function(){
-  $scope.addLocationSection = true
+$scope.showAddSection = function(name, reviewlink, id){
+    $scope.link = {
+        name: name,
+        reviewlink: reviewlink,
+        id: id
+    }
+    if (reviewlink) {
+      $scope.isAnEdit = true;
+    }
+    $scope.overlayShowing = true
 }
 $scope.hideAddSection = function(){
-  $scope.addLocationSection = false
+    $scope.overlayShowing = false
+    $scope.isAnEdit = false
 }
 $scope.submit = function(link){
+    if($scope.isAnEdit){
+        $scope.updateLink($scope.link)
+        $scope.isAnEdit = false;
+    } else {
+        $scope.isAnEdit = false;
   $scope.updateInputs = true
   $scope.fakeButton = false
   $scope.selected = -1;
@@ -32,9 +48,11 @@ $scope.submit = function(link){
   link.locationId = $state.params.id;
   linksService.addLink(link).then(function(res){
     if(res.status === 200){
+        $scope.overlayShowing = false
       getLinks()
     }
   })
+}
 }
 var getLinks = function(){
   linksService.getLinks($state.params.id).then(function(res){
@@ -44,15 +62,27 @@ var getLinks = function(){
 getLinks()
 
 $scope.deleteLink = function(link){
-  $scope.updateInputs = true
-  $scope.fakeButton = false
-  $scope.selected = -1;
-  $scope.flag = false;
-  linksService.deleteLink(link.id).then(function(res){
-    if(res.status === 200){
-      getLinks()
-    }
-  })
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this information!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+    closeOnConfirm: false
+    },
+    function(){
+    swal("Deleted!", "Successfully deleted.", "success");
+      $scope.updateInputs = true
+      $scope.fakeButton = false
+      $scope.selected = -1;
+      $scope.flag = false;
+      linksService.deleteLink(link.id).then(function(res){
+        if(res.status === 200){
+          getLinks()
+        }
+      })
+    })
 }
 $scope.flag = false
 $scope.showUpdate = function(link, i){
@@ -80,6 +110,7 @@ $scope.updateLink = function(link){
   $scope.flag = false
   linksService.updateLink(link).then(function(res){
     if(res.status === 200){
+        $scope.overlayShowing = false
       getLinks()
     }
   })

@@ -8,13 +8,15 @@
   <input type="text" name="name" ng-model="email"placeholder="Email">
 
   <input type="text" ng-model="phone"name="name" placeholder="Phone Number">
-  <select style="font-size: 1.5vw;"ng-model="locationId" ng-change="getLinks(locationId)">
+  <select style="font-size: 16px;"ng-model="locationId" ng-change="getLinks(locationId)">
     <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
     </select>
-    <ul ng-if="linkTypesShowing"class="linkTypes">
-      <!-- ng-class="link.name.toLowerCase() === 'google'? 'googleCss' : ( link.name.toLowerCase() === 'facebook' ? 'facebookCss' : 'yelpCss')" -->
+    <select style="font-size: 16px;"ng-model="linking" ng-change="chooseLinkType(linking, $index)">
+      <option ng-repeat="link in links"value="{{link}}">{{link.name}}</option>
+      </select>
+    <!-- <ul ng-if="linkTypesShowing"class="linkTypes">
       <li ng-repeat="link in links track by $index" class="hvr-grow" ng-class="{googleCss: $index == selected}"ng-click="chooseLinkType(link, $index)">{{link.name}}</li>
-    </ul>
+    </ul> -->
   <button type="button" name="button" ng-click="submit({first: first, last: last, phone: phone, email: email})">Send Review Link</button>
   </section>
 

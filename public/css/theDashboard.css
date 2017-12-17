@@ -1,24 +1,24 @@
 
 #base {
-  height: 225px !important;
-  width: 500px !important;
+  width: 44% !important;
   background-color: #ffffff;
   padding: 15px;
+  padding-right: 25px;
   box-shadow: 0 0 13px 0 rgba(147, 147, 147, 0.3);
-  margin-right: 20px;
+  margin: 20px;
   border-radius: 3px;
 }
 
 #doughnut {
-  height: 250px !important;
-  width: 250px !important;
-  margin-right: 20px;
-  /*margin-left: 100px;*/
-  /*margin-right: 100px;*/
-  /*background-color: white;
-  border-radius: 50%;*/
+    width: 44% !important;
+    background-color: #ffffff;
+    padding: 15px;
+    box-shadow: 0 0 13px 0 rgba(147, 147, 147, 0.3);
+    margin: 20px;
+    border-radius: 3px;
 
 }
+
 .stats {
     height: 200px;
     display: flex;
@@ -49,3 +49,6 @@
 .doughnutSection {
   /*justify-content: center;*/
 }
+/*.chart {
+    width: 100%;
+}*/
