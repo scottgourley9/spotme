@@ -20,13 +20,13 @@ input {
     padding-left: 10px;
 }
 select {
-  font-size: 1.5vw;
-  text-align: center;
-  width: 26.5vw;
-  outline-color: #FF9E01;
-  /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  border: 2px solid #110B47;
-  border-radius: 5px;
+    height: 34px;
+      border-radius: 2px;
+      background-color: #ffffff;
+      border: solid 1px #ebebeb;
+      font-size: 16px;
+      box-sizing: border-box;
+      padding-left: 10px;
 }
 
 button {
@@ -103,6 +103,7 @@ button:hover {
   background: #ffffff;*/
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .subSection h2 {
     margin: 10px 0;

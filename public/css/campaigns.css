@@ -4,27 +4,29 @@
     margin-left: -20px;
 }
 .searchInput {
-  position: absolute;
-  display: flex;
-  width: 29vw;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: -4vw;
-
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
 }
 .icon-search {
-  color: #03327F;
-    font-size: 2vw;
+    color: #727272;
+    font-size: 16px;
+    margin-left: 245px;
+    position: absolute;
+    top: 10px;
 }
 .darkCover {
-  height: 100vh;
+    height: 100vh;
     width: 100vw;
     background-color: black;
-    opacity: .3;
+    opacity: .5;
     position: absolute;
     z-index: 9;
-    margin-left: -18vw;
-    margin-top: -5vw;
+    top: 0;
+    left: 0;
 }
 .popup {
   width: 50vw;
@@ -129,36 +131,31 @@ margin-bottom: .5vw;
   margin-left: -7.5vw;
 }
 .campaignItem {
-  /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  width: 81vw;
-  height: 10vw;
-  border: 1px solid black;
-  /*margin-top: 1vw;
-  margin-bottom: 2vw;*/
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  overflow: hidden;
-  margin-bottom: .5vw;
-  margin-top: .5vw;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
 }
 .theSelected {
   background-color: #FF9E01;
 }
-.campaignItem:hover {
+/*.campaignItem:hover {
   cursor: pointer;
-}
+}*/
 .campaignItem > * {
-  width: 28vw;
-  margin: 1vw;
-  text-align: center;
+  width: 33%;
+  margin: 5px;
+  text-align: left;
 }
 .campaignList > * {
   text-align: center;
 }
 .campaignItem h2 {
-  font-size: 2vw;
+  font-size: 16px;
+  word-break: break-all;
+  padding-right: 15px;
 }
 .campaignItem p {
   font-size: 1.5vw;
@@ -260,4 +257,45 @@ margin-bottom: .5vw;
 }
 .reviewLinksButton {
     margin-bottom: 5px;
+}
+.customerSectionMain {
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+.campaignList {
+    /*width: 700px;*/
+    max-width: 900px;
+}
+.selectAllCheck {
+    margin: 2px;
+    width: 20px;
+    padding: 0;
+}
+.customerPhoneNumber {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customerPhoneNumber div:nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon-pencil-square-o {
+    margin-left: 20px;
+    margin-bottom: -5px;
+}
+.icon-pencil-square-o:hover {
+    cursor: pointer;
+}
+.icon-delete-garbage-streamline:hover {
+    cursor: pointer;
+}
+.customerTitles {
+    font-weight: bold;
 }

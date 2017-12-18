@@ -77,8 +77,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                 xAxes: [
                     {
                         ticks: {
-                            beginAtZero: true
-
+                            beginAtZero: true,
+                            stepSize: 1
                         },
                         gridLines: {
                             display: false
@@ -91,7 +91,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                             display: false
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
                         }
                     }
                 ]
@@ -136,7 +137,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                 xAxes: [
                     {
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
 
                         },
                         gridLines: {
@@ -150,7 +152,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                             display: false
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
                         }
                     }
                 ]
@@ -186,7 +189,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                 yAxes: [
                     {
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
 
                         },
                         gridLines: {
@@ -200,7 +204,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                             display: false
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
 
                         }
                     }
@@ -273,7 +278,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                 yAxes: [
                     {
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
                         },
                         gridLines: {
                             display: false
@@ -286,7 +292,8 @@ angular.module('spotme').controller('theDashboardCtrl', function($scope, $state,
                             display: false
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 1
 
                         }
                     }
