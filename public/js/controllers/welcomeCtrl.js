@@ -1,13 +1,13 @@
 angular.module('spotme').controller('welcomeCtrl', function($document, $scope, $state, messageService){
 window.scrollTo( 0, 0 );
-// $document.on('scroll', function(){
-//   if($(this).scrollTop() > 75){
-//     $('nav').css({background: '#2e343a', opacity: 1}, 'slow');
-// }
-// if($(this).scrollTop() <= 75){
-//   $('nav').css({background: 'none', opacity: 1}, 'slow');
-// }
-// })
+$document.on('scroll', function(){
+  if($(this).scrollTop() > 75){
+    $('nav').css({background: '#2e343a', opacity: 1}, 'slow');
+}
+if($(this).scrollTop() <= 75){
+  $('nav').css({background: 'none', opacity: 1}, 'slow');
+}
+})
 
 $scope.about = function(){
   window.scrollTo( 0, 725 );

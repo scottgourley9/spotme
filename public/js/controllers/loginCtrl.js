@@ -1,4 +1,5 @@
 angular.module('spotme').controller('loginCtrl', function($scope, $state, userService, $auth){
+document.getElementsByTagName('nav')[0].style.background = '#2e343a';
 
 $scope.submit = function(){
   userService.login($scope.user).then(function(response){

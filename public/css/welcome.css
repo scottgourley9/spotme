@@ -19,8 +19,7 @@
 }
 
 .topP {
-    width: 60%;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 150%;
         z-index: 2;
         letter-spacing: 1px;
@@ -50,7 +49,7 @@ nav {
     font-family: 'Roboto';
     padding-left: 15px;
     padding-right: 25px;
-    background: #2e343a;
+    /*background: #2e343a;*/
 }
 nav ul {
   display: flex;
@@ -67,7 +66,7 @@ nav li:hover {
   cursor: pointer;
 }
 .logo {
-  width: 80px;
+  width: 100px;
 }
 .topCover {
     height: 56.65vw;
@@ -78,36 +77,67 @@ nav li:hover {
     opacity: .25;
     color: #ffffff;
 }
-.welcomeSection {
-  height: 57vw;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  /*background-image: url('../images/analyticsBackground2.jpg');
-  background-size: 104vw 52vw;
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
-  /*background: #110B47;*/
-  /*text-shadow:
-   -.5px -.5px 0 #fff,
-    .5px -.5px 0 #fff,
-    -.5px .5px 0 #fff,
-     .5px .5px 0 #fff;*/
+.titleAndExampleSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 25px;
 
 }
+.welcomeSection {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/jVhILry/elegant-blue-title-background_emktl-cug__F0000.png');
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.welcomeImageContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.computerImage {
+    width: 100%;
+}
+.examplePage {
+    /*filter: blur(2px);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);*/
+    width: 75%;
+    height: 23vw;
+    left: 12.5%;
+    margin-top: -1%;
+    z-index: 1;
+    max-height: 258.75px;
+}
+.macImage {
+    position: absolute;
+}
 .title {
-  z-index: 3;
-  text-align: center;
-  margin-top: 10vw;
-  font-family: 'Roboto';
-  font-weight: 900;
-  display: flex;
-  flex-direction: column;
-  height: 37vw;
-  justify-content: center;
-  align-items: center;
+    z-index: 3;
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
 
 }
 .title > * {
@@ -116,10 +146,10 @@ nav li:hover {
 }
 
 .welcomeh1 {
-  font-size: 30px;
+  font-size: 40px;
   z-index: 1;
   margin-bottom: 30px;
-  /*color: #00a6e5;*/
+  color: #343a40;
 }
 orange {
   color: #FF9E01;
@@ -128,8 +158,9 @@ orange {
   font-size: 3vw;
 }
 .welcomeSection img {
- width: 25vw;
- margin-top: 2.5vw;
+ /*width: 25vw;
+ margin-top: 2.5vw;*/
+ position: absolute;
 }
 .typewrite {
   color: white;
@@ -173,15 +204,12 @@ align-items: center;
   font-size: 2vw;
 }
 .cover {
-    width: 100vw;
-    color: #ffffff;
-    background-attachment: fixed;
+    background: linear-gradient(#fdcc52,#fdc539);
     display: flex;
     flex-direction: column;
     align-items: center;
     /* justify-content: space-around; */
     padding: 30px;
-    margin-top: -1vw;
     z-index: 5;
 
 }
@@ -300,12 +328,16 @@ footer {
   cursor: pointer;
 }
 .firstSection {
-    background-image: url('../images/phone-min.jpg');
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    margin-top: -1vw;
+    padding: 30px 0;
+}
+.firstSection h1 {
+    text-align: center;
+
+}
+.firstSection p {
+    text-align: center;
+    font-size: 30px;
+    color: #343a40;
 }
 /*.secondSection {
     background-image: url('../images/imp.jpg');
@@ -331,3 +363,11 @@ footer {
     background-attachment: fixed;
     margin-top: -1vw;
 }*/
+.welcomePageButton {
+    font-size: 20px;
+    background: none;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    font-weight: 100;
+    padding: 10px 30px;
+}

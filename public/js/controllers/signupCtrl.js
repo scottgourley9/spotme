@@ -1,4 +1,6 @@
 angular.module('spotme').controller('signupCtrl', function(messageService, $auth, $scope, $state, userService){
+    document.getElementsByTagName('nav')[0].style.background = '#2e343a';
+
 $scope.theCode = false
 $scope.showCode = function(){
   $scope.theCode = !$scope.theCode

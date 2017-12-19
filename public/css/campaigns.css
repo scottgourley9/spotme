@@ -233,7 +233,7 @@ margin-bottom: .5vw;
 }
 .campaignMessageSection {
     margin-bottom: 25px;
-    word-break: break-all;
+    word-break: break-word;
 }
 .editAndDeleteCampaignSection {
     display: flex;
