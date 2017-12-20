@@ -42,7 +42,7 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
   $scope.typeClass = []
 $scope.selected = -1;
   $scope.chooseLinkType = function(link, i){
-    $scope.theLink = link
+    $scope.theLink = JSON.parse(link)
     $scope.selected = i
 
 

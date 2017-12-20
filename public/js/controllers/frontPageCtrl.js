@@ -9,15 +9,16 @@ angular.module('spotme').controller('frontPageCtrl', function($document, $scope,
 // });
 $scope.hamMenuShowing = false;
 $scope.slideMenu = []
+
   $scope.hamClick = function(){
     $scope.slideMenu.splice(0)
 
     if(!$scope.hamMenuShowing){
-      $scope.slideMenu.push('animated bounceInDown')
+      $scope.slideMenu.push('animated slideInDown')
       $scope.hamMenuShowing = !$scope.hamMenuShowing
     }
     else {
-      $scope.slideMenu.push('animated bounceOutUp')
+      $scope.slideMenu.push('animated slideOutUp')
       setTimeout(function(){
         $scope.hamMenuShowing = !$scope.hamMenuShowing
       }, 500)

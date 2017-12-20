@@ -3,6 +3,8 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
   $scope.addCampaignSection = false
   $scope.updateInputs = true
   $scope.fakeButton = false
+  $scope.overlayShowing = false
+  $scope.isAnEdit = false
   $scope.cancel = function(){
     $scope.selected = -1
     $scope.flag = false
@@ -15,30 +17,46 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
     $scope.fakeButton = true
   }
 
-  $scope.showAddSection = function(){
-    $scope.addCampaignSection = true
+  $scope.showAddSection = function(name, message, image, id, status){
+      $scope.campaign = {
+          name: name,
+          message: message,
+          image: image,
+          id: id,
+          status: status
+      }
+      if (name) {
+        $scope.isAnEdit = true;
+      }
+      $scope.overlayShowing = true
   }
   $scope.hideAddSection = function(){
-    $scope.addCampaignSection = false
+      $scope.overlayShowing = false
+      $scope.isAnEdit = false;
   }
   $scope.submit = function(campaign){
-    $scope.updateInputs = true
-    $scope.fakeButton = false
-    $scope.selected = -1;
-    $scope.flag = false;
-    $scope.addCampaignSection = false
-    campaign.userid = userService.user.id
-    campaignsService.addCampaign(campaign).then(function(response){
-      if (response.status === 200) {
-        campaignsService.updateCampaignStatus(response.data[0].id).then(function(resp){
-          campaignsService.getCampaigns(userService.user.id).then(function(res){
-            $scope.campaigns = res.data.reverse()
+      if ($scope.isAnEdit) {
+          $scope.updateCampaign($scope.campaign)
+          $scope.isAnEdit = false
+      } else {
+          $scope.isAnEdit = false
+          $scope.overlayShowing = false
+          $scope.updateInputs = true
+          $scope.fakeButton = false
+          $scope.selected = -1;
+          $scope.flag = false;
+          $scope.addCampaignSection = false
+          campaign.userid = userService.user.id
+          campaignsService.addCampaign(campaign).then(function(response){
+            if (response.status === 200) {
+              campaignsService.updateCampaignStatus(response.data[0].id).then(function(resp){
+                campaignsService.getCampaigns(userService.user.id).then(function(res){
+                  $scope.campaigns = res.data.reverse()
+                })
+              })
+              }
           })
-        })
-
-
-        }
-    })
+      }
   }
   var getCampaigns = function(){
     campaignsService.getCampaigns(userService.user.id).then(function(res){
@@ -105,6 +123,7 @@ function(){
     campaignsService.updateCampaign(campaign).then(function(res){
       if(res.status === 200){
         getCampaigns()
+        $scope.overlayShowing = false
       }
     })
   }

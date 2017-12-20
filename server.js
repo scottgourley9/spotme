@@ -181,10 +181,9 @@ app.post('/auth/login', function(req, res){
     })
 
 app.post('/api/customers', function(req, res){
-  db.find_customer([req.body.phone, req.body.userid], function(err, theUser){
-    console.log(theUser);
+  db.find_customer([req.body.phonenumber, req.body.userid], function(err, theUser){
     if(!theUser.length){
-      db.add_customer([req.body.first, req.body.last, req.body.phone, req.body.email, req.body.userid], function(err, success){
+      db.add_customer([req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email, req.body.userid], function(err, success){
         if(err){
           res.status(500).json(err)
         }
@@ -235,7 +234,7 @@ app.delete('/api/customers/:id', function(req, res){
 })
 
 app.put('/api/customers/:id', function(req, res){
-  db.update_customer([req.params.id, req.body.first, req.body.last, req.body.phone, req.body.email], function(err, success){
+  db.update_customer([req.params.id, req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -285,7 +284,7 @@ app.get('/api/locations/:userId', function(req, res){
 app.post('/api/locations', function(req, res){
   var address = req.body.address.split(' ').join('+')
   axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + config.googleApiKey).then(function(theRes){
-  db.add_location([req.body.address, req.body.phone, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
+  db.add_location([req.body.address, req.body.phonenumber, req.body.link, req.body.userid, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -310,7 +309,7 @@ app.put('/api/locations/:locationId', function(req, res){
   var address = req.body.address.split(' ').join('+')
   axios.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + config.googleApiKey).then(function(theRes){
 
-  db.update_location([req.params.locationId, req.body.address, req.body.phone, req.body.link, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
+  db.update_location([req.params.locationId, req.body.address, req.body.phonenumber, req.body.link, theRes.data.results[0].geometry.location.lat, theRes.data.results[0].geometry.location.lng, req.body.name], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -415,7 +414,7 @@ app.get('/api/link/:id', function(req, res){
 })
 
 app.post('/api/links', function(req, res){
-  db.add_link([req.body.name, req.body.link, req.body.locationId], function(err, success){
+  db.add_link([req.body.name, req.body.reviewlink, req.body.locationId], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -426,7 +425,7 @@ app.post('/api/links', function(req, res){
 })
 
 app.put('/api/links', function(req, res){
-  db.update_link([req.body.id, req.body.name, req.body.link], function(err, success){
+  db.update_link([req.body.id, req.body.name, req.body.reviewlink], function(err, success){
     if(err){
       res.status(500).json(err)
     }

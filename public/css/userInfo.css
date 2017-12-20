@@ -1,38 +1,23 @@
-.userInfoSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 30vw;
-}
-.lines {
-  display: flex;
-}
+
 .eachBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30vw;
-  border: 2px solid black;
-  font-size: 2vw;
-  height: 8vw;
-  justify-content: center;
-  margin: 1vw;
-  /*box-shadow: 1vw 1vw 1.5vw #000;*/
-  background-color: white;
-  padding: 0vw 1vw 0vw 1vw;
+  font-size: 16px;
+  color: #727272;
+}
+.eachBox p {
+    color: #000000;
+    font-size: 16px;
+    margin: 5px 0 15px;
+    font-weight: 400;
+    padding: 5px;
+}
+.eachBox input {
+  margin: 5px 0 15px;
 }
 .icon-pencil {
   cursor: pointer;
 
 }
 
-.eachBox input {
-  font-size: 2vw;
-  background-color: white;
-  font-family: 'Nunito', cursive;
-  border: 1px solid black;
-}
 .showBreak {
   display: none;
 }
@@ -44,6 +29,19 @@
 }
 .bottomButton {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
+}
+.bottomButton button:nth-child(2) {
+  margin-left: 20px;
+}
+.userInfoCard {
+    width: 350px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    margin-top: 20px;
+    position: relative;
+    padding: 20px;
 }

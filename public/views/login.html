@@ -1,9 +1,9 @@
-<nav class="loginNav">
-  <img class="logo"src="../images/logo.png" alt="" />
+<nav class="menu-items-nav">
+  <img ui-sref="welcome" class="logo"src="../images/logo.png" alt="" />
   <!-- <div>In-sight Reviews</div> -->
   <ul>
 
-    <li ui-sref="welcome">About</li>
+      <li ui-sref="about">About</li>
     <li ui-sref="contactUs">Contact Us</li>
     <li ui-sref="signup">Sign Up</li>
     <li ui-sref="login">Login</li>
@@ -13,14 +13,15 @@
 
 </nav>
 
-<section class="signupSection">
-  <h1 class="dashTitle">Login</h1>
+<section class="campaignCard signUpCard">
+  <h1 class="dashTitleSignUp">Login</h1>
 <input ng-keyup="enter($event)"type="email" name="name" ng-model="user.email"placeholder="Email">
 <input ng-keyup="enter($event)"type="password" name="name" ng-model="user.password"placeholder="Password">
-<div class="buttons"style="margin-top: -1vw;">
-  <button type="button" name="button" ng-click="submit()">Submit</button>
+<div class="buttons">
   <button type="button" name="button" ng-click="cancel()">Cancel</button>
+  <button style="margin-left: 20px;"type="button" name="button" ng-click="submit()">Submit</button>
+
 
 </div>
-<p style="color: white; text-decoration: underline; font-size: 1.75vw;">Forgot Password</p>
+<!-- <p style="color: white; text-decoration: underline; font-size: 1.75vw;">Forgot Password</p> -->
 <section>

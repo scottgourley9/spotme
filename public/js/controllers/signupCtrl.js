@@ -1,4 +1,7 @@
 angular.module('spotme').controller('signupCtrl', function(messageService, $auth, $scope, $state, userService){
+$('nav ul li').css({color: '#000000'});
+$('.menu-items-nav').css({backgroundColor: '#ffffff'});
+
 $scope.theCode = false
 $scope.showCode = function(){
   $scope.theCode = !$scope.theCode
@@ -19,7 +22,7 @@ $scope.submit = function(){
         if (response.data.message !== 'already taken') {
             // $scope.errorMessage = ''
             $auth.setToken(response)
-            $state.go('dashboard')
+            $state.go('dashboard/theDashboard')
           }
           else {
             swal("Sorry", "Email and/or phone number is taken", 'error')

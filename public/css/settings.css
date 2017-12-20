@@ -19,27 +19,21 @@ form {
   display: flex;
   justify-content: space-around;
 }
-.changes ul {
-  display: flex;
-  flex-direction: column;
+
+.settingsInfoCard {
+    width: 350px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    margin-top: 20px;
+    position: relative;
+    padding: 20px;
 }
-.changes h2 {
-  font-size: 3vw;
+
+.settingsInfoCardItem {
+  margin-bottom: 30px;
+  font-size: 16px;
 }
-.changes li {
-  margin-top: 2vw;
-  font-size: 2vw;
-  padding-bottom: .5vw;
-  display: flex;
-  width: 27vw;
-  justify-content: space-between;
-}
-.changes {
-  margin-top: 10vw;
-}
-.changes li:hover {
+.settingsInfoCardItem:hover {
   cursor: pointer;
-}
-.changes input {
-  width:2vw;
 }

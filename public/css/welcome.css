@@ -19,11 +19,11 @@
 }
 
 .topP {
-  width: 50%;
-  font-size: 1.5vw;
-  line-height: 150%;
-  z-index: 2;
-  margin-top: 1vw;
+        font-size: 20px;
+        line-height: 150%;
+        z-index: 2;
+        letter-spacing: 1px;
+        /* margin-top: 0vw; */
 }
 
 .entireWelcomeSection {
@@ -39,20 +39,19 @@
   display: none;
 }
 nav {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 5vw;
-  align-items: center;
-  z-index: 5;
-  font-family: sans-serif;
-  /*background: #00a6e5;*/
-  padding-left: 2vw;
-    padding-right: 2vw;
-    /*opacity: .8;*/
-    padding-top: .5vw;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    z-index: 12;
+    font-family: 'Roboto';
+    padding-left: 15px;
+    padding-right: 25px;
+    transition: background .15s linear;
 }
+
 nav ul {
   display: flex;
   justify-content: flex-end;
@@ -60,76 +59,114 @@ nav ul {
   width: 90vw;
 }
 nav li {
-  margin-left: 5vw;
-  color: white;
-  font-size: 1.5vw;
+    margin-left: 25px;
+        color: white;
+        font-size: 18px;
+        transition: color .15s linear;
 }
 nav li:hover {
   cursor: pointer;
 }
 .logo {
-  width: 11vw;
+  width: 100px;
+}
+.logo:hover {
+  cursor: pointer;
 }
 .topCover {
-  height: 56.15vw;
-  width: 100vw;
-  position: absolute;
-  z-index: 1;
-  background-color: black;
-  opacity: .5;
+    height: 56.65vw;
+    width: 100vw;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    opacity: .25;
+    color: #ffffff;
 }
-.welcomeSection {
-  height: 57vw;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  margin-top: -.5vw;
-  /*background-image: url('../images/analyticsBackground2.jpg');
-  background-size: 104vw 52vw;
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
-  /*background: #110B47;*/
-  /*text-shadow:
-   -.5px -.5px 0 #fff,
-    .5px -.5px 0 #fff,
-    -.5px .5px 0 #fff,
-     .5px .5px 0 #fff;*/
+.titleAndExampleSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 25px;
 
 }
+.welcomeSection {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: url('../images/bg-pattern.png'), linear-gradient(to right,#29292a 60%, #434446);
+    position: relative;
+    background-attachment: fixed;
+    /*background-position: center;*/
+    background-repeat: repeat;
+    /*background-size: cover;*/
+
+}
+.welcomeImageContainer {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.computerImage {
+    width: 100%;
+}
+.examplePage {
+    /*filter: blur(2px);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);*/
+    width: 75%;
+    height: 23vw;
+    left: 12.5%;
+    margin-top: -1%;
+    z-index: 1;
+    max-height: 258.75px;
+}
+.macImage {
+    position: absolute;
+}
 .title {
-  z-index: 3;
-  text-align: center;
-  margin-top: 10vw;
-  font-family: 'Nunito', cursive;
-  font-weight: 900;
-  display: flex;
-  flex-direction: column;
-  height: 37vw;
-  justify-content: center;
-  align-items: center;
+    z-index: 3;
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
 
 }
 .title > * {
-  margin-bottom: 3vw;
+  margin-bottom: 15px;
 
 }
 
 .welcomeh1 {
-  font-size: 3vw;
+  font-size: 40px;
   z-index: 1;
-  /*color: #00a6e5;*/
+  margin-bottom: 20px;
+  color: #343a40;
+  line-height: 1.25;
 }
 orange {
-  color: #FF9E01;
+  color: #f39c12;
 }
 .welcomeh4 {
   font-size: 3vw;
 }
 .welcomeSection img {
- width: 25vw;
- margin-top: 2.5vw;
+ /*width: 25vw;
+ margin-top: 2.5vw;*/
+ position: absolute;
 }
 .typewrite {
   color: white;
@@ -173,44 +210,59 @@ align-items: center;
   font-size: 2vw;
 }
 .cover {
-  width: 100vw;
-  height: 49vw;
-  /*background: #110B47;*/
-  background-color: white;
-  /*opacity: .8;*/
-  color: #5b5b5b;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*justify-content: space-around;*/
-  padding: 2vw 2vw 2vw 2vw;
-  margin-top: -1vw;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    padding: 30px;
+    z-index: 5;
+
+}
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    color: #f3f3f3;
+    padding-top: 80px;
+    background-image: url('http://www.titanui.com/wp-content/uploads/2014/01/27/Grey-Checker-Pattern-Background-Vector.jpg');
+}
+.aboutSection h1 {
+    color: #ffffff;
+}
+.mainCover {
+    background: #000000;
+        opacity: 0.5;
+        width: 100vw;
+        position: absolute;
+        height: 164vw;
+        left: 0;
+        top: 55.5vw;
+        display: none;
 }
 .thinLine {
-  height: 1px;
-  width: 80%;
-  background-color: #5b5b5b;
-  margin-top: 4vw;
-  margin-bottom: 4vw;
-  opacity: .5;
+    height: 1px;
+        width: 80%;
+        background-color: #ffffff;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        opacity: .25;
 }
 .statBox {
-  border: 1px solid #00a6e5;
-  height: 18vw;
-  width: 18vw;
-  font-size: 1.5vw;
-  display: flex;
-  text-align: center;
-  line-height: 150%;
-  flex-direction: column;
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  margin: 1vw;
-  padding: 2vw;
-  border-radius: 50%;
-  background-color: #110B47;
-  color: #fff;
+    height: 300px;
+    width: 250px;
+    font-size: 20px;
+    word-break: break-word;
+    display: flex;
+    text-align: left;
+    line-height: 150%;
+    flex-direction: column;
+    margin: 10px;
+    padding: 25px;
+    border: 1px solid lightgrey;
+    color: #fff;
 }
 
 .pairing {
@@ -219,32 +271,38 @@ align-items: center;
   justify-content: space-around;
 }
 .pairing img {
-  width: 20vw;
-  height: 15vw;
-  margin-top: 1vw;
-  box-shadow: 10px 10px 5px #888888;
+    width: 200px;
+    height: 150px;
+    margin-top: 7px;
 }
 .statBoxes {
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
   justify-content: center;
+}
+.statistics {
+    background-image: url('http://www.titanui.com/wp-content/uploads/2014/01/27/Grey-Checker-Pattern-Background-Vector.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
+    text-align: center;
 }
 .welcomeSectionBar {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 12.5vw;
-  width: 100vw;
-  padding: 2vw;
+  height: 100px;
+  width: 100%;
+  padding: 30px;
   /*background-image: url('https://blog.kissmetrics.com/wp-content/uploads/2015/01/2015-google-analytics-resources.jpg');
   background-size: cover;
   background-repeat: no-repeat;*/
-  background-color: #00a6e5;
+  background-color: #282828;
   background-attachment: fixed;
-  font-size: 1.5vw;
-      margin-top: -1vw;
+  font-size: 12px;
 }
 .welcomeSectionBar img {
   width: 15vw;
@@ -281,18 +339,71 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 80%;
+  font-size: 12px;
 }
 .copyright {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 3vw;
 
 }
 .footerInfo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3vw;
   cursor: pointer;
+}
+.firstSection {
+    padding: 30px 0;
+    text-align: center;
+    color: #343a40;
+}
+.firstSection button {
+    border: 1px solid #343a40;
+    color: #343a40;
+    margin-top: 30px;
+}
+.firstSection p {
+    font-size: 30px;
+}
+/*.secondSection {
+    background-image: url('../images/imp.jpg');
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: -1vw;
+}
+.thirdSection {
+    background-image: url('https://blog.mint.com/wp-content/uploads/2013/02/How-to-Turn-Your-Tech-Savvy-Skills-Into-Income.jpg');
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: -1vw;
+}
+.fourthSection {
+    background-image: url('../images/imp.jpg');
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: -1vw;
+}*/
+.welcomePageButton {
+    font-size: 20px;
+    background: none;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    font-weight: 100;
+    padding: 10px 30px;
+}
+.counterAndPercent {
+    display: flex;
+justify-content: center;
+align-items: center;
+color: #f39c12;
+font-size: 50px;
+margin-bottom: 30px;
+margin-top: 15px;
 }

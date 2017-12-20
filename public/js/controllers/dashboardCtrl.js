@@ -15,11 +15,11 @@ $scope.currentUser = userService.user
 $scope.hamClick = function(){
   $scope.dashMenu.splice(0)
   if($scope.menuHidden){
-    $scope.dashMenu.push('animated bounceInDown')
+    $scope.dashMenu.push('animated slideInDown')
     $scope.menuHidden = !$scope.menuHidden;
   }
   else {
-    $scope.dashMenu.push('animated bounceOutUp')
+    $scope.dashMenu.push('animated slideOutUp')
     setTimeout(function(){
       $scope.menuHidden = !$scope.menuHidden;
     }, 500)

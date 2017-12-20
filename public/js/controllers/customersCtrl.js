@@ -1,4 +1,7 @@
 angular.module('spotme').controller('customersCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService){
+    $scope.overlayShowing = false
+    $scope.isAnEdit = false
+
   $scope.selectAll = function(){
     var checkboxes = document.getElementsByClassName("inputCheckBox");
     for(var i = 0; i < checkboxes.length; i++) {
@@ -26,7 +29,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
   }
   $scope.theSelected = -1;
     $scope.chooseLinkType = function(link, i){
-      $scope.theLink = link
+      $scope.theLink = JSON.parse(link)
       $scope.theSelected = i
 
 
@@ -41,7 +44,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
 
   $scope.sendMassLinks = function(){
     if(!$scope.massTextArray.length){
-      swal("Error", "Must check at least one checkbox", 'error')
+      swal("Error", "Must select at least one customer", 'error')
       return;
     }
     $scope.popup = !$scope.popup
@@ -70,7 +73,6 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     user.phone = user.phonenumber
     campaignsService.getActiveCampaign().then(function(res){
       userService.getCustomer(userService.user.id, user.phone).then(function(custResp){
-        console.log(res.data[0]);
         if(!res.data[0]){
           swal("Error", "No campaign message selected!", "error")
           return
@@ -105,25 +107,40 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     $scope.fakeButton = true
   }
 
-  $scope.showAddSection = function(){
-    $scope.addCustomerSection = true
+  $scope.showAddSection = function(id, first, last, phone, email){
+      $scope.customer = {
+          id: id,
+          firstname: first,
+          lastname: last,
+          phonenumber: phone,
+          email: email
+      }
+      if (phone) {
+          $scope.isAnEdit = true
+      }
+      $scope.overlayShowing = true
   }
   $scope.hideAddSection = function(){
-    $scope.addCustomerSection = false
+      $scope.overlayShowing = false
   }
   $scope.submit = function(user){
-    if(!user || !user.first || !user.last || !user.phone){
+      if ($scope.isAnEdit) {
+          $scope.updateCustomer($scope.customer)
+          $scope.isAnEdit = false
+      } else {
+          $scope.isAnEdit = false
+    if(!user || !user.firstname || !user.lastname || !user.phonenumber){
       swal("Invalid Input", "Must enter name and phone number", 'error')
       return;
     }
     for(var i = 0; i < $scope.customers.length; i++){
-      if($scope.customers[i].phonenumber === user.phone){
+      if($scope.customers[i].phonenumber === user.phonenumber){
         swal("Error", "Existing phone number", 'error')
         return;
       }
 
     }
-    if(messageService.phonenumber(user.phone)){
+    if(messageService.phonenumber(user.phonenumber)){
 
     $scope.updateInputs = true
     $scope.fakeButton = false
@@ -134,11 +151,14 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     userService.addCustomer(user).then(function(response){
       if (response.status === 200) {
           userService.getCustomers(userService.user.id).then(function(res){
+              $scope.overlayShowing = false
             $scope.customers = res.data.reverse()
           })
         }
     })
   }
+}
+
   }
   var getCustomers = function(){
     userService.getCustomers(userService.user.id).then(function(res){
@@ -193,7 +213,7 @@ function(){
   $scope.selected = -1
 
   $scope.updateCustomer = function(customer){
-    if(messageService.phonenumber(customer.phone)){
+    if(messageService.phonenumber(customer.phonenumber)){
 
     $scope.updateInputs = true
     $scope.fakeButton = false
@@ -201,6 +221,7 @@ function(){
     $scope.flag = false
     userService.updateCustomer(customer).then(function(res){
       if(res.status === 200){
+          $scope.overlayShowing = false
         getCustomers()
       }
     })
