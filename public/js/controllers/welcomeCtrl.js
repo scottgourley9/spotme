@@ -1,17 +1,49 @@
 angular.module('spotme').controller('welcomeCtrl', function($document, $scope, $state, messageService){
 window.scrollTo( 0, 0 );
+var a = 0;
+
 $document.on('scroll', function(){
   if($(this).scrollTop() > 75){
-    $('nav').css({background: '#2e343a', opacity: 1}, 'slow');
+    $('.welcomeNav').css({backgroundColor: '#ffffff', opacity: 1}, 'slow');
+    $('.nav-items li').css({color: 'black', opacity: 1}, 'slow');
 }
 if($(this).scrollTop() <= 75){
-  $('nav').css({background: 'none', opacity: 1}, 'slow');
-}
-})
+  $('.welcomeNav').css({backgroundColor: 'none', opacity: 1}, 'slow');
+  $('.nav-items li').css({color: 'white', opacity: 1}, 'slow');
 
-$scope.about = function(){
-  window.scrollTo( 0, 725 );
 }
+    if(document.location.hash === "#/") {
+
+
+  var oTop = $('#counter').offset().top - window.innerHeight;
+  if (a == 0 && $(window).scrollTop() > oTop) {
+    $('.counter-value').each(function() {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+      $({
+        countNum: $this.text()
+      }).animate({
+          countNum: countTo
+        },
+
+        {
+
+          duration: 3000,
+          easing: 'swing',
+          step: function() {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function() {
+            $this.text(this.countNum);
+          }
+
+        });
+    });
+    a = 1;
+  }
+  }
+
+})
 
 $scope.hamMenuShowing = false;
 $scope.slideMenu = []
@@ -19,11 +51,11 @@ $scope.slideMenu = []
     $scope.slideMenu.splice(0)
 
     if(!$scope.hamMenuShowing){
-      $scope.slideMenu.push('animated bounceInDown')
+      // $scope.slideMenu.push('animated bounceInDown')
       $scope.hamMenuShowing = !$scope.hamMenuShowing
     }
     else {
-      $scope.slideMenu.push('animated bounceOutUp')
+      // $scope.slideMenu.push('animated bounceOutUp')
       setTimeout(function(){
         $scope.hamMenuShowing = !$scope.hamMenuShowing
       }, 500)

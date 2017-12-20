@@ -1,5 +1,6 @@
 angular.module('spotme').controller('signupCtrl', function(messageService, $auth, $scope, $state, userService){
-    document.getElementsByTagName('nav')[0].style.background = '#2e343a';
+$('nav ul li').css({color: '#000000'});
+$('.menu-items-nav').css({backgroundColor: '#ffffff'});
 
 $scope.theCode = false
 $scope.showCode = function(){

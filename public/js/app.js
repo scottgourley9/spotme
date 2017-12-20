@@ -88,6 +88,11 @@ window.Stripe.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d')
     templateUrl: '../views/contactUs.html',
     controller: 'contactUsCtrl'
   })
+  .state('about', {
+    url: '/about',
+    templateUrl: '../views/about.html',
+    controller: 'aboutCtrl'
+  })
 
   // $locationProvider.html5Mode(true);
 

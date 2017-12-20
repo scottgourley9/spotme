@@ -60,10 +60,14 @@
       <div class="icon-search"></div>
       <button type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Link</button>
     </div>
-    <div class="campaignItem" style="border-bottom: solid 1px #ebebeb; max-width: 900px;">
+    <div class="titleCampaignItem">
         <input type="checkbox"class="selectAllCheck" ng-click="selectAll()"/>
-        <h2 class="customerTitles">Name</h2><h2 class="customerTitles">Email</h2><h2 class="customerTitles">Phone Number</h2>
+
+        <div class="campaignItem" style="border-bottom: solid 1px #ebebeb; max-width: 900px;">
+            <h2 class="customerTitles">Name</h2><h2 class="customerTitles">Email</h2><h2 class="customerTitles">Phone Number</h2>
+        </div>
     </div>
+
     <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: solid 1px #ebebeb;">
       <input class="inputCheckBox"id="{{customer.phonenumber}}"type="checkbox" style="width: 16px;" ng-click="checkIt(customer, $index)" >

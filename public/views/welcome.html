@@ -1,11 +1,11 @@
 <section class="entireWelcomeSection">
 
 
-  <nav class="red">
-    <img class="logo"src="../images/logo.png" alt="" />
-    <ul>
+  <nav class="welcomeNav">
+    <img ui-sref="welcome" class="logo"src="../images/logo.png" alt="" />
+    <ul class="nav-items">
 
-      <li ng-click="about()">About</li>
+      <li ui-sref="about">About</li>
       <li ui-sref="contactUs">Contact Us</li>
       <li ui-sref="signup">Sign Up</li>
       <li ui-sref="login">Login</li>
@@ -27,15 +27,15 @@
 
   <section class="welcomeSection">
       <div class="titleAndExampleSection">
-          <div class="title">
-            <h1 class="welcomeh1" style="font-size: 40px; color: #ffffff;"><orange>MORE</orange> reviews <orange>MORE</orange> often</h1>
+          <div class="title animated slideInLeft">
+            <h1 class="welcomeh1" style="font-size: 40px; color: #ffffff;">Get <orange>more</orange> reviews <orange>more</orange> often</h1>
             <p class="topP" style="margin-bottom: 30px;">
               We provide the software, experience, and support to help you easily collect feedback from your customers.
             </p>
-            <button class="hvr-grow welcomePageButton"type="button" name="button" ui-sref="signup">See How Today!</button>
+            <button class="hvr-grow welcomePageButton"type="button" name="button" ui-sref="signup">Try it out</button>
 
           </div>
-          <div class="welcomeImageContainer">
+          <div class="welcomeImageContainer animated slideInRight">
               <img class="computerImage"src="../images/silver.png" alt="">
               <img class="examplePage"src="../images/example.png" alt="">
           </div>
@@ -52,6 +52,7 @@
             <div class="thinLine"></div> -->
             <h1 class="welcomeh1">Your reviews matter</h1>
             <p class="reviewsMatter">88% of customers trust online reviews as much as personal recommendations</p>
+            <button class="hvr-grow welcomePageButton" type="button" name="button" ui-sref="about">Learn More</button>
             <!-- <div class="pairing"> -->
               <!-- <img src="https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/trust.jpg" alt="" /> -->
               <!-- <p class="topP">
@@ -87,35 +88,29 @@
     </div>
 </div>
 
-    <div class="statistics">
-      <h1 class="welcomeh1" style="color: #000000;">Statistically speaking</h1>
+    <div class="statistics" id="counter">
       <div class="statBoxes">
         <div class="statBox">
-          <orange>90%</orange>of consumers read less than 10 reviews before forming an opinion about a business
+          <div class="counterAndPercent"><div class="counter-value" data-count="90">0</div>%</div>of consumers read less than 10 reviews before forming an opinion about a business
         </div>
         <div class="statBox">
-          <orange>54%</orange>of people will visit the website after reading positive reviews
+          <div class="counterAndPercent"><div class="counter-value" data-count="54">0</div>%</div>of people will visit the website after reading positive reviews
         </div>
         <div class="statBox">
-          <orange>73%</orange>of consumers think that reviews older than 3 months are no longer relevant
+          <div class="counterAndPercent"><div class="counter-value" data-count="73">0</div>%</div>of consumers think that reviews older than 3 months are no longer relevant
         </div>
         <div class="statBox">
-          <orange>74%</orange>of consumers say that positive reviews make them trust a local business more
+          <div class="counterAndPercent"><div class="counter-value" data-count="74">0</div>%</div>of consumers say that positive reviews make them trust a local business more
         </div>
         <div class="statBox">
-          <orange>58%</orange>of consumers say that a star rating of a business is most important
+          <div class="counterAndPercent"><div class="counter-value" data-count="58">0</div>%</div>of consumers say that a star rating of a business is most important
         </div>
         <div class="statBox">
-          <orange>63%</orange>of consumers use a search engine to find online reviews
+          <div class="counterAndPercent"><div class="counter-value" data-count="63">0</div>%</div>of consumers use a search engine to find online reviews
         </div>
       </div>
-      <div class="thinLine"></div>
-      <button class="hvr-grow welcomePageButton"type="button" name="button" ui-sref="signup">Learn More</button>
+      <button style='margin: 20px 0 10px 0;'class="hvr-grow welcomePageButton"type="button" name="button" ui-sref="signup">Try it out</button>
     </div>
-
-
-
-
 
 
   <section style="height: 100px;"class="welcomeSectionBar">
