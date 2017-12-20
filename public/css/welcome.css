@@ -407,3 +407,7 @@ font-size: 50px;
 margin-bottom: 30px;
 margin-top: 15px;
 }
+.titleCampaignItem {
+    display: flex;
+    align-items: center;
+}

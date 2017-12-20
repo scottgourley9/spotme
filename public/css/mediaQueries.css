@@ -354,7 +354,6 @@ nav {
     margin-left: 15px;
 }
 .titleCampaignItem {
-    display: flex;
 align-items: flex-start;
 }
 input[type='checkbox'] {

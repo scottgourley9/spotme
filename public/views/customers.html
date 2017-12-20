@@ -69,7 +69,7 @@
     </div>
 
     <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: solid 1px #ebebeb;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: solid 1px #ebebeb;">
       <input class="inputCheckBox"id="{{customer.phonenumber}}"type="checkbox" style="width: 16px;" ng-click="checkIt(customer, $index)" >
       <li class="campaignItem" >
         <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.email}}</h2><h2 class="customerPhoneNumber">{{customer.phonenumber}}<div><div ng-click="deleteCustomer(customer)" class="icon-delete-garbage-streamline"></div>
