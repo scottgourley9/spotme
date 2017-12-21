@@ -1,4 +1,4 @@
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 767px) {
   .red {
     display: none;
   }
@@ -11,7 +11,7 @@
     width: 100%;
     background-color: #ffffff;
     height: 50px;
-    z-index: 12;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@
   .theLogo {
       width: 100px;
       position: fixed;
-      z-index: 15;
+      z-index: 11;
       top: -12px;
       right: 5px;
       display: inherit;
@@ -117,18 +117,35 @@
     display: none !important;
   }
   .dashboardTitle {
-      height: 25px;
+      height: 35px;
+      font-weight: 100;
   }
 
-  #base {
-    display: none;
+  #baseMobile {
+      width: 94% !important;
+      margin: 3%;
+      background-color: #ffffff;
+      padding: 15px;
+      box-shadow: 0 0 13px 0 rgba(147, 147, 147, 0.3);
+      border-radius: 3px;
   }
-  #doughnut {
-    display: none;
+  #doughnutMobile {
+      width: 94% !important;
+      margin: 3%;
+      background-color: #ffffff;
+      padding: 15px;
+      box-shadow: 0 0 13px 0 rgba(147, 147, 147, 0.3);
+      border-radius: 3px;
   }
   /*.icon-bars {
     background: none;
   }*/
+  .desktopDash {
+      display: none;
+  }
+  .mobileDash {
+      display: inherit;
+  }
   .subSection {
       margin-left: 0;
 margin-top: 130px;
@@ -138,7 +155,8 @@ margin-top: 130px;
 .dashTitle {
   font-size: 40px;
   margin-top: -65px;
-  padding-left: 15px;
+  padding-left: 2.5%;
+  font-weight: 100;
 }
 .stats {
     /* border: 2px solid black; */
@@ -160,12 +178,12 @@ margin-top: 130px;
     margin-top: -10.5vw;
     margin-left: 86vw;
 }
-.campaignTitle {
+/*.campaignTitle {
   width: 98vw;
   height: 15vw;
   font-size: 6vw;
 
-}
+}*/
 .campaignItem {
   flex-direction: column;
 }
@@ -196,8 +214,14 @@ margin-top: 130px;
 
 
 .searchInput {
-
+flex-direction: column;
+align-items: flex-end;
+margin-bottom: 0;
 }
+.searchInput input{
+width: 100% !important;
+}
+
 .icon-search {
   display: none;
 }
@@ -205,13 +229,13 @@ margin-top: 130px;
 .entireSendLink {
   height: 91vh;
 }
-select {
+/*select {
   width: 76vw;
   font-size: 20px !important;
-}
-.linkTypes li{
+}*/
+/*.linkTypes li{
   font-size: 20px !important;
-}
+}*/
 .userInfoSection {
     height: 62vh;
     justify-content: center;
@@ -246,14 +270,14 @@ margin-top: 10vw;
   width: 65vw;
 }
 .darkCover {
-    height: 94.5vh;
-    width: 100vw;
-    background-color: black;
-    opacity: .3;
-    position: absolute;
-    z-index: 9;
-    margin-left: -1vw;
-    margin-top: -5vw;
+    height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: .3;
+        position: fixed;
+        z-index: 10;
+        /* margin-left: -1vw; */
+        /* margin-top: -5vw; */
 }
 .popup {
     width: 84vw;
@@ -282,7 +306,7 @@ margin-top: 10vw;
     text-align: center;
     margin-top: 17vw;
     color: #fff;
-    font-weight: 900;
+    font-weight: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -321,28 +345,29 @@ nav {
     padding: 0 15px;
 }
 .campaignCard {
-    width: 100%;
-    margin: 20px 0;
-    min-width: 320px;
+    width: 94%;
+    margin: 3%;
 }
 .signUpCard {
+     left: 0;
+     top: 20vh;
 }
 .createNewCamp {
     font-size: 16px;
     position: absolute;
-    margin-top: -10px;
-    left: 15px;
+    margin-top: -15px;
+    left: 3%;
 }
 .addCard {
     position: fixed;
         left: 0;
         top: 50%;
-        z-index: 10;
+        z-index: 12;
         right: 0px;
         margin-top: -200px;
 }
 .icon-times-circle {
-    left: 340px;
+
 }
 .campaignSection {
     margin-left: 0;
@@ -351,12 +376,62 @@ nav {
     display: inherit;
 }
 .selectMultiple {
-    margin-left: 15px;
+    margin-top: 15px;
 }
 .titleCampaignItem {
-align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #ebebeb;
+    margin-bottom: 10px;
+padding-bottom: 10px;
 }
 input[type='checkbox'] {
+    margin: 0;
     margin-right: 15px;
+    height: 20px !important;
+    width: 20px !important;
 }
+.allFooterInfo {
+    flex-direction: column;
+    width: 100%;
+    line-height: 1.5;
+}
+.selectAllCheck {
+    margin: 0;
+}
+.customerPhoneNumber div:nth-child(1) {
+    font-size: 20px;
+}
+.customerSectionMain {
+    width: 94%;
+    margin-left: 3%;
+}
+.userInfoCard {
+    margin-top: 0;
+    width: 94%;
+    margin-left: 3%;
+}
+.settingsInfoCard {
+    width: 94% !important;
+    margin-left: 3%;
+}
+.locationLinksCard {
+    width: 94vw;
+}
+.locationsSection {
+    width: 100vw;
+}
+.reviewLinksButton {
+    width: 100%;
+}
+.chart-pie {
+    margin-left: calc(50% - 150px);
+}
+
+}
+@media (max-width: 350px) {
+    .chart-horizontal-bar {
+        width: 285px !important;
+    }
 }

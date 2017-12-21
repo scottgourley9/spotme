@@ -1,6 +1,6 @@
 <h1 class="dashTitle">Dashboard</h1>
 
-<section class="campaignSection">
+<section class="campaignSection desktopDash">
 
     <div id="base">
         <h2>Links Sent</h2>
@@ -35,6 +35,44 @@
 <div id="doughnut">
     <h2>Percent of Links Clicked By Type</h2>
     <canvas class="chart chart-pie" chart-data="doughnutData2" chart-labels="labels" chart-colors='colors' chart-options="pieOptions2">
+    </canvas>
+</div>
+</section>
+<section class="campaignSection mobileDash">
+
+    <div id="baseMobile">
+        <h2>Links Sent</h2>
+        <canvas class="chart chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-options="optionsMobile" chart-colors='colors'>
+    </canvas>
+</div>
+
+        <div id="baseMobile">
+            <h2>Links Clicked</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="clickedData" chart-labels="labels" chart-options="clickedOptionsMobile" chart-colors='colors'>
+          </canvas>
+        </div>
+
+
+        <div id="baseMobile">
+            <h2>Positive Feedback</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="positiveData" chart-labels="labels" chart-options="positiveOptionsMobile" chart-colors='colors'>
+          </canvas>
+        </div>
+
+        <div id="baseMobile">
+            <h2>Negative Feedback</h2>
+            <canvas class="chart chart-horizontal-bar" chart-data="negativeData" chart-labels="labels" chart-options="negativeOptionsMobile" chart-colors='colors'>
+        </canvas>
+        </div>
+
+<div id="doughnutMobile">
+    <h2>Percent of Links Sent</h2>
+    <canvas class="chart chart-pie" chart-data="doughnutData" chart-labels="labels" chart-colors='colors' chart-options="pieOptionsMobile">
+    </canvas>
+</div>
+<div id="doughnutMobile">
+    <h2>Percent of Links Clicked By Type</h2>
+    <canvas class="chart chart-pie" chart-data="doughnutData2" chart-labels="labels" chart-colors='colors' chart-options="pieOptions2Mobile">
     </canvas>
 </div>
 </section>

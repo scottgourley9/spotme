@@ -83,7 +83,7 @@
 
 
 </ul> -->
-<div ng-repeat="location in locations track by $index">
+<div class="locationsSection"ng-repeat="location in locations track by $index">
     <div class="campaignCard">
         <div>
             <button class="reviewLinksButton" type="button" name="button" ui-sref="dashboard.updateLinks({address: location.address, id: location.id})">Add/Edit Review Links for this Address</button>

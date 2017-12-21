@@ -19,6 +19,15 @@ input {
     box-sizing: border-box;
     padding-left: 10px;
 }
+input[type="checkbox"] {
+    height: 20px !important;
+width: 20px !important;
+margin: 0px 10px -4px 0px
+
+}
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
 select {
     height: 34px;
       border-radius: 2px;

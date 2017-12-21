@@ -1,11 +1,22 @@
 angular.module('spotme').controller('customersCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService){
     $scope.overlayShowing = false
     $scope.isAnEdit = false
+    var checkingAll = false
 
-  $scope.selectAll = function(){
+  $scope.selectAll = function(reset){
+      if (reset === 'reset') {
+         checkingAll = false
+     } else {
+         checkingAll = !checkingAll
+     }
     var checkboxes = document.getElementsByClassName("inputCheckBox");
     for(var i = 0; i < checkboxes.length; i++) {
-    checkboxes[i].checked = !checkboxes[i].checked;
+        if (checkingAll) {
+            checkboxes[i].checked = true
+        } else {
+            checkboxes[i].checked = false
+        }
+
   }
   if(checkboxes[0].checked){
     $scope.massTextArray = $scope.customers
@@ -51,19 +62,21 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
 
   }
   $scope.massTextArray = []
-  $scope.checkIt = function(customer){
-    if(document.getElementById(customer.phonenumber).checked){
+  $scope.checkIt = function(customer, i){
+    if(document.getElementsByClassName('inputCheckBox')[i].checked){
+        for(var i = 0; i < $scope.massTextArray.length; i++){
+          if($scope.massTextArray[i].id == customer.id){
+            return
+          }
+        }
       $scope.massTextArray.push(customer)
-    }
-    else {
+  } else {
       for(var i = 0; i < $scope.massTextArray.length; i++){
-        if($scope.massTextArray[i].phonenumber === customer.phonenumber){
+        if($scope.massTextArray[i].id == customer.id){
           $scope.massTextArray.splice(i, 1)
         }
       }
-
-    }
-// console.log($scope.massTextArray);
+  }
   }
 
   $scope.submitMassLink = function(){
@@ -222,6 +235,7 @@ function(){
     userService.updateCustomer(customer).then(function(res){
       if(res.status === 200){
           $scope.overlayShowing = false
+          $scope.selectAll('reset');
         getCustomers()
       }
     })

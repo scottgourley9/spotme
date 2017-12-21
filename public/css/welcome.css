@@ -410,4 +410,8 @@ margin-top: 15px;
 .titleCampaignItem {
     display: flex;
     align-items: center;
+    max-width: 900px;
+    border-bottom: solid 1px #ebebeb;
+margin-bottom: 10px;
+padding-bottom: 10px;
 }
