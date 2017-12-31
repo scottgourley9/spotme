@@ -5,8 +5,13 @@ $scope.dashMenu = [];
 
   var payload = () => {
       var payloadData = $auth.getPayload()
-      userService.user = payloadData.sub
-      campaignsService.user = payloadData.sub
+      if (payloadData) {
+          userService.user = payloadData.sub
+          campaignsService.user = payloadData.sub
+      } else {
+          $state.go('welcome')
+      }
+
     }
     payload()
 

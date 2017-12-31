@@ -1,5 +1,14 @@
-angular.module('spotme').controller('welcomeCtrl', function($document, $scope, $state, messageService){
+angular.module('spotme').controller('welcomeCtrl', function($auth, $document, $scope, $state, messageService, userService, campaignsService){
 window.scrollTo( 0, 0 );
+var payload = () => {
+    var payloadData = $auth.getPayload()
+    if (payloadData) {
+        userService.user = payloadData.sub
+        campaignsService.user = payloadData.sub
+        $state.go('dashboard.theDashboard')
+    }
+  }
+  payload()
 var a = 0;
 
 $document.on('scroll', function(){
@@ -28,7 +37,7 @@ if($(this).scrollTop() <= 75){
 
         {
 
-          duration: 3000,
+          duration: 2000,
           easing: 'swing',
           step: function() {
             $this.text(Math.floor(this.countNum));

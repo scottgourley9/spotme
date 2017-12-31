@@ -22,7 +22,7 @@
 
 </div>
 
-<div ng-repeat="campaign in campaigns track by $index">
+<div ng-repeat="campaign in campaigns track by $index" class="campaignCardParent">
     <div class="campaignCard">
         <div>
             <h2 class="campaignCardTitleSection"><span class="campaignCardTitle">{{campaign.name}}</span> <span ng-if="campaign.status !== 'active'" class="campaignCardSelect" ng-click='updateCampaignStatus(campaign, $index)'>SELECT</span>

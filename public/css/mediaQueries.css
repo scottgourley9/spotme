@@ -352,6 +352,12 @@ nav {
      left: 0;
      top: 20vh;
 }
+.signUp {
+    top: 15vh;
+}
+.campaignCardParent {
+    width: 100%;
+}
 .createNewCamp {
     font-size: 16px;
     position: absolute;
