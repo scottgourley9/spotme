@@ -1,7 +1,7 @@
 <div>
     <section class="the-inputs">
         Search: <input placeholder="Search" id="searchInput" ng-model="searchItem" ng-keyup="handleSearchInput($event)"/>&nbsp;
-        Sort by: <select ng-model="orderBy" ng-change="this.orderList($event)">
+        Sort by: <select ng-model="orderByItem" >
             <option value="id">Id</option>
             <option value="businessname">Business Name</option>
             <option value="firstname">First Name</option>
@@ -22,7 +22,7 @@
                 <th>Email</th>
                 <th>Paid</th>
             </tr>
-                <tr ng-repeat="user in users | filter:names track by $index">
+                <tr ng-repeat="user in users | orderBy : orderByItem">
                     <td>{{user.id}}</td>
                     <td>{{user.businessname}}</td>
                     <td>{{user.firstname}}</td>

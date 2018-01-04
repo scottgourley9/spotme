@@ -3,13 +3,6 @@ angular.module('spotme').controller('adminGetUsersCtrl', function($scope, $state
         $scope.users = res.data;
         $scope.originalUsers = res.data;
     })
-    $scope.orderList = () => {
-        var users = $scope.users.slice();
-        users.sort(function(a, b) {
-            return a[$scope.orderBy] > b[$scope.orderBy]
-        })
-        $scope.users = users;
-    }
     $scope.searchList = function() {
         var users = $scope.users.slice();
         var r = new RegExp($scope.searchItem, 'gi');
