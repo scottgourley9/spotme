@@ -93,6 +93,31 @@ window.Stripe.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d')
     templateUrl: '../views/about.html',
     controller: 'aboutCtrl'
   })
+  .state('admin', {
+    url: '/admin',
+    templateUrl: '../views/admin.html',
+    controller: 'adminCtrl'
+  })
+  .state('admin.adminGetUsers', {
+    url: '/admin/adminGetUsers',
+    templateUrl: '../views/adminGetUsers.html',
+    controller: 'adminGetUsersCtrl'
+  })
+  .state('admin.adminCreateUser', {
+    url: '/admin/adminCreateUser',
+    templateUrl: '../views/adminCreateUser.html',
+    controller: 'adminCreateUserCtrl'
+  })
+  .state('admin.adminEditUser', {
+    url: '/admin/adminEditUser',
+    templateUrl: '../views/adminEditUser.html',
+    controller: 'adminEditUserCtrl'
+  })
+  .state('admin.adminDeleteUser', {
+    url: '/admin/adminDeleteUser',
+    templateUrl: '../views/adminDeleteUser.html',
+    controller: 'adminDeleteUserCtrl'
+  })
 
   // $locationProvider.html5Mode(true);
 

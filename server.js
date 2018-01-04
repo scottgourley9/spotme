@@ -578,10 +578,10 @@ function adminEnsureAuthenticated (req, res, next) {
     })
   }
   var token = req.header('Authorization').split(' ')[1]
-
+  // var token = req.body.token;
   var payload = null
   try {
-    payload = jwt.decode(token, constants.ADMIN_TOKEN_SECRET)
+    payload = jwt.decode(token, config.jwtSecret)
   } catch (err) {
     return res.status(401).send({
       message: err.message
@@ -593,9 +593,34 @@ function adminEnsureAuthenticated (req, res, next) {
       message: 'Token has expired'
     })
   }
-  req.user = payload.sub
-  next()
+  if (payload.sub.admin) {
+      req.user = payload.sub
+      next()
+  } else {
+      return res.status(401).send({
+          message: 'Unauthorized'
+      });
+  }
 }
+
+app.get('/admin/getusers', adminEnsureAuthenticated, function(req, res){
+    db.admin_get_all_users([], function(err, users) {
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.status(200).json(users);
+        }
+    })
+});
+app.post('/admin/adduser', adminEnsureAuthenticated, function(req, res){
+    console.log('what up', req.user);
+});
+app.put('/admin/edituser', adminEnsureAuthenticated, function(req, res){
+    console.log('what up', req.user);
+});
+app.delete('/admin/deleteuser', adminEnsureAuthenticated, function(req, res){
+    console.log('what up', req.user);
+});
 
 
 
