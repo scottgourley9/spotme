@@ -612,11 +612,27 @@ app.get('/admin/getusers', adminEnsureAuthenticated, function(req, res){
         }
     })
 });
+app.get('/admin/getuser/:id', adminEnsureAuthenticated, function(req, res){
+    db.admin_get_user_by_id([req.params.id], function(err, user) {
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.status(200).json(user[0]);
+        }
+    })
+});
+
 app.post('/admin/adduser', adminEnsureAuthenticated, function(req, res){
     console.log('what up', req.user);
 });
-app.put('/admin/edituser', adminEnsureAuthenticated, function(req, res){
-    console.log('what up', req.user);
+app.put('/admin/updateuser', adminEnsureAuthenticated, function(req, res){
+    db.admin_update_user([req.body.id, req.body.businessname, req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email, req.body.paid, req.body.admin], function(err, success) {
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.status(200).json('Successfully Updated');
+        }
+    })
 });
 app.delete('/admin/deleteuser', adminEnsureAuthenticated, function(req, res){
     console.log('what up', req.user);

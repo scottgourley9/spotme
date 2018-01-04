@@ -12,6 +12,9 @@
 .adminSection li:hover {
     cursor: pointer;
 }
+.adminSection input {
+    width: 50%;
+}
 
 
 .divider {
@@ -57,3 +60,23 @@ table {
     tr:nth-child(even) {
         background-color: #dddddd;
     }
+
+.editSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.editSection input {
+    margin: 10px 0;
+}
+.editSection button {
+    margin-bottom: 10px;
+}
+.editInputs {
+    width: 100%;
+}
+.editSection .inputItem {
+    display: flex;
+    flex-direction: column;
+}

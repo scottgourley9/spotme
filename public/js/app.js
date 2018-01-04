@@ -99,22 +99,22 @@ window.Stripe.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d')
     controller: 'adminCtrl'
   })
   .state('admin.adminGetUsers', {
-    url: '/admin/adminGetUsers',
+    url: '/adminGetUsers',
     templateUrl: '../views/adminGetUsers.html',
     controller: 'adminGetUsersCtrl'
   })
   .state('admin.adminCreateUser', {
-    url: '/admin/adminCreateUser',
+    url: '/adminCreateUser',
     templateUrl: '../views/adminCreateUser.html',
     controller: 'adminCreateUserCtrl'
   })
   .state('admin.adminEditUser', {
-    url: '/admin/adminEditUser',
+    url: '/adminEditUser',
     templateUrl: '../views/adminEditUser.html',
     controller: 'adminEditUserCtrl'
   })
   .state('admin.adminDeleteUser', {
-    url: '/admin/adminDeleteUser',
+    url: '/adminDeleteUser',
     templateUrl: '../views/adminDeleteUser.html',
     controller: 'adminDeleteUserCtrl'
   })
