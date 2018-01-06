@@ -141,7 +141,7 @@ app.post('/auth/signup', function(req, res){
 
 
 
-  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, hash, req.body.employeeCode], function(err, user){
+  db.create_new_user([req.body.business, req.body.first, req.body.last, req.body.phone, req.body.email, hash, req.body.employeeCode, true, new Date()], function(err, user){
     if(err){
       res.json({message: 'already taken'})
     }
@@ -626,7 +626,7 @@ app.post('/admin/adduser', adminEnsureAuthenticated, function(req, res){
     console.log('what up', req.user);
 });
 app.put('/admin/updateuser', adminEnsureAuthenticated, function(req, res){
-    db.admin_update_user([req.body.id, req.body.businessname, req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email, req.body.paid, req.body.admin], function(err, success) {
+    db.admin_update_user([req.body.id, req.body.businessname, req.body.firstname, req.body.lastname, req.body.phonenumber, req.body.email, req.body.paid, req.body.admin, req.body.freetrial, req.body.freetrialstart], function(err, success) {
         if (err) {
             res.status(500).json(err);
         } else {

@@ -21,6 +21,8 @@
                 <th>Phone Number</th>
                 <th>Email</th>
                 <th>Paid</th>
+                <th>Free Trial</th>
+                <th>Free Trial Started</th>
             </tr>
                 <tr ng-repeat="user in users | orderBy : orderByItem">
                     <td>{{user.id}}</td>
@@ -30,6 +32,8 @@
                     <td>{{user.phonenumber}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.paid}}</td>
+                    <td>{{user.freetrial}}</td>
+                    <td>{{user.freetrialstart | date: 'shortDate'}}</td>
                 </tr>
         </tbody>
     </table>

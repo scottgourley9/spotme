@@ -1,10 +1,11 @@
-angular.module('spotme').controller('adminEditUserCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService, adminService){
+angular.module('spotme').controller('adminEditUserCtrl', function($scope, $state, $filter, linksService, messageService, userService, locationsService, campaignsService, adminService){
     $scope.showTopEdit = true;
     $scope.showEditInputs = false;
     $scope.submitEditId = function(id){
         $scope.showTopEdit = false;
         $scope.showEditInputs = true;
         adminService.getUserById(id).then(function(res){
+            res.data.freetrialstart = new Date(res.data.freetrialstart);
             $scope.user = res.data;
         })
     }

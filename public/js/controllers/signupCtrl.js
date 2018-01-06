@@ -15,14 +15,13 @@ $scope.submit = function(){
       swal("Missing Field", "All fields are required", 'error')
       return
     }
-  console.log('second');
   if(messageService.ValidateEmail($scope.user.email)){
     if(messageService.phonenumber($scope.user.phone)){
       userService.signUp($scope.user).then(function(response){
         if (response.data.message !== 'already taken') {
             // $scope.errorMessage = ''
             $auth.setToken(response)
-            $state.go('dashboard/theDashboard')
+            $state.go('dashboard.theDashboard')
           }
           else {
             swal("Sorry", "Email and/or phone number is taken", 'error')
