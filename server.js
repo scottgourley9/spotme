@@ -657,8 +657,8 @@ app.post('/api/resetpassword', function(req, res) {
     let mailOptions = {
       from: config.email,
       to: req.body.email,
-      subject: 'Gear Project password assistance',
-      html: `<h3>GEAR PROJECT Password assistance</h3>
+      subject: 'IN-SIGHT REVIEWS password assistance',
+      html: `<h3>IN-SIGHT REVIEWS Password Assistance</h3>
              <br>
              <p>To verify your identity, please use the following code: ${tempCode}</p>`
     };
