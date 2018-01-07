@@ -1,6 +1,7 @@
 angular.module('spotme').controller('adminGetUsersCtrl', function($scope, $state, linksService, messageService, userService, locationsService, campaignsService, adminService){
     adminService.getAllUsers().then(function(res){
         $scope.users = res.data;
+
         $scope.originalUsers = res.data;
     })
     $scope.searchList = function() {
