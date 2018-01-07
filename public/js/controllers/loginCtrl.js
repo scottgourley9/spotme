@@ -24,4 +24,9 @@ $scope.enter = function(e){
   }
 }
 
+$scope.forgotPassword = () => {
+        userService.forgotPassword();
+    }
+
+
 })

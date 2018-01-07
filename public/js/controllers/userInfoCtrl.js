@@ -37,11 +37,9 @@ angular.module('spotme').controller('userInfoCtrl', function($scope, $auth, $sta
   confirmButtonColor: "#DD6B55",
   confirmButtonText: "Yes, submit changes",
   cancelButtonText: "No, cancel changes",
-  closeOnConfirm: false,
   closeOnCancel: false
-},
-function(isConfirm){
-  if (isConfirm) {
+}).then(function(isConfirm){
+  if (isConfirm.value) {
 
     swal("Submited", "Changes saved, you will now be logged out for changes to take effect", "success");
 
@@ -55,7 +53,7 @@ function(isConfirm){
 
     swal("Cancelled", "No changes made", "error");
   }
-});
+}).catch(function(){})
 
 
 

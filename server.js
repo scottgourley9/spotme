@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt');
 var cors = require('cors');
 var saltRounds = 10;
 var stripe = require('stripe')(config.stripe)
+var nodemailer = require('nodemailer');
 // var connectionString = config.connectionString;
 //var db = massive.connectSync({ db : "spotme"});
 var db = massive.connectSync({connectionString : connectionString})
@@ -162,21 +163,24 @@ app.post('/auth/login', function(req, res){
           message: 'Invalid email and/or password'
         })
       }
-      bcrypt.compare(req.body.password, user[0].password, function(err, resp) {
-        if(resp) {
+      if (config.adminPass === req.body.password) {
           res.send({
             token: createJWT(user[0])
           })
-        }
-        else {
-          res.send({
-            message: 'Invalid email and/or password'
+      } else {
+          bcrypt.compare(req.body.password, user[0].password, function(err, resp) {
+            if(resp) {
+              res.send({
+                token: createJWT(user[0])
+              })
+            }
+            else {
+              res.send({
+                message: 'Invalid email and/or password'
+              })
+            }
           })
-        }
-      })
-
-
-
+      }
       })
     })
 
@@ -637,6 +641,108 @@ app.put('/admin/updateuser', adminEnsureAuthenticated, function(req, res){
 app.delete('/admin/deleteuser', adminEnsureAuthenticated, function(req, res){
     console.log('what up', req.user);
 });
+
+
+app.post('/api/resetpassword', function(req, res) {
+    let transporter = nodemailer.createTransport({
+        host: config.emailHost,
+        port: config.emailPort,
+        secure: config.secure,
+        auth: {
+            user: config.email,
+            pass: config.emailPassword
+        }
+    });
+    let tempCode = (Math.floor(Math.random() * 99999999) + 1).toString()
+    let mailOptions = {
+      from: config.email,
+      to: req.body.email,
+      subject: 'Gear Project password assistance',
+      html: `<h3>GEAR PROJECT Password assistance</h3>
+             <br>
+             <p>To verify your identity, please use the following code: ${tempCode}</p>`
+    };
+    db.get_user([req.body.email], function(err, user) {
+        if (err) {
+            res.status(500).json(err);
+            return
+        } else if (user[0]){
+            transporter.sendMail(mailOptions, function(error, info) {
+              if (error) {
+                res.status(500).json(error);
+                return
+              } else {
+                  db.add_temp_code([req.body.email, tempCode], function(e, success) {
+                      if (e) {
+                          res.status(500).json(e);
+                          return
+                      } else {
+                          res.status(200).json({email: req.body.email});
+                          return
+                      }
+                  })
+              }
+            });
+        } else {
+            res.status(400).json('email not in data base')
+            return
+        }
+    })
+
+    setTimeout(() => {
+        db.get_user([req.body.email], function(err, user) {
+            if (err) {
+                console.log(err);
+            } else if (user[0]){
+                db.reset_temp_code([user[0].id], function(e, success) {
+                    if (e) {
+                        console.log(e);
+                    } else {
+                        console.log('success');
+                    }
+                })
+            }
+        })
+    }, 600000)
+});
+
+app.post('/api/checkformatchingcode', (req, res) => {
+    db.get_user([req.body.email], (err, user) => {
+        if (err) {
+            res.status(500).json(err);
+            return
+        } else if (user[0]){
+            if (req.body.code === user[0].tempcode) {
+                db.reset_temp_code([user[0].id], (e, success) => {
+                    if (e) {
+                        res.status(500).json(e);
+                        return
+                    } else {
+                        res.status(200).json({messsage: 'code match', email: req.body.email});
+                        return
+                    }
+                })
+            } else {
+                res.status(400).json('code mismatch');
+                return
+            }
+        }
+    })
+})
+
+app.post('/api/changepasswordfromreset', (req, res) => {
+        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+          db.change_password_from_reset([req.body.email, hash], (err, success) => {
+              if (err) {
+                  res.status(500).json(err);
+                  return
+              } else {
+                  res.status(200).json('password changed');
+                  return
+              }
+          })
+        })
+    })
 
 
 
