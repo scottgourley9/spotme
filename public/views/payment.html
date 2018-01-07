@@ -1,0 +1,24 @@
+<h1 class="dashTitle">Payment Information</h1>
+<form stripe-form="stripeCallback" name="checkoutForm">
+    <input type="text" name="" placeholder="Cardholder Name" ng-model='name'>
+    <input type="text" name="" placeholder="Street Address" ng-model='address'>
+    <input type="text" name="" placeholder="City" ng-model='city'>
+    <input type="text" name="" placeholder="State" ng-model='state'>
+    <input type="text" name="" placeholder="ZIP Code" ng-model='zip'>
+    <input type="text" name="" placeholder="Country" ng-model='country'>
+    <input ng-model="number" placeholder="Card Number"
+             payments-format="card" payments-validate="card" name="card" />
+    <input ng-model="expiry" placeholder="Expiration"
+             payments-format="expiry" payments-validate="expiry"
+             name="expiry" />
+    <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" />
+    <input type="text" id='amount'value="150">
+    <div class="paymentButtons">
+      <button type="button" name="button" ui-sref="dashboard.settings">Cancel</button><button type="submit">Submit</button>
+
+    </div>
+</form>
+
+<div ng-if="checkoutForm.card.$invalid">
+    Error: invalid card number!
+</div>

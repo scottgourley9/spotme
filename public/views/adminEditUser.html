@@ -1,0 +1,46 @@
+<section class="editSection">
+    <div ng-if="showTopEdit">
+        Enter the Id of the User you would like to edit
+        <input type="text" name="userId" ng-model="userIdToEdit">
+        <button type="button" name="button" ng-click="submitEditId(userIdToEdit)">Submit</button>
+    </div>
+    <div class="editInputs" ng-if="showEditInputs">
+        <div class="inputItem">
+            <span>Business Name</span>
+            <input type="text" name="" ng-model="user.businessname">
+        </div>
+        <div class="inputItem">
+            <span>First Name</span>
+            <input type="text" name="" ng-model="user.firstname">
+        </div>
+        <div class="inputItem">
+            <span>Last Name</span>
+            <input type="text" name="" ng-model="user.lastname">
+        </div>
+        <div class="inputItem">
+            <span>Phone Number</span>
+            <input type="text" name="" ng-model="user.phonenumber">
+        </div>
+        <div class="inputItem">
+            <span>Email</span>
+            <input type="text" name="" ng-model="user.email">
+        </div>
+        <div class="inputItem">
+            <span>Paid</span>
+            <input type="text" name="" ng-model="user.paid">
+        </div>
+        <div class="inputItem">
+            <span>Administrator</span>
+            <input type="text" name="" ng-model="user.admin">
+        </div>
+        <div class="inputItem">
+            <span>Free Trial</span>
+            <input type="text" name="" ng-model="user.freetrial">
+        </div>
+        <div class="inputItem">
+            <span>Free Trial Started</span>
+            <input type="date" name="" ng-model="user.freetrialstart">
+        </div>
+        <button type="button" name="button" ng-click="submitChanges()">Submit Changes</button>
+    </div>
+</section>

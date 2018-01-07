@@ -1,0 +1,82 @@
+
+<div ng-if="popup"class="darkCover" ng-click="theX()">
+
+</div>
+<div ng-if="popup"class="campaignCard addCard">
+  <h2 class="createNewCampTitle " >Select Location & Link</h2>
+  <div class="icon-times-circle" ng-click="theX()">
+
+  </div>
+  <select style="font-size: 16px; margin-bottom: 30px;"ng-model="locationId" ng-change="getLinks(locationId)">
+    <option ng-repeat="location in locations"value="{{location.id}}">{{location.address}}</option>
+    </select>
+    <select style="font-size: 16px; margin-bottom: 30px;"ng-model="linking" ng-change="chooseLinkType(linking, $index)">
+      <option ng-repeat="link in links"value="{{link}}">{{link.name}}</option>
+      </select>
+    <!-- <ul ng-if="linkTypesShowing"class="linkTypes">
+      <li ng-repeat="link in links track by $index" class="hvr-grow" ng-class="{googleCss: $index == theSelected}"ng-click="chooseLinkType(link, $index)">{{link.name}}</li>
+    </ul> -->
+    <button type="button" name="button" ng-click="submitMassLink()">Send Link</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+<h1 class="dashTitle mobileDashTitle">Customers</h1>
+
+<div ng-if="overlayShowing"class="overlay" ng-click='hideAddSection()'></div>
+<div ng-if="overlayShowing"class="campaignCard addCard" >
+    <h2 ng-if="!isAnEdit" class="createNewCampTitle">Create a new customer</h2>
+    <h2 ng-if="isAnEdit" class="createNewCampTitle">Edit customer</h2>
+    <div class="icon-times-circle" ng-click='hideAddSection()'></div>
+    <span>First Name</span>
+  <input type="text" name="name" ng-model="customer.firstname">
+  <span>Last Name</span>
+  <input type="text" name="name" ng-model="customer.lastname">
+  <span>Phone Number</span>
+
+  <input type="text" name="name" ng-model="customer.phonenumber">
+  <span>Email</span>
+
+  <input type="text" name="name" ng-model="customer.email">
+  <br>
+<div class="addCardButtons">
+  <button class="createCampButton"type="button" name="button" ng-click="submit(customer)">SAVE NEW CUSTOMER</button>
+</div>
+
+</div>
+
+<div class="createNewCamp" ng-click='showAddSection()'>CREATE NEW CUSTOMER</div>
+
+<div class="customerSectionMain">
+    <div class="searchInput">
+      <input style="width: 270px;" type="text" name="" ng-model="names" placeholder="Search">
+      <div class="icon-search"></div>
+      <button type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Link</button>
+    </div>
+    <div class="titleCampaignItem">
+        <input type="checkbox"class="selectAllCheck" ng-click="selectAll()"/>
+
+        <div class="campaignItem">
+            <h2 class="customerTitles">Name</h2><h2 class="customerTitles">Email</h2><h2 class="customerTitles">Phone Number</h2>
+        </div>
+    </div>
+
+    <ul class="campaignList" ng-repeat="customer in customers | filter:names track by $index">
+    <div class="campaignItemContainer">
+      <input class="inputCheckBox"id="{{customer.phonenumber}}"type="checkbox" style="width: 16px;" ng-click="checkIt(customer, $index)" >
+      <li class="campaignItem" >
+        <h2>{{customer.firstname}} {{customer.lastname}}</h2><h2>{{customer.email}}</h2><h2 class="customerPhoneNumber">{{customer.phonenumber}}<div><div ng-click="deleteCustomer(customer)" class="icon-delete-garbage-streamline"></div>
+            <div ng-click='showAddSection(customer.id, customer.firstname, customer.lastname, customer.phonenumber, customer.email)' class="icon-pencil-square-o"></div><div>
+        </h2>
+      </li>
+    </div>
+
+    </ul>
+</div>

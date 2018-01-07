@@ -1,0 +1,47 @@
+
+<h1 class="dashTitle">Campaigns</h1>
+
+<section class="campaignSection">
+<div class="createNewCamp" ng-click='showAddSection()'>CREATE NEW CAMPAIGN</div>
+<div ng-if="overlayShowing"class="overlay" ng-click='hideAddSection()'></div>
+<div ng-if="overlayShowing"class="campaignCard addCard" >
+    <h2 ng-if="!isAnEdit" class="createNewCampTitle">Create a new campaign</h2>
+    <h2 ng-if="isAnEdit" class="createNewCampTitle">Edit campaign</h2>
+    <div class="icon-times-circle" ng-click='hideAddSection()'></div>
+    <span>Title</span>
+  <input type="text" name="name" ng-model="campaign.name">
+  <span>Message</span>
+  <input type="text" name="name" ng-model="campaign.message">
+  <span>Image URL</span>
+
+  <input type="text" name="name" ng-model="campaign.image">
+  <br>
+<div class="addCardButtons">
+  <button class="createCampButton"type="button" name="button" ng-click="submit(campaign)">SAVE NEW CAMPAIGN</button>
+</div>
+
+</div>
+
+<div ng-repeat="campaign in campaigns track by $index" class="campaignCardParent">
+    <div class="campaignCard">
+        <div>
+            <h2 class="campaignCardTitleSection"><span class="campaignCardTitle">{{campaign.name}}</span> <span ng-if="campaign.status !== 'active'" class="campaignCardSelect" ng-click='updateCampaignStatus(campaign, $index)'>SELECT</span>
+                <span ng-if="campaign.status === 'active'" class="campaignCardSelected"><div class="icon-check"></div>Selected</span>
+            </h2>
+            <div class="campaignMessageSection">
+                <b>Message:</b>
+                <p>{{campaign.message}}</p>
+            </div>
+            <div class="imgContainer">
+                <img src="{{campaign.image}}" alt="NO IMAGE">
+            </div>
+        </div>
+        <div class="editAndDeleteCampaignSection">
+            <span ng-click="deleteCampaign(campaign)">DELETE</span><span ng-click='showAddSection(campaign.name, campaign.message, campaign.image, campaign.id, campaign.status)'>EDIT</span>
+        </div>
+    </div>
+
+</div>
+
+
+</section>

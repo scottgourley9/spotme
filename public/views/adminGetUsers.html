@@ -1,0 +1,40 @@
+<div>
+    <section class="the-inputs">
+        Search: <input placeholder="Search" id="searchInput" ng-model="searchItem" ng-keyup="handleSearchInput($event)"/>&nbsp;
+        Sort by: <select ng-model="orderByItem" >
+            <option value="id">Id</option>
+            <option value="businessname">Business Name</option>
+            <option value="firstname">First Name</option>
+            <option value="lastname">Last Name</option>
+            <option value="phonenumber">Phone Number</option>
+            <option value="email">Email</option>
+            <option value="paid">Paid</option>
+        </select>
+    </section>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Business Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Paid</th>
+                <th>Free Trial</th>
+                <th>Free Trial Started</th>
+            </tr>
+                <tr ng-repeat="user in users | orderBy : orderByItem">
+                    <td>{{user.id}}</td>
+                    <td>{{user.businessname}}</td>
+                    <td>{{user.firstname}}</td>
+                    <td>{{user.lastname}}</td>
+                    <td>{{user.phonenumber}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.paid}}</td>
+                    <td>{{user.freetrial}}</td>
+                    <td>{{user.freetrialstart | date: 'shortDate'}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>

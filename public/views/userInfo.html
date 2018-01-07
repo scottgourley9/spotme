@@ -1,0 +1,37 @@
+<h1 class="dashTitle">User Information</h1>
+
+<div class="userInfoCard">
+        <div class="eachBox">
+          Business Name<br class="showBreak"><p ng-if="original">
+            {{userInfo.businessname}}
+          </p><input ng-if="showInput"type="text" id='businessname'name="name" ng-model="businessname">
+        </div>
+        <div class="eachBox">
+          First Name<br class="showBreak"><p ng-if="original">
+            {{userInfo.firstname}}
+          </p><input ng-if="showInput"type="text" id='firstname'name="name" ng-model="firstname">
+        </div>
+        <div class="eachBox">
+          Last Name<br class="showBreak"><p ng-if="original">
+            {{userInfo.lastname}}
+          </p><input ng-if="showInput"type="text" id='lastname'name="name" ng-model="lastname">
+        </div>
+        <div class="eachBox">
+          Phone Number<br class="showBreak"><p ng-if="original">
+            {{userInfo.phonenumber}}
+          </p><input ng-if="showInput"type="text" id='phonenumber'name="name" ng-model="phonenumber">
+        </div>
+          <div class="eachBox">
+            Email<br class="showBreak"><p ng-if="original">
+              {{userInfo.email}}
+            </p><input ng-if="showInput"type="text" id="email"name="name" ng-model="email">
+          </div>
+
+
+    <div class="bottomButton">
+        <button ng-if="showInput"class="submitButton"type="button" name="button" ng-click='showEdit()'>Cancel</button>
+      <button ng-if="showInput"class="submitButton"type="button" name="button" ng-click="update()">Submit Changes</button>
+      <button ng-if="original"class="submitButton"type="button" name="button" ng-click='showEdit()'>Edit</button>
+
+    </div>
+</div>

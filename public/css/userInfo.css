@@ -1,0 +1,47 @@
+
+.eachBox {
+  font-size: 16px;
+  color: #727272;
+}
+.eachBox p {
+    color: #000000;
+    font-size: 16px;
+    margin: 5px 0 15px;
+    font-weight: 400;
+    padding: 5px;
+}
+.eachBox input {
+  margin: 5px 0 15px;
+}
+.icon-pencil {
+  cursor: pointer;
+
+}
+
+.showBreak {
+  display: none;
+}
+.pencil {
+  font-size: 2vw;
+    margin-left: 70vw;
+    position: absolute;
+    margin-top: -3.5vw;
+}
+.bottomButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.bottomButton button:nth-child(2) {
+  margin-left: 20px;
+}
+.userInfoCard {
+    width: 350px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    margin-top: 20px;
+    position: relative;
+    padding: 20px;
+}

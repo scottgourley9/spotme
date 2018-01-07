@@ -1,0 +1,60 @@
+.sendLinkSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.entireSendLink {
+  height: 44vw;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sendLinkSection input {
+  margin-bottom: 1vw;
+}
+
+.linkTypes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 20vw;
+  width: 100%;
+  margin-bottom: -1.5vw;
+}
+.linkTypes li{
+  font-size: 3vw;
+  display: flex;
+  width: 23vw;
+  justify-content: center;
+  height: 5vw;
+  /*border: 2px solid;*/
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.linkTypes li:hover{
+  background-color: rgba(60,186,84, 1);
+}
+
+
+
+.googleCss {
+  background: rgba(60,186,84, 1);
+  color: white;
+}
+.facebookCss {
+  background: rgba(59,89,152, 1);
+  color: white;
+}
+.yelpCss {
+  background: rgba(219,50,54, 1);
+  color: white;
+}
+.selected {
+  background: yellow;
+  color: black;
+}

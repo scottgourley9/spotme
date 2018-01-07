@@ -1,0 +1,313 @@
+.campaignSection {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -20px;
+}
+.searchInput {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+}
+.icon-search {
+    color: #727272;
+    font-size: 16px;
+    margin-left: 245px;
+    position: absolute;
+    top: 10px;
+}
+.darkCover {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: .5;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+}
+.popup {
+  width: 50vw;
+  height: 35vw;
+  position: absolute;
+  background-color: white;
+  /*border: 1px solid black;*/
+  border-radius: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3vw;
+  margin-left: 7vw;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+}
+.theX {
+  position: absolute;
+    margin: 1vw 23vw;
+}
+.icon-times-circle{
+    font-size: 20px;
+    position: absolute;
+    top: 13px;
+    color: #727272;
+    right: 15px !important;
+width: 20px !important;
+}
+.icon-times-circle:hover {
+    cursor: pointer;
+}
+.campaignTitle {
+  font-size: 2vw;
+  display: flex;
+  background-color: #03327F;
+  color: white;
+  height: 4vw;
+  align-items: center;
+  width: 81vw;
+  /*box-shadow: 1vw 1vw 1.5vw #000;*/
+
+}
+
+.campaignCard {
+    width: 350px;
+    /*min-height: 400px;*/
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+    justify-content: space-between;
+}
+.campaignCard h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.campaignCard b {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+.campaignCard p {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #727272;
+}
+.campaignCard div {
+    width: 100%;
+}
+.campaignCard img {
+    width: 100%;
+}
+
+.createNewCamp {
+  font-size: 16px;
+  position: absolute;
+  margin-top: -23px;
+  right: 50px;
+}
+.createNewCamp:hover {
+  cursor: pointer;
+}
+.campaignTitle > * {
+  width: 28vw;
+  text-align: center;
+
+  /*padding-left: 1vw;*/
+
+}
+.addCampaignInputs {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.addCampaignInputs input{
+margin-bottom: .5vw;
+}
+.moveLeft {
+  margin-left: -7.5vw;
+}
+.campaignItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+.theSelected {
+  background-color: #FF9E01;
+}
+/*.campaignItem:hover {
+  cursor: pointer;
+}*/
+.campaignItem > * {
+  width: 33%;
+  margin: 5px;
+  text-align: left;
+}
+.campaignList > * {
+  text-align: center;
+}
+.campaignItem h2 {
+  font-size: 16px;
+  word-break: break-all;
+  padding-right: 15px;
+}
+.campaignItem p {
+  font-size: 1.5vw;
+}
+.campaignItem img {
+  width: 8vw;
+}
+.addCard {
+    position: fixed;
+    left: 50%;
+    margin-left: -175px;
+    z-index: 12;
+    top: 50%;
+    margin-top: -200px;
+}
+.addCard input {
+    width: 100%;
+    height: 34px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    margin: 5px 0 15px;
+}
+.addCard span {
+    color: #727272;
+    font-size: 16px;
+}
+.addCardButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    opacity: .5;
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+}
+.campaignCardSelect {
+    color: #71a7de;
+    font-size: 16px;
+}
+.campaignCardSelect:hover {
+    cursor: pointer;
+}
+
+.campaignCardSelected {
+    color: #8ec376;
+    font-size: 16px;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+}
+.icon-check {
+    position: absolute;
+    left: -17px;
+}
+.campaignCardSelected:hover {
+    cursor: pointer;
+}
+.campaignCardTitleSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px !important;
+}
+.campaignCardTitle {
+    font-weight: bold;
+    word-break: break-all;
+    padding-right: 20px;
+}
+.campaignMessageSection {
+    margin-bottom: 25px;
+    word-break: break-word;
+}
+.editAndDeleteCampaignSection {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+.editAndDeleteCampaignSection span:nth-child(1) {
+    margin-right: 20px;
+}
+.editAndDeleteCampaignSection:hover {
+    cursor: pointer;
+}
+.createNewCampTitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+.createCampButton {
+}
+.reviewLinksButton {
+    margin-bottom: 5px;
+}
+.customerSectionMain {
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(121, 121, 121, 0.3);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+.campaignList {
+    /*width: 700px;*/
+    max-width: 900px;
+}
+.selectAllCheck {
+    margin: 2px;
+    width: 20px;
+    padding: 0;
+}
+.customerPhoneNumber {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customerPhoneNumber div:nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon-pencil-square-o {
+    margin-left: 20px;
+    margin-bottom: -5px;
+}
+.icon-pencil-square-o:hover {
+    cursor: pointer;
+}
+.icon-delete-garbage-streamline:hover {
+    cursor: pointer;
+}
+.customerTitles {
+    font-weight: bold;
+}
+.campaignItemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #ebebeb;
+    margin-bottom: 10px; padding-bottom: 10px;
+}
+.mobileDash {
+    display: none;
+}

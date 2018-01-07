@@ -1,0 +1,82 @@
+.adminSection {
+    padding: 65px 15px 15px 15px;
+}
+.adminSection ul {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.adminSection li {
+    margin-right: 20px;
+}
+.adminSection li:hover {
+    cursor: pointer;
+}
+.adminSection input {
+    width: 50%;
+}
+
+
+.divider {
+    margin: 5px 0 15px;
+    height: 1px;
+    width: 100%;
+    background-color: grey;
+    opacity: .5;
+}
+
+.the-inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 15px;
+
+    }
+
+    .the-inputs input, select {
+        margin: 0;
+    }
+
+    #searchInput {
+        width: 50%;
+        margin-left: 5px;
+    }
+
+table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+.editSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.editSection input {
+    margin: 10px 0;
+}
+.editSection button {
+    margin-bottom: 10px;
+}
+.editInputs {
+    width: 100%;
+}
+.editSection .inputItem {
+    display: flex;
+    flex-direction: column;
+}
