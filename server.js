@@ -170,9 +170,15 @@ app.post('/auth/login', function(req, res){
       } else {
           bcrypt.compare(req.body.password, user[0].password, function(err, resp) {
             if(resp) {
-              res.send({
-                token: createJWT(user[0])
-              })
+                if (!user[0].paid && !user[0].freetrial && !user[0].admin) {
+                    res.send({
+                      message: 'Your free trial is over'
+                    })
+                } else {
+                    res.send({
+                      token: createJWT(user[0])
+                    })
+                }
             }
             else {
               res.send({

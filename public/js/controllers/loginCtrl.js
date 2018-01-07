@@ -4,13 +4,13 @@ $('.menu-items-nav').css({backgroundColor: '#ffffff'});
 
 $scope.submit = function(){
   userService.login($scope.user).then(function(response){
-    if (response.data.message !== 'Invalid email and/or password') {
-      $auth.setToken(response)
-      $state.go('dashboard.theDashboard')
-    }
-    else {
-      swal("Nope", "Invalid email and/or password", 'error')
-      // alert('Either the password or email is incorrect')
+    if (response.data.message !== 'Invalid email and/or password' && response.data.message !== 'Your free trial is over') {
+        $auth.setToken(response)
+        $state.go('dashboard.theDashboard')
+    } else if (response.data.message === 'Your free trial is over') {
+        swal("Error", "Your free trial has ended. Please contact us to access you account", 'error');
+    } else if (response.data.message === 'Invalid email and/or password') {
+        swal("Error", "Invalid email and/or password", 'error');
     }
   })
 }
