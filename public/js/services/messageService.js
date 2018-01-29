@@ -6,6 +6,13 @@ angular.module('spotme').service('messageService', function($http){
       data: obj
     })
   }
+  this.sendEmail = function(obj){
+    return $http({
+      method: 'POST',
+      url: '/api/sendemails',
+      data: obj
+    })
+  }
 
   this.getMessages = function(userId){
     return $http({

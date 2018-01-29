@@ -17,7 +17,6 @@
       <li ng-repeat="link in links track by $index" class="hvr-grow" ng-class="{googleCss: $index == theSelected}"ng-click="chooseLinkType(link, $index)">{{link.name}}</li>
     </ul> -->
     <button type="button" name="button" ng-click="submitMassLink()">Send Link</button>
-
 </div>
 
 
@@ -58,7 +57,10 @@
     <div class="searchInput">
       <input style="width: 270px;" type="text" name="" ng-model="names" placeholder="Search">
       <div class="icon-search"></div>
-      <button type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Link</button>
+      <div class="emailAndTextButtons">
+          <button type="button" class="selectMultiple" ng-click="sendMassLinks()">Send Text</button>
+          <button type="button" class="selectMultiple" ng-click="sendMassLinks(true)">Send Email</button>
+      </div>
     </div>
     <div class="titleCampaignItem">
         <input type="checkbox"class="selectAllCheck" ng-click="selectAll()"/>

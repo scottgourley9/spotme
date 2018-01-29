@@ -381,3 +381,11 @@ margin-bottom: .5vw;
     align-items: center;
     justify-content: center;
 }
+.emailAndTextButtons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.emailAndTextButtons button:first-child {
+    margin-right: 15px;
+}

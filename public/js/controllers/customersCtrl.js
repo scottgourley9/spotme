@@ -3,6 +3,8 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     $scope.isAnEdit = false
     var checkingAll = false
 
+    $scope.emailFlow = false
+
     $scope.selectAll = function(reset) {
         if (reset === 'reset') {
             checkingAll = false
@@ -55,13 +57,18 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
         $scope.linkcampaign = res.data[0].linkcampaign;
     })
 
-    $scope.sendMassLinks = function() {
+    $scope.sendMassLinks = function(email) {
+        if (email) {
+            $scope.emailFlow = true
+        } else {
+            $scope.emailFlow = false
+        }
         if (!$scope.massTextArray.length) {
             swal("Error", "Must select at least one customer", 'error')
             return;
         }
         if (!$scope.linkcampaign) {
-            $scope.submitMassLink(false);
+            $scope.submitMassLink();
         } else {
             $scope.popup = !$scope.popup
         }
@@ -84,7 +91,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
         }
     }
 
-    $scope.submitMassLink = function(linkcampaign) {
+    $scope.submitMassLink = function() {
         $scope.massTextArray.forEach(function(user) {
             user.userid = userService.user.id
             user.time = new Date()
@@ -97,13 +104,15 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                     }
                     user.message = res.data[0].message
                     user.image = res.data[0].image
+                    user.title = res.data[0].name
                     messageService.addMessage({
                         senttime: user.time,
                         message: user.message,
                         linkid: !$scope.linkcampaign ? null : $scope.theLink.id,
                         userid: userService.user.id,
                         customerid: custResp.data[0].id,
-                        linktype: !$scope.linkcampaign ? null : $scope.theLink.name
+                        linktype: !$scope.linkcampaign ? null : $scope.theLink.name,
+                        email: user.email
                     }).then(function(messageRes) {
                         if (!$scope.linkcampaign) {
                             user.link = ''
@@ -111,11 +120,23 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                             user.link = 'https://www.yes-or-no.info/?one=' + userService.user.id + '&one=' + $scope.theLink.id + '&one=' + custResp.data[0].id + '&one=' + messageRes.data.id
                         }
 
-                        messageService.sendMessage(user).then(function(resp) {
-                            if (resp.status === 200) {
-                                swal("Sent!", "Message sent successfully", "success")
-                            }
-                        })
+                        if ($scope.emailFlow && user.email) {
+                            messageService.sendEmail(user).then(function(resp) {
+                                if (resp.status === 200) {
+                                    swal("Sent!", "Email sent successfully", "success")
+                                } else {
+                                    swal("Error", "Something went wrong", "error")
+                                }
+                            })
+                        } else {
+                            messageService.sendMessage(user).then(function(resp) {
+                                if (resp.status === 200) {
+                                    swal("Sent!", "Message sent successfully", "success")
+                                } else {
+                                    swal("Error", "Something went wrong", "error")
+                                }
+                            })
+                        }
                     })
 
                 })

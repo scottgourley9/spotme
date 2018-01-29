@@ -680,7 +680,7 @@ app.delete('/admin/deleteuser', adminEnsureAuthenticated, function(req, res){
 
 
 app.post('/api/resetpassword', function(req, res) {
-    let transporter = nodemailer.createTransport({
+    var transporter = nodemailer.createTransport({
         host: config.emailHost,
         port: config.emailPort,
         secure: config.secure,
@@ -689,8 +689,8 @@ app.post('/api/resetpassword', function(req, res) {
             pass: config.emailPassword
         }
     });
-    let tempCode = (Math.floor(Math.random() * 99999999) + 1).toString()
-    let mailOptions = {
+    var tempCode = (Math.floor(Math.random() * 99999999) + 1).toString()
+    var mailOptions = {
       from: config.email,
       to: req.body.email,
       subject: 'IN-SIGHT REVIEWS password assistance',
@@ -780,7 +780,36 @@ app.post('/api/changepasswordfromreset', (req, res) => {
         })
     })
 
-
+app.post('/api/sendemails', function(req, res){
+    var transporter = nodemailer.createTransport({
+        host: config.emailHost,
+        port: config.emailPort,
+        secure: config.secure,
+        auth: {
+            user: config.email,
+            pass: config.emailPassword
+        }
+    });
+    var mailOptions = {
+      from: config.email,
+      to: req.body.email,
+      subject: req.body.title,
+      html: `<img width=300 src=${req.body.image} />
+             <br>
+             <h3>${req.body.title}</h3>
+             <br>
+             <p>${req.body.message}</p>
+             <a href=${req.body.link}>${req.body.link}</a>
+             `
+    };
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            res.status(500).json(error)
+        } else {
+            res.status(200).json(info)
+        }
+    })
+})
 
 
 
