@@ -4,7 +4,7 @@
 <section class="campaignSection">
 <div class="createNewCamp" ng-click='showAddSection()'>CREATE NEW CAMPAIGN</div>
 <div ng-if="overlayShowing"class="overlay" ng-click='hideAddSection()'></div>
-<div ng-if="overlayShowing"class="campaignCard addCard" >
+<div ng-show="overlayShowing"class="campaignCard addCard" >
     <h2 ng-if="!isAnEdit" class="createNewCampTitle">Create a new campaign</h2>
     <h2 ng-if="isAnEdit" class="createNewCampTitle">Edit campaign</h2>
     <div class="icon-times-circle" ng-click='hideAddSection()'></div>
@@ -12,9 +12,27 @@
   <input type="text" name="name" ng-model="campaign.name">
   <span>Message</span>
   <input type="text" name="name" ng-model="campaign.message">
-  <span>Image URL</span>
+  <section class="campaignImageSection">
+      <div class="imageContainer" >
+          <img ng-if="showCampaignImg" class="mainImage" src="{{campaign.image}}" alt="">
+          <div ng-if="showLoader" class="imageLoader"></div>
+      </div>
 
-  <input type="text" name="name" ng-model="campaign.image">
+      <label class="addPhotoLabel">
+         <input type="file" id="photoInput" accept='image/*' ng-model="campaign.image"/>
+         <span ng-if="!isAnEdit">UPLOAD IMAGE</span>
+         <span ng-if="isAnEdit">EDIT IMAGE</span>
+      </label>
+  </section>
+  <span>Is this a link review campaign?</span>
+  <section class="radioLinkSection">
+      <label for="radioYes" class="radioInputsSubSection">
+          <input type="radio" name="linkcampaign" id="radioYes" ng-model="campaign.linkcampaign" ng-value="true"/>Yes
+      </label>
+      <label for="radioNo" class="radioInputsSubSection">
+          <input type="radio" name="linkcampaign" id="radioNo" ng-model="campaign.linkcampaign" ng-value="false"/>No
+      </label>
+  </section>
   <br>
 <div class="addCardButtons">
   <button class="createCampButton"type="button" name="button" ng-click="submit(campaign)">SAVE NEW CAMPAIGN</button>
@@ -22,7 +40,7 @@
 
 </div>
 
-<div ng-repeat="campaign in campaigns track by $index" class="campaignCardParent">
+<div ng-repeat="campaign in campaigns | orderBy: 'status' track by $index" class="campaignCardParent">
     <div class="campaignCard">
         <div>
             <h2 class="campaignCardTitleSection"><span class="campaignCardTitle">{{campaign.name}}</span> <span ng-if="campaign.status !== 'active'" class="campaignCardSelect" ng-click='updateCampaignStatus(campaign, $index)'>SELECT</span>
@@ -37,7 +55,7 @@
             </div>
         </div>
         <div class="editAndDeleteCampaignSection">
-            <span ng-click="deleteCampaign(campaign)">DELETE</span><span ng-click='showAddSection(campaign.name, campaign.message, campaign.image, campaign.id, campaign.status)'>EDIT</span>
+            <span ng-click="deleteCampaign(campaign)">DELETE</span><span ng-click='showAddSection(campaign.name, campaign.message, campaign.image, campaign.id, campaign.status, campaign.linkcampaign)'>EDIT</span>
         </div>
     </div>
 

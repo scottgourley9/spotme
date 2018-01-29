@@ -3,7 +3,14 @@ var jwt = require('jwt-simple')
 var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var config = require('./config.js')
+
+var config = require('./config.js');
+const AWS = require('aws-sdk');
+const sharp = require('sharp');
+AWS.config.update({accessKeyId: config.AWSAccessKeyId, secretAccessKey: config.AWSSecretKey, region: config.region});
+const s3 = new AWS.S3();
+const crypto = require('crypto');
+
 var connectionString = "postgres://" + config.connectString;
 var axios = require('axios');
 var bcrypt = require('bcrypt');
@@ -19,7 +26,7 @@ var app = module.exports = express();
 app.set('db', db);
 
 app.use(express.static(__dirname + '/public'))
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '100mb'}))
 app.use(cors())
 // app.use(cors(corsOptions))
 
@@ -344,7 +351,7 @@ app.get('/api/campaigns/:userId', function(req, res){
   })
 })
 app.post('/api/campaigns', function(req, res){
-  db.add_campaign([req.body.name, req.body.image, req.body.message, req.body.status, req.body.userid], function(err, success){
+  db.add_campaign([req.body.name, req.body.image, req.body.message, req.body.status, req.body.userid, Boolean(req.body.linkcampaign)], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -365,7 +372,7 @@ app.delete('/api/campaigns/:campaignId', function(req, res){
   })
 })
 app.put('/api/campaigns/:campaignId', function(req, res){
-  db.update_campaign([req.params.campaignId, req.body.name, req.body.image, req.body.message, req.body.status], function(err, success){
+  db.update_campaign([req.params.campaignId, req.body.name, req.body.image, req.body.message, req.body.status, Boolean(req.body.linkcampaign)], function(err, success){
     if(err){
       res.status(500).json(err)
     }
@@ -398,6 +405,29 @@ app.get('/api/getactivecampaign/:id', function(req, res){
       res.status(200).json(campaigns)
     }
   })
+})
+
+app.post('/api/uploadphoto', function(req, res) {
+        // photo upload
+        var image = req.body;
+        var buf = new Buffer(image.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+        sharp(buf).resize(750, null).rotate().toBuffer().then(data => {
+            var params = {
+              Bucket: config.AWSBucket,
+              Key: `${crypto.randomBytes(20).toString('hex')}.${image.imageExtension}`,
+              Body: data,
+              ContentType: `image/${image.imageExtension}`,
+              ACL: 'public-read'
+            }
+            s3.config.endpoint = 's3-accelerate.amazonaws.com';
+            s3.upload(params, (errors, url) => {
+              if (errors) {
+                  return res.status(500).send('s3 upload failed');
+              } else {
+                  return res.status(200).json(url.Location)
+              }
+            })
+        })
 })
 
 // Links ENDPOINTS

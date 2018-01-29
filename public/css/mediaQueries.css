@@ -356,7 +356,7 @@ nav {
     top: 15vh;
 }
 .campaignCardParent {
-    width: 100%;
+    width: 100vw;
 }
 .createNewCamp {
     font-size: 16px;
@@ -370,7 +370,7 @@ nav {
         top: 50%;
         z-index: 12;
         right: 0px;
-        margin-top: -200px;
+        margin-top: -225px;
 }
 .icon-times-circle {
 

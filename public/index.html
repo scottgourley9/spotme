@@ -34,7 +34,7 @@
 
 <body style="font-family: Roboto; cursive; font-weight: 300; background: #eeeeee;" ng-controller="frontPageCtrl">
     <div id="map"></div>
-    <ul ng-if="hamMenuShowing" id="hamMenu" ng-class="slideMenu" ng-click="hamClick()">
+    <ul ng-show="hamMenuShowing" id="hamMenu" ng-class="slideMenu" ng-click="hamClick()" style="display: none">
         <li ui-sref="about">About</li>
         <li ui-sref="contactUs">Contact Us</li>
         <li ui-sref="signup">Sign Up</li>

@@ -5,6 +5,12 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
     $scope.fakeButton = false
     $scope.overlayShowing = false
     $scope.isAnEdit = false
+    $scope.showLoader = false
+    if ($scope.campaign && $scope.campaign.image) {
+        $scope.showCampaignImg = true
+    } else {
+        $scope.showCampaignImg = false
+    }
     $scope.cancel = function() {
         $scope.selected = -1
         $scope.flag = false
@@ -17,13 +23,14 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
         $scope.fakeButton = true
     }
 
-    $scope.showAddSection = function(name, message, image, id, status) {
+    $scope.showAddSection = function(name, message, image, id, status, linkcampaign) {
         $scope.campaign = {
             name: name,
             message: message,
             image: image,
             id: id,
-            status: status
+            status: status,
+            linkcampaign: linkcampaign
         }
         if (name) {
             $scope.isAnEdit = true;
@@ -140,5 +147,32 @@ angular.module('spotme').controller('campaignsCtrl', function($scope, $state, me
         })
 
     }
+    $('#photoInput').on('change', function() {
+        $scope.showCampaignImg = false
+        $scope.showLoader = true
+        let file = $('#photoInput')[0].files[0];
+        let reader = new FileReader();
+        reader.onloadend = function() {
+            let ext = file.name.split('.')
+            campaignsService.uploadPhoto({
+                imageName: file.name,
+                imageBody: reader.result,
+                imageExtension: ext[ext.length - 1]
+            }).then(function(r) {
+                $scope.showCampaignImg = true
+                $scope.showLoader = false
+                $scope.campaign.image = r.data;
+            }).catch(function(e){
+                $scope.showCampaignImg = true
+                $scope.showLoader = false
+            })
+        }
+        // if already a photo change to change cover photo
+        if (file) {
+            reader.readAsDataURL(file);
+            // document.getElementById('coverPhoto').innerHTML = 'Change Cover Photo'
+        } else {
+        }
+    });
 
 })

@@ -1,14 +1,9 @@
 angular.module('spotme').controller('frontPageCtrl', function($document, $scope, $state){
-//   $(document).ready(function () {
-//   function reorient(e) {
-//     var portrait = (window.orientation % 180 == 0);
-//     $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
-//   }
-//   window.onorientationchange = reorient;
-//   window.setTimeout(reorient, 0);
-// });
+
+$('#hamMenu').css('display', 'flex');
+
 $scope.hamMenuShowing = false;
-$scope.slideMenu = []
+$scope.slideMenu = [];
 
   $scope.hamClick = function(){
     $scope.slideMenu.splice(0)

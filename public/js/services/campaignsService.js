@@ -44,4 +44,12 @@ angular.module('spotme').service('campaignsService', function($http){
     })
   }
 
+  this.uploadPhoto = function(obj) {
+      return $http({
+          method: 'POST',
+          url: '/api/uploadphoto',
+          data: obj
+      })
+  }
+
 })

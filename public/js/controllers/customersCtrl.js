@@ -51,13 +51,20 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     $scope.updateInputs = true
     $scope.fakeButton = false
 
+    campaignsService.getActiveCampaign().then(function(res) {
+        $scope.linkcampaign = res.data[0].linkcampaign;
+    })
+
     $scope.sendMassLinks = function() {
         if (!$scope.massTextArray.length) {
             swal("Error", "Must select at least one customer", 'error')
             return;
         }
-        $scope.popup = !$scope.popup
-
+        if (!$scope.linkcampaign) {
+            $scope.submitMassLink(false);
+        } else {
+            $scope.popup = !$scope.popup
+        }
     }
     $scope.massTextArray = []
     $scope.checkIt = function(customer, i) {
@@ -77,7 +84,7 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
         }
     }
 
-    $scope.submitMassLink = function() {
+    $scope.submitMassLink = function(linkcampaign) {
         $scope.massTextArray.forEach(function(user) {
             user.userid = userService.user.id
             user.time = new Date()
@@ -93,13 +100,16 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                     messageService.addMessage({
                         senttime: user.time,
                         message: user.message,
-                        linkid: $scope.theLink.id,
+                        linkid: !$scope.linkcampaign ? '' : $scope.theLink.id,
                         userid: userService.user.id,
                         customerid: custResp.data[0].id,
-                        linktype: $scope.theLink.name
+                        linktype: !$scope.linkcampaign ? '' : $scope.theLink.name
                     }).then(function(messageRes) {
-
-                        user.link = 'https://www.yes-or-no.info/?one=' + userService.user.id + '&one=' + $scope.theLink.id + '&one=' + custResp.data[0].id + '&one=' + messageRes.data.id
+                        if (!$scope.linkcampaign) {
+                            user.link = ''
+                        } else {
+                            user.link = 'https://www.yes-or-no.info/?one=' + userService.user.id + '&one=' + $scope.theLink.id + '&one=' + custResp.data[0].id + '&one=' + messageRes.data.id
+                        }
 
                         messageService.sendMessage(user).then(function(resp) {
                             if (resp.status === 200) {
