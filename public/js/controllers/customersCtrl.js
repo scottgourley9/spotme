@@ -100,10 +100,10 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                     messageService.addMessage({
                         senttime: user.time,
                         message: user.message,
-                        linkid: !$scope.linkcampaign ? '' : $scope.theLink.id,
+                        linkid: !$scope.linkcampaign ? null : $scope.theLink.id,
                         userid: userService.user.id,
                         customerid: custResp.data[0].id,
-                        linktype: !$scope.linkcampaign ? '' : $scope.theLink.name
+                        linktype: !$scope.linkcampaign ? null : $scope.theLink.name
                     }).then(function(messageRes) {
                         if (!$scope.linkcampaign) {
                             user.link = ''
