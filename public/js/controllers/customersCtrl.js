@@ -5,7 +5,16 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
 
     $scope.emailFlow = false
 
+    var clearInputs = function() {
+        var inputEleArray = [].slice.call(document.getElementsByClassName("inputCheckBox"), 0);
+        inputEleArray.forEach(function(v){
+            v.checked = false;
+        })
+        $scope.massTextArray = [];
+    }
+
     $scope.selectAll = function(reset) {
+        clearInputs();
         if (reset === 'reset') {
             checkingAll = false
         } else {
@@ -21,7 +30,8 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
 
         }
         if (checkboxes[0].checked) {
-            $scope.massTextArray = $scope.customers
+            var customersCopy = $scope.customers.slice(0);
+            $scope.massTextArray = customersCopy;
         } else {
             $scope.massTextArray = []
         }
@@ -76,22 +86,33 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
     $scope.massTextArray = []
     $scope.checkIt = function(customer, i) {
         if (document.getElementsByClassName('inputCheckBox')[i].checked) {
-            for (var i = 0; i < $scope.massTextArray.length; i++) {
-                if ($scope.massTextArray[i].id == customer.id) {
-                    return
-                }
-            }
             $scope.massTextArray.push(customer)
         } else {
             for (var i = 0; i < $scope.massTextArray.length; i++) {
                 if ($scope.massTextArray[i].id == customer.id) {
-                    $scope.massTextArray.splice(i, 1)
+                    $scope.massTextArray.splice(i, 1);
+                    i--;
                 }
             }
         }
     }
 
     $scope.submitMassLink = function() {
+        document.getElementById('sendingOverlay').style.visibility = 'visible';
+        var successCount = 0;
+        var failCount = 0;
+        var counter = setInterval(function(){
+            if (successCount + failCount === $scope.massTextArray.length) {
+                document.getElementById('sendingOverlay').style.visibility = 'hidden';
+                var wasWere = failCount === 1 ? 'was' : 'were';
+                swal("Report", successCount + " messages sent successfully. " + failCount + " " + wasWere + " not sent successfully.")
+                successCount = 0;
+                failCount = 0;
+                clearInterval(counter);
+                $scope.selectAll('reset');
+                document.getElementsByClassName('selectAllCheck')[0].checked = false;
+            }
+        }, 1000)
         $scope.massTextArray.forEach(function(user) {
             user.userid = userService.user.id
             user.time = new Date()
@@ -123,18 +144,24 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                         if ($scope.emailFlow && user.email) {
                             messageService.sendEmail(user).then(function(resp) {
                                 if (resp.status === 200) {
-                                    swal("Sent!", "Email sent successfully", "success")
+                                    successCount++
                                 } else {
-                                    swal("Error", "Something went wrong", "error")
+                                    failCount++
                                 }
+                            }).catch(function(){
+                                failCount++
                             })
+                        } else if ($scope.emailFlow && !user.email) {
+                            failCount++
                         } else {
                             messageService.sendMessage(user).then(function(resp) {
                                 if (resp.status === 200) {
-                                    swal("Sent!", "Message sent successfully", "success")
+                                    successCount++
                                 } else {
-                                    swal("Error", "Something went wrong", "error")
+                                    failCount++
                                 }
+                            }).catch(function(){
+                                failCount++
                             })
                         }
                     })

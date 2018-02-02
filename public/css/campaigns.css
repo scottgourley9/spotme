@@ -389,3 +389,30 @@ margin-bottom: .5vw;
 .emailAndTextButtons button:first-child {
     margin-right: 15px;
 }
+#sendingOverlay {
+    background: white;
+    z-index: 30;
+    opacity: .5;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#loader {
+    border: 5px solid grey;
+    border-top: 5px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: loading 2s linear infinite;
+}
