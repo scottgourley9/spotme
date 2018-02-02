@@ -164,9 +164,15 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
                                 failCount++
                             })
                         }
+                    }).catch(function(){
+                        failCount++
                     })
 
+                }).catch(function(){
+                    failCount++
                 })
+            }).catch(function(){
+                failCount++
             })
         })
     }
