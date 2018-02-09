@@ -786,7 +786,7 @@ app.post('/api/sendemails', function(req, res){
         port: config.emailPort,
         secure: config.secure,
         auth: {
-            user: config.email,
+            user: config.emailUsername,
             pass: config.emailPassword
         }
     });
