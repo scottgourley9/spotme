@@ -105,7 +105,8 @@ angular.module('spotme').controller('customersCtrl', function($scope, $state, li
             if (successCount + failCount === $scope.massTextArray.length) {
                 document.getElementById('sendingOverlay').style.visibility = 'hidden';
                 var wasWere = failCount === 1 ? 'was' : 'were';
-                swal("Report", successCount + " messages sent successfully. " + failCount + " " + wasWere + " not sent successfully.")
+                var messageMessages === 1 ? 'message' : 'messages';
+                swal("Report", successCount + " " + messageMessages + " sent successfully. " + failCount + " " + wasWere + " not sent successfully.")
                 successCount = 0;
                 failCount = 0;
                 clearInterval(counter);
