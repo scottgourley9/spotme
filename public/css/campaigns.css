@@ -171,11 +171,20 @@ margin-bottom: .5vw;
     margin-left: -175px;
     z-index: 12;
     top: 50%;
-    margin-top: -225px;
+    margin-top: -250px;
 }
 .addCard input {
     width: 100%;
     height: 34px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #ebebeb;
+    font-size: 16px;
+    margin: 5px 0 15px;
+}
+.addCard textarea {
+    width: 100% !important;
+    height: 70px !important;
     border-radius: 2px;
     background-color: #ffffff;
     border: solid 1px #ebebeb;
