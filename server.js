@@ -3,8 +3,6 @@ var jwt = require('jwt-simple')
 var moment = require('moment')
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var fs = require('fs');
-var https = require('https');
 
 var config = require('./config.js');
 const AWS = require('aws-sdk');
@@ -813,10 +811,8 @@ app.post('/api/sendemails', function(req, res){
     })
 })
 
-https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.pem')
-}, app)
-.listen(config.port, function () {
-    console.log('listening on port ' + config.port);
+
+
+app.listen(config.port, function(){
+  console.log('listening on port ' + config.port);
 })
