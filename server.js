@@ -31,7 +31,7 @@ app.use(cors())
 // app.use(cors(corsOptions))
 
 // var corsOptions = {
-//   origin: 'http://www.yes-or-no.info'
+//   origin: 'https://www.yes-or-no.info'
 // }
 
 var createJWT = (user) => {

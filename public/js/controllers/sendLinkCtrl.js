@@ -30,7 +30,7 @@ angular.module('spotme').controller('sendLinkCtrl', function($rootScope, $scope,
   //   campaignsService.getActiveCampaign().then(function(res){
   //     message.message = res.data[0].message
   //     message.image = res.data[0].image
-  //     message.link = 'http://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.linkId
+  //     message.link = 'https://159.203.246.179/#/yesOrNo/' + userService.user.id + '/' + $scope.linkId
   //     messageService.sendMessage(message).then(function(res){
   //       if(res.status === 200){
   //         swal("Sent!", "Message sent successfully", "success")
