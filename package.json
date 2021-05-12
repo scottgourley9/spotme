@@ -35,7 +35,7 @@
     "jwt-simple": "^0.5.0",
     "massive": "^2.5.0",
     "moment": "^2.16.0",
-    "nodemailer": "^4.4.1",
+    "nodemailer": "^6.4.16",
     "satellizer": "^0.15.5",
     "sharp": "^0.19.0",
     "stripe": "^4.14.0",
