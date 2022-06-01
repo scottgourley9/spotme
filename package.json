@@ -37,7 +37,7 @@
     "moment": "^2.16.0",
     "nodemailer": "^4.4.1",
     "satellizer": "^0.15.5",
-    "sharp": "^0.19.0",
+    "sharp": "^0.30.5",
     "stripe": "^4.14.0",
     "sweetalert2": "^7.3.4",
     "twilio": "^2.11.1"
